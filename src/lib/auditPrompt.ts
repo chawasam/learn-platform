@@ -34,6 +34,7 @@ const COMPONENT_DESC: Record<string, string> = {
   FactorBuilder: 'ตารางเลข 1..config.n แตะเลือกตัวที่หาร n ลงตัว (ตัวประกอบ) ผิดสั่น',
   EquationBalance: 'ตาชั่งสมการ x+config.c=config.r หยิบ c ออกสองข้าง → x=r−c',
   PercentBar: 'ตาราง 100 ช่อง ระบายตาม % + แสดง %ของจำนวน',
+  TransversalAngles: 'เส้นขนาน 2 เส้น + เส้นตัด (config.initialAngle = มุมเอียง) แสดง 4 มุมภายใน — กด "มุมแย้ง" ไฮไลต์คู่รูปตัว Z (เท่ากัน) · กด "มุมภายในข้างเดียวกัน" ไฮไลต์คู่ที่รวม 180° · ปรับมุมได้ (mode=initial highlight)',
 }
 
 function describeVisual(v?: { component: string; config: Record<string, unknown> }): string {

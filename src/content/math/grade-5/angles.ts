@@ -42,7 +42,7 @@ const angles: ChapterV2 = {
     },
     {
       id: 'recap',
-      say: 'สรุป 🏠 แหลม < 90° · ฉาก = 90° · ป้าน 90–180° · ตรง = 180°',
+      say: 'สรุป 🏠 แหลม < 90° · ฉาก = 90° · ป้าน > 90° (ไม่ถึง 180°) · ตรง = 180°',
       visual: { component: 'AngleDrag', config: { initialAngle: 90, readOnly: true } },
     },
   ],

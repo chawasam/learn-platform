@@ -29,6 +29,7 @@ export type ComponentName =
   | 'FactorBuilder'
   | 'EquationBalance'
   | 'PercentBar'
+  | 'TransversalAngles'
 
 export type ExplainBlock =
   | { type: 'text'; html: string }
