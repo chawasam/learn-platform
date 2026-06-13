@@ -7,14 +7,16 @@ interface Props {
   ans: string
   hint: string
   onCorrect?: () => void
+  onAnswered?: (correct: boolean) => void
   questionNumber?: number
   unit?: string
 }
 
-export default function QuizFill({ q, ans, hint, onCorrect, questionNumber, unit }: Props) {
+export default function QuizFill({ q, ans, hint, onCorrect, onAnswered, questionNumber, unit }: Props) {
   const [input, setInput] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [showHint, setShowHint] = useState(false)
+  const [reported, setReported] = useState(false)   // score locks on first submit; retry doesn't re-report
 
   const normalise = (s: string) => s.trim().replace(/\s+/g, ' ').toLowerCase()
   const correct = normalise(input) === normalise(ans)
@@ -23,6 +25,7 @@ export default function QuizFill({ q, ans, hint, onCorrect, questionNumber, unit
     if (!input.trim() || submitted) return
     setSubmitted(true)
     if (correct) onCorrect?.()
+    if (!reported) { onAnswered?.(correct); setReported(true) }
   }
 
   const retry = () => {

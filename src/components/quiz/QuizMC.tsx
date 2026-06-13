@@ -8,10 +8,11 @@ interface Props {
   ans: number
   hint: string
   onCorrect?: () => void
+  onAnswered?: (correct: boolean) => void
   questionNumber?: number
 }
 
-export default function QuizMC({ q, opts, ans, hint, onCorrect, questionNumber }: Props) {
+export default function QuizMC({ q, opts, ans, hint, onCorrect, onAnswered, questionNumber }: Props) {
   const [selected, setSelected] = useState<number | null>(null)
   const [showHint, setShowHint] = useState(false)
 
@@ -22,6 +23,7 @@ export default function QuizMC({ q, opts, ans, hint, onCorrect, questionNumber }
     if (answered) return
     setSelected(i)
     if (i === ans) onCorrect?.()
+    onAnswered?.(i === ans)
   }
 
   const stateColor = (i: number) => {

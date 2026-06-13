@@ -19,10 +19,11 @@ interface Props {
   slots?: Slot[]
   hint: string
   onCorrect?: () => void
+  onAnswered?: (correct: boolean) => void
   questionNumber?: number
 }
 
-export default function QuizDragPlace({ q, items, slots, hint, onCorrect, questionNumber }: Props) {
+export default function QuizDragPlace({ q, items, slots, hint, onCorrect, onAnswered, questionNumber }: Props) {
   const derivedSlots: Slot[] = slots ?? [...new Set(items.map(i => i.targetSlot))].map(id => ({ id, label: id }))
 
   const [placed, setPlaced] = useState<Record<string, string[]>>({})
@@ -59,6 +60,7 @@ export default function QuizDragPlace({ q, items, slots, hint, onCorrect, questi
     const allCorrect = items.every(item => (placed[item.targetSlot] ?? []).includes(item.id))
     setSubmitted(true)
     if (allCorrect) onCorrect?.()
+    onAnswered?.(allCorrect)
     return allCorrect
   }
 

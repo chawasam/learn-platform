@@ -144,7 +144,10 @@ export default function LessonStory({ chapter, color }: Props) {
             <p className="text-lg font-bold text-center mb-4" style={{ color: '#1E3A5F' }}>
               ✏️ ลองทำเองดูเลย!
             </p>
-            <PracticeTab questions={chapter.finalPractice} />
+            <PracticeTab
+              questions={chapter.finalPractice}
+              backHref={`/${chapter.subject}/${chapter.grade}`}
+            />
           </motion.div>
         )}
       </AnimatePresence>

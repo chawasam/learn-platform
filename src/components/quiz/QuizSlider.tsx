@@ -12,10 +12,11 @@ interface Props {
   unit: string
   hint: string
   onCorrect?: () => void
+  onAnswered?: (correct: boolean) => void
   questionNumber?: number
 }
 
-export default function QuizSlider({ q, min, max, step, ans, unit, hint, onCorrect, questionNumber }: Props) {
+export default function QuizSlider({ q, min, max, step, ans, unit, hint, onCorrect, onAnswered, questionNumber }: Props) {
   const [value, setValue] = useState(min)
   const [submitted, setSubmitted] = useState(false)
   const [showHint, setShowHint] = useState(false)
@@ -26,6 +27,7 @@ export default function QuizSlider({ q, min, max, step, ans, unit, hint, onCorre
     if (submitted) return
     setSubmitted(true)
     if (correct) onCorrect?.()
+    onAnswered?.(correct)
   }
 
   return (
