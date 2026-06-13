@@ -15,6 +15,7 @@ const DENOMINATIONS = [
 
 interface Props {
   onChange?: (total: number) => void
+  onStateChange?: (state: Record<string, unknown>) => void   // for LessonStory goal gating
   readOnly?: boolean
   targetTotal?: number
   availableDenominations?: number[]
@@ -23,6 +24,7 @@ interface Props {
 
 export default function MoneyDrag({
   onChange,
+  onStateChange,
   readOnly = false,
   targetTotal,
   availableDenominations,
@@ -42,6 +44,7 @@ export default function MoneyDrag({
     setCounts(next)
     const newTotal = denoms.reduce((sum, d) => sum + (next[d.value] ?? 0) * d.value, 0)
     onChange?.(newTotal)
+    onStateChange?.({ total: newTotal })
   }
 
   const isCorrect = targetTotal !== undefined && total === targetTotal

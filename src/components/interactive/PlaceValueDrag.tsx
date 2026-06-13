@@ -16,6 +16,7 @@ const PLACE_CONFIG: Record<Place, { label: string; thaiLabel: string; color: str
 interface Props {
   places?: Place[]
   onChange?: (value: number) => void
+  onStateChange?: (state: Record<string, unknown>) => void   // for LessonStory goal gating
   readOnly?: boolean
   targetValue?: number
   initialDigits?: Partial<Record<Place, number>>
@@ -24,6 +25,7 @@ interface Props {
 export default function PlaceValueDrag({
   places = ['thousands', 'hundreds', 'tens', 'ones'],
   onChange,
+  onStateChange,
   readOnly = false,
   targetValue,
   initialDigits = {},
@@ -38,6 +40,7 @@ export default function PlaceValueDrag({
     setDigits(next)
     const newTotal = places.reduce((sum, p) => sum + (next[p] ?? 0) * PLACE_CONFIG[p].value, 0)
     onChange?.(newTotal)
+    onStateChange?.({ value: newTotal })
   }
 
   const isCorrect = targetValue !== undefined && Math.abs(total - targetValue) < 0.001

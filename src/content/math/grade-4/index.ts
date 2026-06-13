@@ -1,5 +1,7 @@
 import type { AnyChapter } from '@/types/curriculum'
 import fractionsV2 from './fractions'
+import moneyV2 from './money'
+import timeV2 from './time'
 
 const chapters: AnyChapter[] = [
   {
@@ -381,102 +383,8 @@ const chapters: AnyChapter[] = [
       { type: 'slider', q: 'สามเหลี่ยมฐาน 10 สูง 8 พื้นที่คือ?', min: 30, max: 50, step: 1, ans: 40, unit: 'หน่วย²', hint: '½ × 10 × 8 = ?' },
     ],
   },
-  {
-    id: 'math-4-10',
-    subject: 'math',
-    grade: 4,
-    chapter: 10,
-    title: 'ปริมาตรและน้ำหนัก',
-    icon: '📦',
-    slug: 'volume-weight',
-    explain: [
-      {
-        type: 'text',
-        html: '<p><strong>ปริมาตร</strong> คือขนาดของพื้นที่สามมิติที่สิ่งของครอบครอง</p><p>สูตร: ปริมาตรทรงสี่เหลี่ยมมุมฉาก = กว้าง × ยาว × สูง</p><p>หน่วยปริมาตร: ลูกบาศก์เซนติเมตร (cm³ หรือ ซ.ซ.) และลิตร (L = 1,000 ซ.ซ.)</p>',
-      },
-      {
-        type: 'highlight',
-        text: 'น้ำหนัก: 1 กิโลกรัม (kg) = 1,000 กรัม (g) | ปริมาตร: 1 ลิตร = 1,000 มิลลิลิตร',
-      },
-      {
-        type: 'interactive',
-        component: 'CubeBuilder',
-        config: { gridSize: 4, readOnly: true, initialGrid: [[true,true,false,false],[true,true,false,false],[false,false,false,false],[false,false,false,false]] },
-      },
-    ],
-    demo: {
-      component: 'CubeBuilder',
-      config: { gridSize: 4 },
-      steps: [
-        { instruction: 'แตะช่องเพื่อเพิ่มลูกบาศก์ — แต่ละลูกบาศก์คือ 1 cm³' },
-        { instruction: 'สร้างรูปที่มีปริมาตร 6 cm³ — มีหลายรูปแบบ!' },
-        { instruction: 'สร้างทรงสี่เหลี่ยม 2×3 = 6 ลูก — ปริมาตรเท่ากัน' },
-        { instruction: 'ลองทำ 12 ลูก — เท่ากับกล่องกว้าง 2 ยาว 3 สูง 2', config: { targetVolume: 12 } },
-      ],
-    },
-    practice: [
-      { type: 'fill', q: 'ทรงสี่เหลี่ยม กว้าง 3 ยาว 4 สูง 5 ซม. ปริมาตร = ?', ans: '60', hint: '3 × 4 × 5 = ?' },
-      { type: 'fill', q: '2.5 kg = ? g', ans: '2500', hint: 'คูณด้วย 1,000' },
-      { type: 'mc', q: '3,500 g = ? kg', opts: ['35', '3.5', '0.35', '350'], ans: 1, hint: '3,500 ÷ 1,000 = ?' },
-      { type: 'slider', q: '1.5 ลิตร = ? มล.', min: 1000, max: 2000, step: 100, ans: 1500, unit: 'มล.', hint: '1.5 × 1,000 = ?' },
-      { type: 'fill', q: 'กล่อง กว้าง 10 cm ยาว 10 cm สูง 10 cm ปริมาตร = ?', ans: '1000', hint: '10³ = ?' },
-      { type: 'mc', q: 'ถ้าถังบรรจุน้ำ 5 ลิตร และเติมไปแล้ว 2,500 มล. เหลือที่ว่าง?', opts: ['2 ลิตร', '2.5 ลิตร', '3 ลิตร', '1.5 ลิตร'], ans: 1, hint: '5,000 – 2,500 = 2,500 มล. = ?' },
-      { type: 'fill', q: 'ซื้อน้ำผลไม้ 4 ขวด ขวดละ 250 มล. รวมได้กี่ลิตร?', ans: '1', hint: '4 × 250 = 1,000 มล. = ?' },
-      { type: 'mc', q: 'น้ำหนักไข่ไก่ 12 ฟอง = 720 g ฟองละกี่กรัม?', opts: ['50', '60', '70', '80'], ans: 1, hint: '720 ÷ 12 = ?' },
-      { type: 'fill', q: 'ทรงลูกบาศก์ด้านละ 4 cm ปริมาตร = ?', ans: '64', hint: '4 × 4 × 4 = ?' },
-      { type: 'slider', q: 'น้ำในขวด 1.2 ลิตร กินไป 400 มล. เหลือ?', min: 700, max: 900, step: 50, ans: 800, unit: 'มล.', hint: '1,200 – 400 = ?' },
-    ],
-  },
-  {
-    id: 'math-4-11',
-    subject: 'math',
-    grade: 4,
-    chapter: 11,
-    title: 'เวลา',
-    icon: '🕐',
-    slug: 'time',
-    explain: [
-      {
-        type: 'text',
-        html: '<p>นาฬิกาแบบเข็มอ่านเวลาด้วยการดูตำแหน่งของเข็ม:<br/>• <strong>เข็มสั้น</strong> = ชั่วโมง<br/>• <strong>เข็มยาว</strong> = นาที</p><p>ความสัมพันธ์ของเวลา:<br/>1 ชั่วโมง = 60 นาที | 1 นาที = 60 วินาที | 1 วัน = 24 ชั่วโมง</p>',
-      },
-      {
-        type: 'highlight',
-        text: 'เข็มยาวชี้ที่ 3 = 15 นาที | ชี้ที่ 6 = 30 นาที | ชี้ที่ 9 = 45 นาที',
-      },
-      {
-        type: 'interactive',
-        component: 'ClockDrag',
-        config: { initialHour: 9, initialMinute: 30, readOnly: true },
-      },
-      {
-        type: 'example',
-        text: 'เริ่มเรียน 8:30 น. เรียน 2 ชั่วโมง 15 นาที เลิก 8:30 + 2:15 = 10:45 น.',
-      },
-    ],
-    demo: {
-      component: 'ClockDrag',
-      config: { initialHour: 12, initialMinute: 0 },
-      steps: [
-        { instruction: 'ลากเข็มสั้น (เข็มชั่วโมง) — หนาและสั้นกว่า' },
-        { instruction: 'ตั้งเวลาให้เป็น 3:00 น. — เข็มสั้นชี้ที่ 3', config: { targetHour: 3, targetMinute: 0 } },
-        { instruction: 'ตั้งเวลา 6:30 น. — เข็มยาวชี้ที่ 6 = ครึ่งชั่วโมง', config: { targetHour: 6, targetMinute: 30 } },
-        { instruction: 'ตั้งเวลา 10:45 น. — เข็มยาวชี้ที่ 9 = 45 นาที', config: { targetHour: 10, targetMinute: 45 } },
-      ],
-    },
-    practice: [
-      { type: 'mc', q: 'นาฬิกาชี้ 7:15 น. ชั่วโมงที่ผ่านมาตั้งแต่เที่ยงคืนคือ?', opts: ['7.25 ชั่วโมง', '7 ชั่วโมง 15 นาที', '7.15 ชั่วโมง', '7.5 ชั่วโมง'], ans: 1, hint: '7 ชั่วโมง 15 นาที (ไม่ใช่ทศนิยม)' },
-      { type: 'fill', q: '3 ชั่วโมง 45 นาที = ? นาที', ans: '225', hint: '3×60 + 45 = ?' },
-      { type: 'fill', q: 'ออกจากบ้าน 7:30 น. ถึงโรงเรียน 8:05 น. ใช้เวลา ? นาที', ans: '35', hint: '8:05 – 7:30 = ?' },
-      { type: 'mc', q: '180 นาที = ? ชั่วโมง', opts: ['2', '2.5', '3', '4'], ans: 2, hint: '180 ÷ 60 = ?' },
-      { type: 'slider', q: 'ภาพยนตร์เริ่ม 14:00 น. ยาว 2 ชั่วโมง เลิกตอน?', min: 14, max: 18, step: 1, ans: 16, unit: ':00 น.', hint: '14 + 2 = ?' },
-      { type: 'fill', q: '1 วัน 6 ชั่วโมง = ? ชั่วโมง', ans: '30', hint: '24 + 6 = ?' },
-      { type: 'mc', q: 'เข็มยาวชี้ที่ 9 หมายถึง?', opts: ['9 นาที', '45 นาที', '9 ชั่วโมง', '54 นาที'], ans: 1, hint: '9 × 5 = 45 นาที' },
-      { type: 'fill', q: 'สอบเริ่ม 9:00 น. ใช้เวลา 1 ชั่วโมง 30 นาที เสร็จตอน?', ans: '10:30', hint: '9:00 + 1:30 = ?' },
-      { type: 'mc', q: '2 วัน = ? ชั่วโมง', opts: ['36', '48', '24', '42'], ans: 1, hint: '2 × 24 = ?' },
-      { type: 'fill', q: 'ทำการบ้าน 45 นาที และอ่านหนังสือ 1 ชั่วโมง 20 นาที รวม ? นาที', ans: '125', hint: '45 + 80 = ?' },
-    ],
-  },
+  moneyV2,
+  timeV2,
   {
     id: 'math-4-12',
     subject: 'math',

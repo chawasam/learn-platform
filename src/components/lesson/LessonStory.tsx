@@ -44,9 +44,12 @@ export default function LessonStory({ chapter, color }: Props) {
 
   const goalDone = !scene?.goal || met[scene.id]
 
-  // Declarative goal checking — components report state via onStateChange
+  // Declarative goal checking — components report state via onStateChange.
+  // 'interact' unlocks on any reported state change (more reliable than the
+  // wrapper onPointerDown, which misses components that stopPropagation, e.g. ClockDrag).
   const handleStateChange = useCallback((state: Record<string, unknown>) => {
     if (!scene?.goal) return
+    if (scene.goal.type === 'interact') { markMet(scene.id); return }
     if (scene.goal.type === 'reach-value' && state[scene.goal.key] === scene.goal.value) {
       markMet(scene.id)
     }
