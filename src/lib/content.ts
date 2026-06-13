@@ -1,4 +1,6 @@
 import type { AnyChapter, Subject } from '@/types/curriculum'
+import { isChapterV2 } from '@/types/curriculum'
+import { METAPHORS } from '@/content/math/metaphors'
 
 // Central subject/grade registry.
 // Adding a subject or grade = add ONE entry here + a content folder. No refactor.
@@ -23,7 +25,10 @@ export async function getChapters(subject: Subject, grade: number): Promise<AnyC
   const loader = registry[subject]?.[grade]
   if (!loader) return []
   const mod = await loader()
-  return mod.default
+  // Inject metaphors (kept in one central map, not scattered across 39 files)
+  return mod.default.map(c =>
+    isChapterV2(c) && METAPHORS[c.id] ? { ...c, metaphors: METAPHORS[c.id] } : c
+  )
 }
 
 export async function getChapter(subject: Subject, grade: number, slug: string): Promise<AnyChapter | undefined> {

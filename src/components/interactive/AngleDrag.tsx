@@ -1,10 +1,11 @@
 'use client'
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 interface Props {
   initialAngle?: number
   onChange?: (angle: number) => void
+  onStateChange?: (state: Record<string, unknown>) => void   // for LessonStory goal gating
   readOnly?: boolean
   targetAngle?: number
   minAngle?: number
@@ -14,6 +15,7 @@ interface Props {
 export default function AngleDrag({
   initialAngle = 45,
   onChange,
+  onStateChange,
   readOnly = false,
   targetAngle,
   minAngle = 0,
@@ -22,6 +24,8 @@ export default function AngleDrag({
   const [angle, setAngle] = useState(initialAngle)
   const svgRef = useRef<SVGSVGElement>(null)
   const dragging = useRef(false)
+
+  useEffect(() => { onStateChange?.({ angle }) }, [angle, onStateChange])
 
   const cx = 110, cy = 150, armLen = 90
 

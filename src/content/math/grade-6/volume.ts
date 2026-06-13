@@ -1,0 +1,57 @@
+import type { ChapterV2 } from '@/types/curriculum'
+
+// ป.6 บท 12 ทรงสามมิติและปริมาตร (ref: p6-c12) — ปริมาตร + พื้นที่ผิว
+const volume: ChapterV2 = {
+  version: 2,
+  id: 'math-6-volume',
+  subject: 'math',
+  grade: 6,
+  chapter: 12,
+  title: 'ทรงสามมิติและปริมาตร',
+  icon: '📦',
+  slug: 'volume-6',
+  scenes: [
+    {
+      id: 'intro',
+      say: 'ปริมาตรทรงสี่เหลี่ยม = กว้าง × ยาว × สูง ลองวางลูกบาศก์เป็นฐาน 2 × 3 = 6 ก่อน',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4 } },
+      goal: { type: 'reach-value', key: 'volume', value: 6 },
+      hint: 'แตะวางลูกบาศก์ให้ได้ 6 ก้อน (ฐาน 2 × 3)',
+    },
+    {
+      id: 'volume',
+      say: 'ฐาน 2×3 = 6 ถ้าซ้อนสูง 4 ชั้น → ปริมาตร = 6 × 4 = 24 ลูกบาศก์หน่วย',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'กล่อง 3 × 4 × 5 ปริมาตร?', opts: ['60', '12', '47', '20'], ans: 0, hint: '3 × 4 × 5' },
+      },
+    },
+    {
+      id: 'surface',
+      say: 'พื้นที่ผิว = ผลรวมพื้นที่ทุกหน้า (กล่องมี 6 หน้า) บอกขนาดเปลือกนอก ส่วนปริมาตรบอกความจุ',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ลูกบาศก์ด้าน 4 ปริมาตร?', opts: ['12', '16', '64', '48'], ans: 2, hint: '4 × 4 × 4' },
+      },
+    },
+    {
+      id: 'recap',
+      say: 'สรุป 🏠 ปริมาตร = กว้าง×ยาว×สูง (ความจุ) · พื้นที่ผิว = รวม 6 หน้า (เปลือกนอก)',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
+    },
+  ],
+  finalPractice: [
+    { type: 'fill', q: 'กล่อง 3×4×5 ปริมาตร = ___ ลบ.หน่วย', ans: '60', hint: '3 × 4 × 5' },
+    { type: 'mc', q: 'ลูกบาศก์ด้าน 4 ปริมาตรเท่าไร?', opts: ['12', '16', '64', '48'], ans: 2, hint: '4 × 4 × 4' },
+    { type: 'fill', q: 'กล่อง 10×10×10 ปริมาตร = ___ ลบ.หน่วย', ans: '1000', hint: '10 × 10 × 10' },
+    { type: 'fill', q: 'กล่อง 2×3×4 ปริมาตร = ___', ans: '24', hint: '2 × 3 × 4' },
+    { type: 'mc', q: 'ลูกบาศก์ด้าน 5 ปริมาตร?', opts: ['125', '25', '15', '75'], ans: 0, hint: '5 × 5 × 5' },
+    { type: 'fill', q: 'กล่อง 6×2×2 ปริมาตร = ___', ans: '24', hint: '6 × 2 × 2' },
+    { type: 'mc', q: 'กล่องมีกี่หน้า?', opts: ['4', '6', '8', '12'], ans: 1, hint: 'บน ล่าง 4 ข้าง' },
+    { type: 'fill', q: 'ลูกบาศก์ด้าน 2 ปริมาตร = ___', ans: '8', hint: '2 × 2 × 2' },
+    { type: 'slider', q: 'กล่อง 4 × 3 × 2 ปริมาตร?', min: 0, max: 40, step: 1, ans: 24, unit: '', hint: '4×3×2' },
+    { type: 'mc', q: 'ปริมาตรบอกอะไร?', opts: ['ความจุ (ใส่ของได้เท่าไร)', 'น้ำหนัก', 'สี', 'ราคา'], ans: 0, hint: '3 มิติ = ความจุ' },
+  ],
+}
+
+export default volume

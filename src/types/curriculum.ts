@@ -14,6 +14,21 @@ export type ComponentName =
   | 'TextVis'
   | 'PizzaCutter'
   | 'FractionBars'
+  | 'ThaiNumberBuilder'
+  | 'AddSubCarry'
+  | 'ShapeExplorer'
+  | 'MultiplyArray'
+  | 'DivideShare'
+  | 'AreaTiles'
+  | 'OrderMachine'
+  | 'ParallelLines'
+  | 'ProbabilityBag'
+  | 'QuadMorph'
+  | 'TriangleAngles'
+  | 'CircleRadius'
+  | 'FactorBuilder'
+  | 'EquationBalance'
+  | 'PercentBar'
 
 export type ExplainBlock =
   | { type: 'text'; html: string }
@@ -64,6 +79,17 @@ export type Scene = {
   hint?: string
 }
 
+// ── Metaphor: dual-coding memory hook (vivid imagery ↔ concept) ──
+// Array because a single analogy is a "double-edged sword" (Spiro 1988) — risky
+// concepts get 2-3 to cancel each other's misconceptions; most chapters get 1.
+export type Metaphor = {
+  title: string                // short label e.g. "มังกรหิวแบ่งเค้ก"
+  emoji?: string               // big emoji shown as the visual (e.g. '🐉')
+  visual?: { component: ComponentName; config: Record<string, unknown> }  // optional interactive instead of emoji
+  story: string                // vivid narrative connecting imagination ↔ the math
+  image?: string               // optional /public path — user can drop a real picture in later
+}
+
 export type ChapterV2 = {
   version: 2
   id: string
@@ -75,6 +101,7 @@ export type ChapterV2 = {
   slug: string
   scenes: Scene[]
   finalPractice: QuizQuestion[]
+  metaphors?: Metaphor[]       // 💡 "ภาพช่วยจำ" button content
 }
 
 export type AnyChapter = Chapter | ChapterV2

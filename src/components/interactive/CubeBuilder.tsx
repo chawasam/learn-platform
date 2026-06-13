@@ -1,10 +1,11 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface Props {
   gridSize?: number
   onChange?: (volume: number) => void
+  onStateChange?: (state: Record<string, unknown>) => void   // for LessonStory goal gating
   readOnly?: boolean
   targetVolume?: number
   initialGrid?: boolean[][]
@@ -13,6 +14,7 @@ interface Props {
 export default function CubeBuilder({
   gridSize = 5,
   onChange,
+  onStateChange,
   readOnly = false,
   targetVolume,
   initialGrid,
@@ -22,6 +24,8 @@ export default function CubeBuilder({
   )
 
   const volume = grid.flat().filter(Boolean).length
+
+  useEffect(() => { onStateChange?.({ volume }) }, [volume, onStateChange])
   const isCorrect = targetVolume !== undefined && volume === targetVolume
 
   const toggle = (row: number, col: number) => {

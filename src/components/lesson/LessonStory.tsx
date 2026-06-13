@@ -8,6 +8,7 @@ import QuizMC from '@/components/quiz/QuizMC'
 import QuizFill from '@/components/quiz/QuizFill'
 import QuizSlider from '@/components/quiz/QuizSlider'
 import { fireConfetti } from '@/lib/confetti'
+import MetaphorModal from '@/components/lesson/MetaphorModal'
 
 interface Props {
   chapter: ChapterV2
@@ -30,6 +31,8 @@ export default function LessonStory({ chapter, color }: Props) {
   const [idx, setIdx] = useState(0)
   const [met, setMet] = useState<Record<string, boolean>>({})
   const [showHint, setShowHint] = useState(false)
+  const [showMetaphor, setShowMetaphor] = useState(false)
+  const hasMetaphor = !!chapter.metaphors?.length
 
   const inPractice = idx >= scenes.length
   const scene: Scene | undefined = inPractice ? undefined : scenes[idx]
@@ -152,6 +155,20 @@ export default function LessonStory({ chapter, color }: Props) {
               backHref={`/${chapter.subject}/${chapter.grade}`}
             />
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Metaphor "memory hook" button (floating) + modal */}
+      {hasMetaphor && (
+        <button
+          onClick={() => setShowMetaphor(true)}
+          className="fixed top-16 right-4 z-40 px-3.5 py-2.5 rounded-2xl text-white font-bold text-xs shadow-lg hover:opacity-90 transition-opacity"
+          style={{ background: color }}
+        >💡 ภาพช่วยจำ</button>
+      )}
+      <AnimatePresence>
+        {showMetaphor && hasMetaphor && (
+          <MetaphorModal metaphors={chapter.metaphors!} color={color} onClose={() => setShowMetaphor(false)} />
         )}
       </AnimatePresence>
 
