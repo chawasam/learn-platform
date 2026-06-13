@@ -1,6 +1,7 @@
-import type { Chapter } from '@/types/curriculum'
+import type { AnyChapter } from '@/types/curriculum'
+import fractionsV2 from './fractions'
 
-const chapters: Chapter[] = [
+const chapters: AnyChapter[] = [
   {
     id: 'math-4-1',
     subject: 'math',
@@ -193,56 +194,7 @@ const chapters: Chapter[] = [
       { type: 'mc', q: 'ซื้อของแล้วจ่าย 240 บาท สินค้าราคาชิ้นละ 8 บาท ได้สินค้ากี่ชิ้น?', opts: ['30', '25', '28', '32'], ans: 0, hint: '240 ÷ 8 = ?' },
     ],
   },
-  {
-    id: 'math-4-5',
-    subject: 'math',
-    grade: 4,
-    chapter: 5,
-    title: 'เศษส่วน',
-    icon: '🍕',
-    slug: 'fractions',
-    explain: [
-      {
-        type: 'text',
-        html: '<p><strong>เศษส่วน</strong> แทนส่วนหนึ่งของทั้งหมด เขียนในรูป <strong>เศษ/ส่วน</strong></p><p>• <strong>เศษ</strong> (numerator) — จำนวนส่วนที่เราสนใจ<br/>• <strong>ส่วน</strong> (denominator) — จำนวนส่วนทั้งหมด</p><p>เศษส่วนเท่ากัน: 1/2 = 2/4 = 3/6 (คูณหรือหารทั้งเศษและส่วนด้วยจำนวนเดียวกัน)</p>',
-      },
-      {
-        type: 'highlight',
-        text: 'ถ้าเศษ < ส่วน = เศษส่วนแท้ (น้อยกว่า 1) | ถ้าเศษ ≥ ส่วน = เศษส่วนเกินหรือจำนวนคละ',
-      },
-      {
-        type: 'interactive',
-        component: 'FractionCutter',
-        config: { maxParts: 8, initialParts: 4, initialFilled: 3, readOnly: true },
-      },
-      {
-        type: 'example',
-        text: 'พิซซ่าแบ่ง 4 ชิ้น กิน 3 ชิ้น → กิน 3/4 ของพิซซ่า',
-      },
-    ],
-    demo: {
-      component: 'FractionCutter',
-      config: { maxParts: 12, initialParts: 2, initialFilled: 0 },
-      steps: [
-        { instruction: 'เริ่มด้วย 2 ส่วน — กดที่ชิ้นเพื่อเลือก แสดงเศษส่วน 1/2', config: { initialParts: 2, targetParts: 2, targetFilled: 1 } },
-        { instruction: 'ลากวงกลมเพื่อแบ่งเป็น 4 ส่วน แล้วกรอก 2 ชิ้น → 2/4 = 1/2', config: { initialParts: 2 } },
-        { instruction: 'ลองทำ 3/4: แบ่ง 4 ส่วน กรอก 3 ชิ้น', config: { targetParts: 4, targetFilled: 3 } },
-        { instruction: 'ทำ 5/6: แบ่ง 6 ส่วน กรอก 5 ชิ้น', config: { targetParts: 6, targetFilled: 5 } },
-      ],
-    },
-    practice: [
-      { type: 'mc', q: 'เศษส่วนใดมีค่ามากที่สุด?', opts: ['1/4', '1/3', '1/6', '1/8'], ans: 1, hint: 'ส่วนยิ่งน้อย เศษส่วนยิ่งมาก (ถ้าเศษเท่ากัน)' },
-      { type: 'fill', q: '2/4 เขียนให้อยู่ในรูปอย่างต่ำได้ว่า?', ans: '1/2', hint: 'หาร GCD ของ 2 และ 4 แล้วหาร' },
-      { type: 'mc', q: '3/8 + 2/8 = ?', opts: ['5/16', '5/8', '6/8', '1/2'], ans: 1, hint: 'ส่วนเท่ากัน บวกแค่เศษ' },
-      { type: 'fill', q: 'เศษส่วนเท่ากับ 1/3 ที่มีส่วนเป็น 9 คือ?', ans: '3/9', hint: 'คูณทั้งเศษและส่วนด้วย 3' },
-      { type: 'mc', q: 'พิซซ่า 1 ถาด แบ่ง 8 ชิ้น กิน 5 ชิ้น เหลือเท่าไร?', opts: ['5/8', '3/8', '2/8', '4/8'], ans: 1, hint: '8/8 – 5/8 = ?' },
-      { type: 'fill', q: '7/12 – 3/12 = ?', ans: '4/12', hint: 'ส่วนเท่ากัน ลบแค่เศษ' },
-      { type: 'mc', q: '1/2 = ?/6', opts: ['2', '3', '4', '6'], ans: 1, hint: 'คูณส่วนด้วย 3 ต้องคูณเศษด้วย 3 ด้วย' },
-      { type: 'slider', q: 'เศษส่วน 3/5 มีค่าเท่าไรในรูปทศนิยม (×100%)', min: 50, max: 70, step: 1, ans: 60, unit: '%', hint: '3÷5 = 0.6 = 60%' },
-      { type: 'fill', q: 'จำนวนคละ 2 และ 1/3 เขียนเป็นเศษส่วนเกินได้ว่า?', ans: '7/3', hint: '2×3 + 1 = 7 ส่วน 3' },
-      { type: 'mc', q: 'เศษส่วนใดเท่ากับ 3/4?', opts: ['6/9', '9/12', '8/10', '4/5'], ans: 1, hint: '3×3=9, 4×3=12 → 9/12' },
-    ],
-  },
+  fractionsV2,
   {
     id: 'math-4-6',
     subject: 'math',

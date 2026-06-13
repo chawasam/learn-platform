@@ -17,4 +17,6 @@ export const INTERACTIVE_COMPONENTS: Record<ComponentName, LazyComp> = {
   CubeBuilder:     lazy(() => import('./CubeBuilder')),
   NumberLine:      lazy(() => import('./NumberLine')),
   TextVis:         lazy(() => import('./TextVis')),
+  PizzaCutter:     lazy(() => import('./PizzaCutter')),
+  FractionBars:    lazy(() => import('./FractionBars')),
 }

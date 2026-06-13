@@ -162,8 +162,11 @@ export default function LessonStory({ chapter, color }: Props) {
           <motion.button
             onClick={goNext}
             disabled={!goalDone}
-            animate={goalDone ? { scale: [1, 1.04, 1] } : {}}
-            transition={goalDone ? { repeat: Infinity, duration: 1.6 } : {}}
+            // single pop when the goal unlocks — not an infinite pulse (distracting + breaks test actionability)
+            key={`next-${scene?.id}-${goalDone}`}
+            initial={goalDone && scene?.goal ? { scale: 0.9 } : false}
+            animate={{ scale: 1 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 15 }}
             className="flex-1 max-w-60 py-3.5 rounded-2xl text-white font-bold text-base transition-opacity disabled:opacity-35"
             style={{ background: color }}
           >

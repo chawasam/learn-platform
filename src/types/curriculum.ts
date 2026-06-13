@@ -12,6 +12,8 @@ export type ComponentName =
   | 'CubeBuilder'
   | 'NumberLine'
   | 'TextVis'
+  | 'PizzaCutter'
+  | 'FractionBars'
 
 export type ExplainBlock =
   | { type: 'text'; html: string }
