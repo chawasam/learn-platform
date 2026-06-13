@@ -30,6 +30,20 @@ const EXAMS = {
   'p5-triangles': () => import('../src/content/math/grade-5/triangles.exam.ts'),
   'p5-circles': () => import('../src/content/math/grade-5/circles.exam.ts'),
   'p5-volume': () => import('../src/content/math/grade-5/volume.exam.ts'),
+  // ป.4
+  'p4-numbers': () => import('../src/content/math/grade-4/numbers.exam.ts'),
+  'p4-add-sub': () => import('../src/content/math/grade-4/add-sub.exam.ts'),
+  'p4-multiply': () => import('../src/content/math/grade-4/multiply.exam.ts'),
+  'p4-divide': () => import('../src/content/math/grade-4/divide.exam.ts'),
+  'p4-mixed': () => import('../src/content/math/grade-4/mixed.exam.ts'),
+  'p4-fractions': () => import('../src/content/math/grade-4/fractions.exam.ts'),
+  'p4-decimals': () => import('../src/content/math/grade-4/decimals.exam.ts'),
+  'p4-length': () => import('../src/content/math/grade-4/length.exam.ts'),
+  'p4-money': () => import('../src/content/math/grade-4/money.exam.ts'),
+  'p4-time': () => import('../src/content/math/grade-4/time.exam.ts'),
+  'p4-area': () => import('../src/content/math/grade-4/area.exam.ts'),
+  'p4-shapes': () => import('../src/content/math/grade-4/shapes.exam.ts'),
+  'p4-bar-chart': () => import('../src/content/math/grade-4/bar-chart.exam.ts'),
 }
 
 const key = process.argv[2] || 'percent'

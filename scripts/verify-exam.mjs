@@ -34,6 +34,20 @@ const EXAMS = [
   ['math-5-triangles', () => import('../src/content/math/grade-5/triangles.exam.ts')],
   ['math-5-circles', () => import('../src/content/math/grade-5/circles.exam.ts')],
   ['math-5-volume', () => import('../src/content/math/grade-5/volume.exam.ts')],
+  // ป.4
+  ['math-4-numbers', () => import('../src/content/math/grade-4/numbers.exam.ts')],
+  ['math-4-add-sub', () => import('../src/content/math/grade-4/add-sub.exam.ts')],
+  ['math-4-multiply', () => import('../src/content/math/grade-4/multiply.exam.ts')],
+  ['math-4-divide', () => import('../src/content/math/grade-4/divide.exam.ts')],
+  ['math-4-mixed', () => import('../src/content/math/grade-4/mixed.exam.ts')],
+  ['math-4-fractions', () => import('../src/content/math/grade-4/fractions.exam.ts')],
+  ['math-4-decimals', () => import('../src/content/math/grade-4/decimals.exam.ts')],
+  ['math-4-length', () => import('../src/content/math/grade-4/length.exam.ts')],
+  ['math-4-money', () => import('../src/content/math/grade-4/money.exam.ts')],
+  ['math-4-time', () => import('../src/content/math/grade-4/time.exam.ts')],
+  ['math-4-area', () => import('../src/content/math/grade-4/area.exam.ts')],
+  ['math-4-shapes', () => import('../src/content/math/grade-4/shapes.exam.ts')],
+  ['math-4-bar-chart', () => import('../src/content/math/grade-4/bar-chart.exam.ts')],
 ]
 
 let fail = 0

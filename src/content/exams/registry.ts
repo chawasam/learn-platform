@@ -32,6 +32,20 @@ export const EXAM_TEMPLATES: Record<string, () => Promise<{ default: ChapterExam
   'math-5-triangles': () => import('@/content/math/grade-5/triangles.exam'),
   'math-5-circles': () => import('@/content/math/grade-5/circles.exam'),
   'math-5-volume': () => import('@/content/math/grade-5/volume.exam'),
+  // ป.4
+  'math-4-numbers': () => import('@/content/math/grade-4/numbers.exam'),
+  'math-4-add-sub': () => import('@/content/math/grade-4/add-sub.exam'),
+  'math-4-multiply': () => import('@/content/math/grade-4/multiply.exam'),
+  'math-4-divide': () => import('@/content/math/grade-4/divide.exam'),
+  'math-4-mixed': () => import('@/content/math/grade-4/mixed.exam'),
+  'math-4-fractions': () => import('@/content/math/grade-4/fractions.exam'),
+  'math-4-decimals': () => import('@/content/math/grade-4/decimals.exam'),
+  'math-4-length': () => import('@/content/math/grade-4/length.exam'),
+  'math-4-money': () => import('@/content/math/grade-4/money.exam'),
+  'math-4-time': () => import('@/content/math/grade-4/time.exam'),
+  'math-4-area': () => import('@/content/math/grade-4/area.exam'),
+  'math-4-shapes': () => import('@/content/math/grade-4/shapes.exam'),
+  'math-4-bar-chart': () => import('@/content/math/grade-4/bar-chart.exam'),
 }
 
 export const hasExam = (chapterId: string): boolean => chapterId in EXAM_TEMPLATES
