@@ -1,7 +1,8 @@
 'use client'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { QuizQuestion } from '@/types/curriculum'
+import { fireConfetti } from '@/lib/confetti'
 import QuizMC from '@/components/quiz/QuizMC'
 import QuizFill from '@/components/quiz/QuizFill'
 import QuizSlider from '@/components/quiz/QuizSlider'
@@ -26,6 +27,10 @@ export default function PracticeTab({ questions }: Props) {
   const correct = scores.filter(Boolean).length
   const total = questions.length
   const allDone = scores.every(Boolean)
+
+  useEffect(() => {
+    if (allDone) fireConfetti()
+  }, [allDone])
 
   return (
     <div className="flex flex-col gap-6">

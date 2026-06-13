@@ -1,36 +1,44 @@
-import type { Chapter, Subject } from '@/types/curriculum'
+import type { AnyChapter, Subject } from '@/types/curriculum'
 
-// Dynamic import all content files
-// Each grade dir exports an array of chapters
+// Central subject/grade registry.
+// Adding a subject or grade = add ONE entry here + a content folder. No refactor.
+// Each grade dir exports an array of chapters (v1 tab-based or v2 story-based, mixed OK).
 
-type ContentModule = { default: Chapter[] }
+type ContentModule = { default: AnyChapter[] }
 
-const moduleMap: Record<string, () => Promise<ContentModule>> = {
-  'math-4':  () => import('@/content/math/grade-4/index'),
-  'math-5':  () => import('@/content/math/grade-5/index'),
-  'math-6':  () => import('@/content/math/grade-6/index'),
+const registry: Partial<Record<Subject, Record<number, () => Promise<ContentModule>>>> = {
+  math: {
+    4: () => import('@/content/math/grade-4/index'),
+    5: () => import('@/content/math/grade-5/index'),
+    6: () => import('@/content/math/grade-6/index'),
+  },
 }
 
-export async function getChapters(subject: Subject, grade: number): Promise<Chapter[]> {
-  const key = `${subject}-${grade}`
-  const loader = moduleMap[key]
+/** Grades that actually have content for a subject (drives the grade grid). */
+export function availableGrades(subject: Subject): number[] {
+  return Object.keys(registry[subject] ?? {}).map(Number).sort((a, b) => a - b)
+}
+
+export async function getChapters(subject: Subject, grade: number): Promise<AnyChapter[]> {
+  const loader = registry[subject]?.[grade]
   if (!loader) return []
   const mod = await loader()
   return mod.default
 }
 
-export async function getChapter(subject: Subject, grade: number, slug: string): Promise<Chapter | undefined> {
+export async function getChapter(subject: Subject, grade: number, slug: string): Promise<AnyChapter | undefined> {
   const chapters = await getChapters(subject, grade)
   return chapters.find(c => c.slug === slug)
 }
 
 export async function getAllChapterParams() {
   const params: { subject: string; grade: string; chapter: string }[] = []
-  for (const key of Object.keys(moduleMap)) {
-    const [subject, grade] = key.split('-')
-    const mod = await moduleMap[key]()
-    for (const ch of mod.default) {
-      params.push({ subject, grade, chapter: ch.slug })
+  for (const [subject, grades] of Object.entries(registry)) {
+    for (const [grade, loader] of Object.entries(grades)) {
+      const mod = await loader()
+      for (const ch of mod.default) {
+        params.push({ subject, grade, chapter: ch.slug })
+      }
     }
   }
   return params

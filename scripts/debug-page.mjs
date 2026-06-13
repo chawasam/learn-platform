@@ -1,0 +1,10 @@
+import { chromium } from 'playwright'
+const browser = await chromium.launch()
+const page = await browser.newPage({ viewport: { width: 480, height: 1400 } })
+page.on('console', m => { if (m.type() === 'error') console.log('CONSOLE ERR:', m.text()) })
+page.on('pageerror', e => console.log('PAGE ERR:', e.message))
+await page.goto('http://localhost:3001/math/6/linear-equations/', { waitUntil: 'networkidle' })
+await page.waitForTimeout(3000)
+await page.screenshot({ path: 'C:/Users/ck_sa/Desktop/learn-platform/scripts/shots/debug-eq-page.png', fullPage: true })
+await browser.close()
+console.log('done')

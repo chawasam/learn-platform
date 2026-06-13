@@ -9,7 +9,8 @@ function InteractiveBlock({ component, config }: { component: ComponentName; con
   return (
     <div className="my-4 flex justify-center">
       <Suspense fallback={<LoadingSpinner />}>
-        <Component {...config} readOnly />
+        {/* readOnly before spread = default only; content config can opt out */}
+        <Component readOnly {...config} />
       </Suspense>
     </div>
   )

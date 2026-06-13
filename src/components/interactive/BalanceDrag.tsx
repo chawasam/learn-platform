@@ -26,7 +26,8 @@ export default function BalanceDrag({
 
   const leftSum = left.reduce((a, b) => a + b, 0)
   const rightSum = right.reduce((a, b) => a + b, 0)
-  const diff = leftSum - rightSum
+  // SVG rotate: positive = clockwise = left side rises. Heavier left must SINK, so invert.
+  const diff = rightSum - leftSum
   const tilt = Math.max(-28, Math.min(28, diff * 1.8))
 
   const addWeight = (side: 'left' | 'right', w: number) => {

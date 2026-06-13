@@ -46,6 +46,40 @@ export type Chapter = {
   practice: QuizQuestion[]
 }
 
+// ── Chapter v2: story-based lesson (scenes) ──
+// Goal must be declarative data (no functions) — chapter crosses the
+// server→client component boundary as a prop, so it has to be serializable.
+export type SceneGoal =
+  | { type: 'interact' }                                           // any interaction in this scene unlocks "next"
+  | { type: 'reach-value'; key: string; value: number | string }   // unlocks when component reports state[key] === value
+  | { type: 'answer'; question: QuizQuestion }                     // answer an inline question correctly
+
+export type Scene = {
+  id: string
+  say: string                 // 1-2 short sentences, spoken-to-a-friend tone
+  visual?: { component: ComponentName; config: Record<string, unknown> }
+  goal?: SceneGoal
+  hint?: string
+}
+
+export type ChapterV2 = {
+  version: 2
+  id: string
+  subject: Subject
+  grade: number
+  chapter: number
+  title: string
+  icon: string
+  slug: string
+  scenes: Scene[]
+  finalPractice: QuizQuestion[]
+}
+
+export type AnyChapter = Chapter | ChapterV2
+
+export const isChapterV2 = (c: AnyChapter): c is ChapterV2 =>
+  'version' in c && c.version === 2
+
 export type SubjectMeta = {
   id: Subject
   title: string

@@ -2,10 +2,12 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import type { Chapter, SubjectMeta } from '@/types/curriculum'
+import type { AnyChapter, SubjectMeta } from '@/types/curriculum'
+import { isChapterV2 } from '@/types/curriculum'
 import ExplainTab from '@/components/lesson/ExplainTab'
 import DemoTab from '@/components/lesson/DemoTab'
 import PracticeTab from '@/components/lesson/PracticeTab'
+import LessonStory from '@/components/lesson/LessonStory'
 import { GRADE_LABEL } from '@/types/curriculum'
 
 type Tab = 'explain' | 'demo' | 'practice'
@@ -17,7 +19,7 @@ const TABS: { id: Tab; label: string; emoji: string }[] = [
 ]
 
 interface Props {
-  chapter: Chapter
+  chapter: AnyChapter
   subject: SubjectMeta
   gradeNum: number
 }
@@ -25,25 +27,38 @@ interface Props {
 export default function ChapterView({ chapter, subject, gradeNum }: Props) {
   const [tab, setTab] = useState<Tab>('explain')
 
+  const header = (
+    <div className="flex items-start gap-3 mb-6">
+      <Link
+        href={`/${subject.id}/${gradeNum}`}
+        className="flex-shrink-0 text-sm px-4 py-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors mt-0.5"
+      >
+        ←
+      </Link>
+      <div>
+        <p className="text-xs mb-1" style={{ color: 'var(--muted)' }}>
+          {subject.icon} {subject.title} · {GRADE_LABEL(gradeNum)} · บทที่ {chapter.chapter}
+        </p>
+        <h1 className="text-xl font-bold leading-snug">
+          {chapter.icon} {chapter.title}
+        </h1>
+      </div>
+    </div>
+  )
+
+  // v2 story-based lesson — single continuous flow, no tabs
+  if (isChapterV2(chapter)) {
+    return (
+      <main className="max-w-2xl mx-auto px-4 py-6">
+        {header}
+        <LessonStory chapter={chapter} color={subject.color} />
+      </main>
+    )
+  }
+
   return (
     <main className="max-w-2xl mx-auto px-4 py-6">
-      {/* Header */}
-      <div className="flex items-start gap-3 mb-6">
-        <Link
-          href={`/${subject.id}/${gradeNum}`}
-          className="flex-shrink-0 text-sm px-4 py-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors mt-0.5"
-        >
-          ←
-        </Link>
-        <div>
-          <p className="text-xs mb-1" style={{ color: 'var(--muted)' }}>
-            {subject.icon} {subject.title} · {GRADE_LABEL(gradeNum)} · บทที่ {chapter.chapter}
-          </p>
-          <h1 className="text-xl font-bold leading-snug">
-            {chapter.icon} {chapter.title}
-          </h1>
-        </div>
-      </div>
+      {header}
 
       {/* Tabs */}
       <div className="flex gap-1 bg-gray-100 rounded-2xl p-1 mb-6">
