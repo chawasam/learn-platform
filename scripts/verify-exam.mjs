@@ -8,6 +8,12 @@ import { generateExam } from '../src/lib/examGen.ts'
 
 const EXAMS = [
   ['math-6-number-calc', () => import('../src/content/math/grade-6/number-calc.exam.ts')],
+  ['math-6-factors', () => import('../src/content/math/grade-6/factors.exam.ts')],
+  ['math-6-parallel-angles', () => import('../src/content/math/grade-6/parallel-angles.exam.ts')],
+  ['math-6-equations', () => import('../src/content/math/grade-6/equations.exam.ts')],
+  ['math-6-scale', () => import('../src/content/math/grade-6/scale.exam.ts')],
+  ['math-6-quad-area', () => import('../src/content/math/grade-6/quad-area.exam.ts')],
+  ['math-6-circle-area', () => import('../src/content/math/grade-6/circle-area.exam.ts')],
   ['math-6-percent', () => import('../src/content/math/grade-6/percent.exam.ts')],
   ['math-6-volume', () => import('../src/content/math/grade-6/volume.exam.ts')],
 ]
