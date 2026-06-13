@@ -13,6 +13,7 @@ import MetaphorModal from '@/components/lesson/MetaphorModal'
 interface Props {
   chapter: ChapterV2
   color: string
+  examHref?: string
 }
 
 function InlineQuestion({ question, onCorrect }: { question: QuizQuestion; onCorrect: () => void }) {
@@ -25,7 +26,7 @@ function InlineQuestion({ question, onCorrect }: { question: QuizQuestion; onCor
   return null
 }
 
-export default function LessonStory({ chapter, color }: Props) {
+export default function LessonStory({ chapter, color, examHref }: Props) {
   const scenes = chapter.scenes
   // idx === scenes.length → final practice
   const [idx, setIdx] = useState(0)
@@ -153,6 +154,7 @@ export default function LessonStory({ chapter, color }: Props) {
             <PracticeTab
               questions={chapter.finalPractice}
               backHref={`/${chapter.subject}/${chapter.grade}`}
+              examHref={examHref}
             />
           </motion.div>
         )}

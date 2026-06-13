@@ -1,6 +1,7 @@
 import type { AnyChapter, Subject } from '@/types/curriculum'
 import { isChapterV2 } from '@/types/curriculum'
 import { METAPHORS } from '@/content/math/metaphors'
+import { hasExam } from '@/content/exams/registry'
 
 // Central subject/grade registry.
 // Adding a subject or grade = add ONE entry here + a content folder. No refactor.
@@ -43,6 +44,20 @@ export async function getAllChapterParams() {
       const mod = await loader()
       for (const ch of mod.default) {
         params.push({ subject, grade, chapter: ch.slug })
+      }
+    }
+  }
+  return params
+}
+
+/** Static params for the /exam route — only chapters that have an exam bank. */
+export async function getExamParams() {
+  const params: { subject: string; grade: string; chapter: string }[] = []
+  for (const [subject, grades] of Object.entries(registry)) {
+    for (const [grade, loader] of Object.entries(grades)) {
+      const mod = await loader()
+      for (const ch of mod.default) {
+        if (hasExam(ch.id)) params.push({ subject, grade, chapter: ch.slug })
       }
     }
   }

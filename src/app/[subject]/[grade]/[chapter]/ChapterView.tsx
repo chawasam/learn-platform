@@ -9,6 +9,7 @@ import DemoTab from '@/components/lesson/DemoTab'
 import PracticeTab from '@/components/lesson/PracticeTab'
 import LessonStory from '@/components/lesson/LessonStory'
 import { GRADE_LABEL } from '@/types/curriculum'
+import { hasExam } from '@/content/exams/registry'
 
 type Tab = 'explain' | 'demo' | 'practice'
 
@@ -51,7 +52,11 @@ export default function ChapterView({ chapter, subject, gradeNum }: Props) {
     return (
       <main className="max-w-2xl mx-auto px-4 py-6">
         {header}
-        <LessonStory chapter={chapter} color={subject.color} />
+        <LessonStory
+          chapter={chapter}
+          color={subject.color}
+          examHref={hasExam(chapter.id) ? `/${subject.id}/${gradeNum}/${chapter.slug}/exam` : undefined}
+        />
       </main>
     )
   }

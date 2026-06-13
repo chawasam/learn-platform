@@ -8,21 +8,15 @@ import QuizFill from '@/components/quiz/QuizFill'
 import QuizSlider from '@/components/quiz/QuizSlider'
 import QuizDragPlace from '@/components/quiz/QuizDragPlace'
 import { fireConfetti } from '@/lib/confetti'
+import { grade } from '@/lib/examScore'
 
 interface Props {
   questions: QuizQuestion[]
   backHref?: string        // shown as "back" button on the summary; omit to hide
+  examHref?: string        // when set, show a CTA to the 100-question exam below the questions
 }
 
-// Tier the encouragement so the summary feels earned, not generic.
-function grade(pct: number) {
-  if (pct === 100) return { emoji: '🏆', title: 'เพอร์เฟกต์! เก่งมากกก', color: '#22C55E' }
-  if (pct >= 70)  return { emoji: '🌟', title: 'เยี่ยมมาก!',          color: '#22C55E' }
-  if (pct >= 40)  return { emoji: '💪', title: 'ดีขึ้นได้อีก สู้ๆ',     color: '#FF7A2F' }
-  return            { emoji: '📚', title: 'ลองทบทวนแล้วทำใหม่นะ', color: '#EF4444' }
-}
-
-export default function PracticeTab({ questions, backHref }: Props) {
+export default function PracticeTab({ questions, backHref, examHref }: Props) {
   const total = questions.length
   // null = ยังไม่ตอบ · true/false = ถูก/ผิด ครั้งแรก (คะแนนล็อกครั้งแรก ไม่นับ retry)
   const [results, setResults] = useState<(boolean | null)[]>(() => Array(total).fill(null))
@@ -97,6 +91,17 @@ export default function PracticeTab({ questions, backHref }: Props) {
           </motion.div>
         ))}
       </div>
+
+      {/* CTA to the full 100-question exam (entrance-exam style) */}
+      {examHref && (
+        <Link
+          href={examHref}
+          className="block text-center px-6 py-4 rounded-2xl text-white font-bold text-base shadow-sm hover:opacity-90 transition-opacity"
+          style={{ background: '#7C3AED' }}
+        >
+          📝 พร้อมแล้ว? ลองทำข้อสอบ 100 ข้อ →
+        </Link>
+      )}
 
       {/* Summary — shows once every question has been answered (right OR wrong) */}
       <AnimatePresence>
