@@ -2,6 +2,9 @@ import type { AnyChapter } from '@/types/curriculum'
 import fractionsV2 from './fractions'
 import moneyV2 from './money'
 import timeV2 from './time'
+import barChartV2 from './bar-chart'
+import lengthV2 from './length'
+import decimals from './decimals'
 
 const chapters: AnyChapter[] = [
   {
@@ -197,56 +200,7 @@ const chapters: AnyChapter[] = [
     ],
   },
   fractionsV2,
-  {
-    id: 'math-4-6',
-    subject: 'math',
-    grade: 4,
-    chapter: 6,
-    title: 'มุม',
-    icon: '📐',
-    slug: 'angles',
-    explain: [
-      {
-        type: 'text',
-        html: '<p><strong>มุม</strong> เกิดจากแขน 2 ข้างที่มาบรรจบกันที่จุดเดียว เรียกว่า <strong>จุดยอดมุม</strong></p><p>ชนิดของมุม:<br/>• มุมแหลม: น้อยกว่า 90°<br/>• มุมฉาก: 90° พอดี<br/>• มุมป้าน: มากกว่า 90° แต่น้อยกว่า 180°<br/>• มุมตรง: 180° พอดี</p>',
-      },
-      {
-        type: 'highlight',
-        text: 'มุมทั้งหมดในสามเหลี่ยมรวมกัน = 180° เสมอ',
-      },
-      {
-        type: 'interactive',
-        component: 'AngleDrag',
-        config: { initialAngle: 90, readOnly: true },
-      },
-      {
-        type: 'example',
-        text: 'มุมที่มุมกำแพงบ้านคือมุมฉาก (90°) — ใช้ฉากทดสอบได้',
-      },
-    ],
-    demo: {
-      component: 'AngleDrag',
-      config: { initialAngle: 30, minAngle: 0, maxAngle: 180 },
-      steps: [
-        { instruction: 'ลากแขนสีน้ำเงินให้มุมน้อยกว่า 90° — นี่คือมุมแหลม', config: { targetAngle: 45 } },
-        { instruction: 'ลากให้ได้ 90° พอดี — มุมฉาก จะเห็นสัญลักษณ์กล่องเล็ก', config: { targetAngle: 90 } },
-        { instruction: 'เพิ่มต่อให้มากกว่า 90° แต่น้อยกว่า 180° — มุมป้าน', config: { targetAngle: 120 } },
-        { instruction: 'ลองวัดมุมในห้อง — มุมมุมบ้านเป็น 90° ไหม?' },
-      ],
-    },
-    practice: [
-      { type: 'mc', q: 'มุม 75° เป็นมุมชนิดใด?', opts: ['มุมแหลม', 'มุมฉาก', 'มุมป้าน', 'มุมตรง'], ans: 0, hint: '75 < 90 → มุมแหลม' },
-      { type: 'slider', q: 'ลากไปยังมุมฉาก', min: 0, max: 180, step: 5, ans: 90, unit: '°', hint: 'มุมฉาก = 90°' },
-      { type: 'fill', q: 'มุมในสามเหลี่ยมสามมุมคือ 60°, 70° และ ?°', ans: '50', hint: '60+70+? = 180' },
-      { type: 'mc', q: 'มุมใดเป็นมุมป้าน?', opts: ['85°', '90°', '135°', '180°'], ans: 2, hint: 'มุมป้านอยู่ระหว่าง 90° ถึง 180°' },
-      { type: 'fill', q: 'ถ้ามุมหนึ่งของสามเหลี่ยมหน้าจั่วคือ 40° และอีกสองมุมเท่ากัน แต่ละมุมคือ?', ans: '70', hint: '(180-40)÷2 = ?' },
-      { type: 'mc', q: 'นาฬิกาชี้เวลา 3:00 น. มุมระหว่างเข็มสองอันคือ?', opts: ['90°', '120°', '60°', '30°'], ans: 0, hint: 'เวลา 3:00 เข็มสองอันตั้งฉากกัน' },
-      { type: 'slider', q: 'มุมในรูปสี่เหลี่ยมจัตุรัสแต่ละมุมคือกี่องศา?', min: 60, max: 120, step: 5, ans: 90, unit: '°', hint: 'สี่เหลี่ยมจัตุรัสมีมุมฉากทุกมุม' },
-      { type: 'fill', q: 'มุมตรงคือกี่องศา?', ans: '180', hint: 'มุมตรงเป็นเส้นตรงพอดี' },
-      { type: 'mc', q: 'มุม 2 อันที่รวมกันได้ 90° เรียกว่า?', opts: ['มุมประกอบ', 'มุมเสริม', 'มุมเติมเต็ม', 'มุมคู่เสริม'], ans: 2, hint: 'มุมที่รวมกันได้ 90° เรียกมุมเติมเต็ม (complementary)' },
-      { type: 'fill', q: 'มุม A + มุม B = 180° ถ้ามุม A = 65° มุม B = ?', ans: '115', hint: '180 – 65 = ?' },
-    ],
-  },
+  decimals,
   {
     id: 'math-4-7',
     subject: 'math',
@@ -293,51 +247,7 @@ const chapters: AnyChapter[] = [
       { type: 'fill', q: 'สวนสี่เหลี่ยมผืนผ้า กว้าง 12 ม. ยาว 15 ม. ล้อมรั้วรอบ ต้องใช้รั้วกี่เมตร?', ans: '54', hint: 'เส้นรอบรูป = 2×(12+15)' },
     ],
   },
-  {
-    id: 'math-4-8',
-    subject: 'math',
-    grade: 4,
-    chapter: 8,
-    title: 'ความยาวและระยะทาง',
-    icon: '📏',
-    slug: 'length-distance',
-    explain: [
-      {
-        type: 'text',
-        html: '<p>หน่วยความยาวในระบบ SI:<br/>• <strong>กิโลเมตร (km)</strong> = 1,000 เมตร<br/>• <strong>เมตร (m)</strong> = 100 เซนติเมตร<br/>• <strong>เซนติเมตร (cm)</strong> = 10 มิลลิเมตร<br/>• <strong>มิลลิเมตร (mm)</strong></p>',
-      },
-      {
-        type: 'highlight',
-        text: '1 km = 1,000 m | 1 m = 100 cm | 1 cm = 10 mm',
-      },
-      {
-        type: 'example',
-        text: 'แปลง 3.5 km → เมตร: 3.5 × 1,000 = 3,500 เมตร',
-      },
-    ],
-    demo: {
-      component: 'NumberLine',
-      config: { min: 0, max: 100, step: 10, initialValue: 0 },
-      steps: [
-        { instruction: 'เส้นนี้แทนระยะ 0-100 ซม. — ลากไปที่ตำแหน่งต่างๆ' },
-        { instruction: '30 ซม. คือครึ่งหนึ่งของ 60 ซม. — ลากไปที่ 60', config: { targetValue: 60 } },
-        { instruction: '1 เมตร = 100 ซม. — ลากไปที่ 100 เพื่อแสดง 1 เมตร', config: { targetValue: 100 } },
-        { instruction: 'วัดของจริงในห้อง: ยาวกว่า 50 ซม. หรือน้อยกว่า?' },
-      ],
-    },
-    practice: [
-      { type: 'fill', q: '3 km = ? m', ans: '3000', hint: 'คูณด้วย 1,000' },
-      { type: 'fill', q: '250 cm = ? m', ans: '2.5', hint: 'หารด้วย 100' },
-      { type: 'mc', q: '5,500 m = ? km', opts: ['5.5', '55', '550', '0.55'], ans: 0, hint: '5,500 ÷ 1,000 = ?' },
-      { type: 'fill', q: '45 mm = ? cm', ans: '4.5', hint: '45 ÷ 10 = ?' },
-      { type: 'slider', q: 'ระยะทางจากบ้านถึงโรงเรียน 2.5 km = ? m', min: 2000, max: 3000, step: 100, ans: 2500, unit: 'เมตร', hint: '2.5 × 1,000 = ?' },
-      { type: 'fill', q: 'เชือก 3 เส้น ยาว 80 cm, 1.2 m, 50 cm ต่อกัน ยาวรวมกี่เมตร?', ans: '2.5', hint: 'แปลงให้เหมือนกัน: 0.8+1.2+0.5=?' },
-      { type: 'mc', q: 'ส่วนสูง 145 cm = ? เมตร', opts: ['1.45', '14.5', '0.145', '145'], ans: 0, hint: 'หารด้วย 100' },
-      { type: 'fill', q: 'สระว่ายน้ำ 25 เมตร ว่ายไป-กลับ = ? ซม.', ans: '5000', hint: '25×2 = 50 m = 5,000 cm' },
-      { type: 'mc', q: 'หน่วยที่ใหญ่ที่สุดคือ?', opts: ['cm', 'mm', 'm', 'km'], ans: 3, hint: 'km ใหญ่สุด 1 km = 1,000,000 mm' },
-      { type: 'fill', q: 'รั้วยาว 1 km 200 m = ? m', ans: '1200', hint: '1,000 + 200 = ?' },
-    ],
-  },
+  lengthV2,
   {
     id: 'math-4-9',
     subject: 'math',
@@ -385,58 +295,7 @@ const chapters: AnyChapter[] = [
   },
   moneyV2,
   timeV2,
-  {
-    id: 'math-4-12',
-    subject: 'math',
-    grade: 4,
-    chapter: 12,
-    title: 'กราฟและแผนภูมิ',
-    icon: '📊',
-    slug: 'charts-graphs',
-    explain: [
-      {
-        type: 'text',
-        html: '<p><strong>กราฟแท่ง</strong> ใช้แสดงการเปรียบเทียบข้อมูล</p><p>วิธีอ่านกราฟ:<br/>• แกน X (แนวนอน) = หมวดหมู่ข้อมูล<br/>• แกน Y (แนวตั้ง) = ค่าหรือปริมาณ<br/>• ความสูงของแท่ง = ค่าข้อมูล</p>',
-      },
-      {
-        type: 'highlight',
-        text: 'ก่อนอ่านกราฟ: ดูชื่อกราฟ หน่วย และตาราง Y เสมอ',
-      },
-      {
-        type: 'example',
-        text: 'กราฟแสดงคะแนน: คณิต 90 วิทย์ 75 ไทย 85 — วิชาที่ได้คะแนนสูงสุดคือคณิตศาสตร์',
-      },
-    ],
-    demo: {
-      component: 'BarChartDrag',
-      config: {
-        initialData: [
-          { label: 'จันทร์', value: 30 }, { label: 'อังคาร', value: 45 },
-          { label: 'พุธ', value: 20 }, { label: 'พฤหัส', value: 55 }, { label: 'ศุกร์', value: 40 },
-        ],
-        maxValue: 80,
-        yLabel: 'คน',
-      },
-      steps: [
-        { instruction: 'กราฟแสดงจำนวนนักเรียนที่ไปห้องสมุดแต่ละวัน' },
-        { instruction: 'วันใดมีนักเรียนมากที่สุด? ดูแท่งที่สูงสุด' },
-        { instruction: 'ลากแท่ง "จันทร์" ขึ้นเป็น 60 เพื่อดูผล', config: { initialData: [{ label: 'จันทร์', value: 30 }, { label: 'อังคาร', value: 45 }, { label: 'พุธ', value: 20 }, { label: 'พฤหัส', value: 55 }, { label: 'ศุกร์', value: 40 }] } },
-        { instruction: 'รวมทุกวัน: 30+45+20+55+40 = 190 คน — ลองบวกดู' },
-      ],
-    },
-    practice: [
-      { type: 'mc', q: 'กราฟแสดงคะแนน: เด็กชาย 65 เด็กหญิง 80 ใครได้คะแนนสูงกว่าและต่างกันเท่าไร?', opts: ['เด็กหญิง ต่าง 15', 'เด็กชาย ต่าง 15', 'เด็กหญิง ต่าง 20', 'เท่ากัน'], ans: 0, hint: '80 – 65 = 15' },
-      { type: 'fill', q: 'กราฟแท่ง 4 แท่ง ค่า 25, 40, 35, 20 ค่าเฉลี่ยคือ?', ans: '30', hint: '(25+40+35+20) ÷ 4 = ?' },
-      { type: 'slider', q: 'ถ้ากราฟแสดงผลผลิต 5 เดือน รวม 250 เฉลี่ยต่อเดือนคือ?', min: 40, max: 60, step: 5, ans: 50, unit: 'หน่วย', hint: '250 ÷ 5 = ?' },
-      { type: 'fill', q: 'ข้อมูล: แมว 8 หมา 12 นก 5 กระต่าย 3 รวมทั้งหมด?', ans: '28', hint: '8+12+5+3 = ?' },
-      { type: 'mc', q: 'กราฟแสดงยอดขาย ม.ค.=500 ก.พ.=700 มี.ค.=600 ยอดขายสูงสุดคือเดือนใด?', opts: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เท่ากัน'], ans: 1, hint: '700 มากที่สุด' },
-      { type: 'fill', q: 'จำนวนนักเรียน ป.4 = 35 ป.5 = 42 ป.6 = 38 รวม?', ans: '115', hint: '35+42+38 = ?' },
-      { type: 'mc', q: 'แผนภูมิวงกลมแบ่ง 4 ส่วน ส่วนใหญ่สุดมีขนาด 50% หมายความว่า?', opts: ['ครึ่งหนึ่งของทั้งหมด', 'มากกว่าครึ่ง', 'น้อยกว่าครึ่ง', '5 ส่วน 10'], ans: 0, hint: '50% = ½ ของทั้งหมด' },
-      { type: 'fill', q: 'กราฟแสดง 5 แท่งรวม 200 ถ้าแท่งหนึ่งสูง 60 แท่งที่เหลือรวม?', ans: '140', hint: '200 – 60 = ?' },
-      { type: 'mc', q: 'ข้อมูลใดเหมาะสมกับกราฟแท่ง?', opts: ['อุณหภูมิรายชั่วโมง', 'ยอดขาย 4 ร้าน', 'ส่วนประกอบของอาหาร', 'การเดินทาง'], ans: 1, hint: 'กราฟแท่งเหมาะกับการเปรียบเทียบหมวดหมู่' },
-      { type: 'slider', q: 'กราฟ 3 แท่ง ค่า 40, ?, 60 ถ้าเฉลี่ย = 50 ค่ากลางคือ?', min: 40, max: 60, step: 5, ans: 50, unit: '', hint: '(40+?+60)÷3=50 → ?=50' },
-    ],
-  },
+  barChartV2,
   {
     id: 'math-4-13',
     subject: 'math',

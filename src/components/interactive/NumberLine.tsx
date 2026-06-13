@@ -8,6 +8,7 @@ interface Props {
   step?: number
   initialValue?: number
   onChange?: (value: number) => void
+  onStateChange?: (state: Record<string, unknown>) => void   // for LessonStory goal gating
   readOnly?: boolean
   targetValue?: number
   markers?: number[]
@@ -22,6 +23,7 @@ export default function NumberLine({
   step = 1,
   initialValue = 0,
   onChange,
+  onStateChange,
   readOnly = false,
   targetValue,
   markers,
@@ -59,12 +61,14 @@ export default function NumberLine({
     const v = toValue(e.clientX)
     setValue(v)
     onChange?.(v)
+    onStateChange?.({ value: v })
   }
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!dragging.current || readOnly) return
     const v = toValue(e.clientX)
     setValue(v)
     onChange?.(v)
+    onStateChange?.({ value: v })
   }
   const handlePointerUp = () => { dragging.current = false }
 

@@ -12,6 +12,7 @@ interface Props {
   initialData: BarData[]
   maxValue?: number
   onChange?: (data: BarData[]) => void
+  onStateChange?: (state: Record<string, unknown>) => void   // for LessonStory goal gating
   readOnly?: boolean
   targetData?: BarData[]
   yLabel?: string
@@ -23,6 +24,7 @@ export default function BarChartDrag({
   initialData,
   maxValue = 100,
   onChange,
+  onStateChange,
   readOnly = false,
   targetData,
   yLabel = 'จำนวน',
@@ -69,6 +71,9 @@ export default function BarChartDrag({
     const next = data.map((d, i) => i === idx ? { ...d, value } : d)
     setData(next)
     onChange?.(next)
+    const matches = targetData !== undefined &&
+      next.every((d, i) => Math.abs(d.value - (targetData[i]?.value ?? 0)) < 0.5)
+    onStateChange?.({ correct: matches ? 1 : 0 })
   }
 
   const isCorrect = targetData !== undefined &&
