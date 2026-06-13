@@ -5,6 +5,10 @@ import { generateExam } from '../src/lib/examGen.ts'
 const EXAMS = {
   'number-calc': () => import('../src/content/math/grade-6/number-calc.exam.ts'),
   'factors': () => import('../src/content/math/grade-6/factors.exam.ts'),
+  'fraction-calc': () => import('../src/content/math/grade-6/fraction-calc.exam.ts'),
+  'decimals': () => import('../src/content/math/grade-6/decimals.exam.ts'),
+  'decimal-calc': () => import('../src/content/math/grade-6/decimal-calc.exam.ts'),
+  'statistics': () => import('../src/content/math/grade-6/statistics.exam.ts'),
   'parallel-angles': () => import('../src/content/math/grade-6/parallel-angles.exam.ts'),
   'equations': () => import('../src/content/math/grade-6/equations.exam.ts'),
   'scale': () => import('../src/content/math/grade-6/scale.exam.ts'),
