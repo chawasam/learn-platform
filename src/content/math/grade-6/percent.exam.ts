@@ -12,14 +12,12 @@ const pick = <T,>(r: Rng, a: T[]) => a[Math.floor(r() * a.length)]
 // options, ans pointing at the correct one after shuffle.
 function mcNum(r: Rng, q: string, correct: number, wrong: number[], fmt: (n: number) => string, hint: string): QuizQuestion {
   const ds: number[] = []
-  for (const w of wrong) if (Number.isInteger(w) && w !== correct && !ds.includes(w) && ds.length < 3) ds.push(w)
-  let d = 1
-  while (ds.length < 3) {
-    for (const c of [correct + d, correct - d, correct + d * 5, correct + d * 10]) {
-      if (c > 0 && c !== correct && !ds.includes(c) && ds.length < 3) ds.push(c)
-    }
-    d++
-  }
+  const add = (c: number) => { if (Number.isInteger(c) && c > 0 && c !== correct && !ds.includes(c) && ds.length < 3) ds.push(c) }
+  for (const w of wrong) add(w)
+  // fallbacks use plausible magnitudes (×2, ÷2, ±10%) — never correct±1, which reads like a typo
+  for (const c of [correct * 2, Math.round(correct / 2), correct + 10, correct - 10, Math.round(correct * 1.5), correct + 5, correct - 5]) add(c)
+  let d = 3
+  while (ds.length < 3) { add(correct + d); add(correct - d); d += 4 }
   const vals = [correct, ...ds]
   for (let i = vals.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [vals[i], vals[j]] = [vals[j], vals[i]] }
   return { type: 'mc', q, opts: vals.map(fmt), ans: vals.indexOf(correct), hint }
@@ -35,7 +33,7 @@ const templates: QuestionTemplate[] = [
   // หาค่าร้อยละของจำนวน
   { id: 'pct-of', difficulty: 1, gen: r => {
     const m = ri(r, 1, 25), k = ri(r, 1, 15), N = 20 * m, p = 5 * k, v = m * k
-    return mcNum(r, `${p}% ของ ${N} = เท่าไร`, v, [p, N - v, v * 10], plain, `${p}/100 × ${N}`)
+    return mcNum(r, `${p}% ของ ${N} = เท่าไร`, v, [p, N - v, Math.round(N / 2)], plain, `${p}/100 × ${N}`)
   } },
   { id: 'fill-pct-of', difficulty: 1, gen: r => {
     const m = ri(r, 1, 25), k = ri(r, 1, 15), N = 20 * m, p = 5 * k, v = m * k
@@ -53,10 +51,6 @@ const templates: QuestionTemplate[] = [
   { id: 'fill-pay', difficulty: 2, gen: r => {
     const g = pick(r, GOODS), m = ri(r, 3, 25), k = ri(r, 1, 12), N = 20 * m, p = 5 * k, pay = N - m * k
     return { type: 'fill', q: `${g}ราคา ${N} บาท ลด ${p}% จ่ายจริง ___ บาท`, ans: String(pay), hint: `${N} − ${p}% ของ ${N}` }
-  } },
-  { id: 'slider-discount', difficulty: 1, gen: r => {
-    const m = ri(r, 3, 25), k = ri(r, 1, 12), N = 20 * m, p = 5 * k, v = m * k
-    return { type: 'slider', q: `ราคา ${N} บาท ลด ${p}% ลดกี่บาท`, min: 0, max: N, step: 1, ans: v, unit: 'บาท', hint: `${p}/100 × ${N}` }
   } },
   // หาจำนวนเมื่อรู้ร้อยละ
   { id: 'find-whole', difficulty: 2, gen: r => {
@@ -113,8 +107,10 @@ const bank: QuizQuestion[] = [
   { type: 'mc', q: 'เงินฝาก 5000 บาท ดอกเบี้ย 3% ต่อปี ฝาก 2 ปี ได้ดอกเบี้ยรวมกี่บาท', opts: ['300 บาท', '150 บาท', '450 บาท', '600 บาท'], ans: 0, hint: 'ปีละ 3% ของ 5000 = 150 ×2 ปี = 300' },
   { type: 'mc', q: 'สินค้าราคา 400 บาท บวก VAT 7% จ่ายจริงกี่บาท', opts: ['428 บาท', '407 บาท', '450 บาท', '372 บาท'], ans: 0, hint: '400 + (7% ของ 400 = 28) = 428' },
   { type: 'fill', q: 'คะแนนเต็ม 80 ได้ 75% ได้กี่คะแนน', ans: '60', hint: '75% ของ 80 = 0.75 × 80' },
-  { type: 'slider', q: 'ร้านลด 30% จากราคา 200 บาท ลดกี่บาท', min: 0, max: 200, step: 1, ans: 60, unit: 'บาท', hint: '30% ของ 200' },
+  { type: 'mc', q: 'ร้านลด 30% จากราคา 200 บาท ลดกี่บาท', opts: ['60 บาท', '140 บาท', '30 บาท', '66 บาท'], ans: 0, hint: '30% ของ 200 = 0.3 × 200' },
 ]
+// หมายเหตุ pattern: ข้อสอบใช้ fill/mc เป็นหลัก — slider เฉพาะข้อ "ประมาณค่า/อ่านสเกล" ง่ายๆ
+// ข้อคำนวณ/ระดับสูง ห้ามใช้ slider (เลื่อนเดาได้ ไม่บังคับคิด) → ใช้ fill (พิมพ์) หรือ mc (เลือก)
 
 const percentExam: ChapterExam = { chapterId: 'math-6-percent', templates, bank }
 export default percentExam
