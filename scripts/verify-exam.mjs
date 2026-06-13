@@ -1,15 +1,19 @@
-// Verify the GENERATOR, not 3,900 hand-checked outputs. Sample every template many
-// times + check structural invariants, then confirm generateExam yields 100 unique.
-// Run: npx tsx scripts/verify-exam.mjs
-// (the .exam.ts / examGen.ts files import only `import type` from '@/...', which esbuild
-//  strips, so tsx loads them with no path-alias resolution needed.)
-import { generateExam, mulberry32 } from '../src/lib/examGen.ts'
-import _percent from '../src/content/math/grade-6/percent.exam.ts'
-const percentExam = _percent?.default ?? _percent   // tsx may wrap default in CJS interop
+// Verify the GENERATORS, not 3,900 hand-checked outputs. Per exam: sample every
+// template many times + structural invariants, then confirm generateExam yields 100
+// unique. Run: npx tsx scripts/verify-exam.mjs
+// (.exam.ts / examGen.ts import only `import type` from '@/...', stripped by esbuild,
+//  so tsx loads them with no path-alias resolution. Keep this list in sync with
+//  src/content/exams/registry.ts.)
+import { generateExam } from '../src/lib/examGen.ts'
+
+const EXAMS = [
+  ['math-6-number-calc', () => import('../src/content/math/grade-6/number-calc.exam.ts')],
+  ['math-6-percent', () => import('../src/content/math/grade-6/percent.exam.ts')],
+  ['math-6-volume', () => import('../src/content/math/grade-6/volume.exam.ts')],
+]
 
 let fail = 0
 const err = (m) => { console.error('  ✗', m); fail++ }
-
 const stemOf = (q) => (q.type === 'mc' ? `${q.q}|${[...q.opts].sort().join(',')}` : q.q)
 
 function checkQ(label, q) {
@@ -33,33 +37,28 @@ function checkQ(label, q) {
   }
 }
 
-console.log(`Verifying exam: ${percentExam.chapterId}`)
-
-// 1) per-template invariants
 const SAMPLES = 80
-for (const t of percentExam.templates) {
-  for (let s = 1; s <= SAMPLES; s++) {
-    const rng = mulberry32(s * 7919 + 13)
-    let q
-    try { q = t.gen(rng) } catch (e) { err(`template ${t.id} threw: ${e.message}`); continue }
-    checkQ(`template ${t.id}`, q)
+for (const [id, loader] of EXAMS) {
+  const mod = await loader()
+  const exam = mod?.default ?? mod
+  if (exam.chapterId !== id) err(`${id}: chapterId mismatch (${exam.chapterId})`)
+  for (const t of exam.templates) {
+    for (let s = 1; s <= SAMPLES; s++) {
+      let q
+      try { q = t.gen((() => { let a = (s * 7919 + 13) >>> 0; return () => { a = (a + 0x6d2b79f5) | 0; let x = Math.imul(a ^ (a >>> 15), 1 | a); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296 } })()) }
+      catch (e) { err(`${id}/${t.id} threw: ${e.message}`); continue }
+      checkQ(`${id}/${t.id}`, q)
+    }
   }
+  for (let i = 0; i < (exam.bank ?? []).length; i++) checkQ(`${id}/bank[${i}]`, exam.bank[i])
+  for (const seed of [1, 2, 3, 42, 99, 1000, 123456]) {
+    const qs = generateExam(exam, 100, seed)
+    if (qs.length !== 100) err(`${id} seed ${seed}: got ${qs.length}/100`)
+    if (new Set(qs.map(stemOf)).size !== qs.length) err(`${id} seed ${seed}: duplicates`)
+    for (const q of qs) checkQ(`${id}/gen`, q)
+  }
+  console.log(`  ✓ ${id}: ${exam.templates.length} tpl × ${SAMPLES} + bank ${(exam.bank ?? []).length} + 100 unique × 7 seeds`)
 }
-console.log(`  templates checked: ${percentExam.templates.length} × ${SAMPLES} samples`)
-
-// 2) static bank invariants
-for (let i = 0; i < (percentExam.bank ?? []).length; i++) checkQ(`bank[${i}]`, percentExam.bank[i])
-console.log(`  bank checked: ${(percentExam.bank ?? []).length}`)
-
-// 3) generateExam yields 100 unique across several seeds
-for (const seed of [1, 2, 3, 42, 99, 1000, 123456]) {
-  const qs = generateExam(percentExam, 100, seed)
-  if (qs.length !== 100) err(`seed ${seed}: got ${qs.length}/100`)
-  const stems = new Set(qs.map(stemOf))
-  if (stems.size !== qs.length) err(`seed ${seed}: ${qs.length - stems.size} duplicate(s)`)
-  for (const q of qs) checkQ(`gen seed ${seed}`, q)
-}
-console.log('  generateExam: 100 unique across 7 seeds')
 
 if (fail) { console.error(`\nFAILED: ${fail} issue(s)`); process.exit(1) }
-console.log('\n✓ all exam invariants passed')
+console.log(`\n✓ all ${EXAMS.length} exams passed`)

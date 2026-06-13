@@ -1,32 +1,11 @@
 import type { QuizQuestion } from '@/types/curriculum'
-import type { ChapterExam, QuestionTemplate, Rng } from '@/types/exam'
+import type { ChapterExam, QuestionTemplate } from '@/types/exam'
+import { ri, pick, mcNum, baht, plain, ppl, pctf } from '@/content/exams/helpers'
 
 // แนวข้อสอบร้อยละ ป.6 (สไตล์เข้า ม.1 / O-NET) — เขียน original จาก archetype ของจริง
 // ดู provenance + citation ที่ src/content/exams/percent.notes.md
 // ทุก template สร้างเลขให้คำตอบเป็นจำนวนเต็มเสมอ (N = 20m, p = 5k → p% ของ N = m·k)
 
-const ri = (r: Rng, lo: number, hi: number) => lo + Math.floor(r() * (hi - lo + 1))
-const pick = <T,>(r: Rng, a: T[]) => a[Math.floor(r() * a.length)]
-
-// build an mc from numeric correct + numeric wrong-guesses; guarantees 4 distinct
-// options, ans pointing at the correct one after shuffle.
-function mcNum(r: Rng, q: string, correct: number, wrong: number[], fmt: (n: number) => string, hint: string): QuizQuestion {
-  const ds: number[] = []
-  const add = (c: number) => { if (Number.isInteger(c) && c > 0 && c !== correct && !ds.includes(c) && ds.length < 3) ds.push(c) }
-  for (const w of wrong) add(w)
-  // fallbacks use plausible magnitudes (×2, ÷2, ±10%) — never correct±1, which reads like a typo
-  for (const c of [correct * 2, Math.round(correct / 2), correct + 10, correct - 10, Math.round(correct * 1.5), correct + 5, correct - 5]) add(c)
-  let d = 3
-  while (ds.length < 3) { add(correct + d); add(correct - d); d += 4 }
-  const vals = [correct, ...ds]
-  for (let i = vals.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [vals[i], vals[j]] = [vals[j], vals[i]] }
-  return { type: 'mc', q, opts: vals.map(fmt), ans: vals.indexOf(correct), hint }
-}
-
-const baht = (n: number) => `${n} บาท`
-const plain = (n: number) => `${n}`
-const ppl = (n: number) => `${n} คน`
-const pctf = (n: number) => `${n}%`
 const GOODS = ['เสื้อ', 'หนังสือ', 'รองเท้า', 'กระเป๋า', 'หมวก', 'ตุ๊กตา']
 
 const templates: QuestionTemplate[] = [
