@@ -18,6 +18,20 @@ export const EXAM_TEMPLATES: Record<string, () => Promise<{ default: ChapterExam
   'math-6-percent': () => import('@/content/math/grade-6/percent.exam'),
   'math-6-volume': () => import('@/content/math/grade-6/volume.exam'),
   'math-6-statistics': () => import('@/content/math/grade-6/statistics.exam'),
+  // ป.5
+  'math-5-number-calc': () => import('@/content/math/grade-5/number-calc.exam'),
+  'math-5-angles': () => import('@/content/math/grade-5/angles.exam'),
+  'math-5-parallel': () => import('@/content/math/grade-5/parallel-lines.exam'),
+  'math-5-probability': () => import('@/content/math/grade-5/probability.exam'),
+  'math-5-equiv-fractions': () => import('@/content/math/grade-5/equivalent-fractions.exam'),
+  'math-5-fraction-arith': () => import('@/content/math/grade-5/fraction-arithmetic.exam'),
+  'math-5-decimals': () => import('@/content/math/grade-5/decimals.exam'),
+  'math-5-decimal-arith': () => import('@/content/math/grade-5/decimal-arithmetic.exam'),
+  'math-5-word-problems': () => import('@/content/math/grade-5/word-problems.exam'),
+  'math-5-quadrilaterals': () => import('@/content/math/grade-5/quadrilaterals.exam'),
+  'math-5-triangles': () => import('@/content/math/grade-5/triangles.exam'),
+  'math-5-circles': () => import('@/content/math/grade-5/circles.exam'),
+  'math-5-volume': () => import('@/content/math/grade-5/volume.exam'),
 }
 
 export const hasExam = (chapterId: string): boolean => chapterId in EXAM_TEMPLATES

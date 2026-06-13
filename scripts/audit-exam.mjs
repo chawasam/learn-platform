@@ -16,6 +16,20 @@ const EXAMS = {
   'circle-area': () => import('../src/content/math/grade-6/circle-area.exam.ts'),
   'percent': () => import('../src/content/math/grade-6/percent.exam.ts'),
   'volume': () => import('../src/content/math/grade-6/volume.exam.ts'),
+  // ป.5
+  'p5-number-calc': () => import('../src/content/math/grade-5/number-calc.exam.ts'),
+  'p5-angles': () => import('../src/content/math/grade-5/angles.exam.ts'),
+  'p5-parallel': () => import('../src/content/math/grade-5/parallel-lines.exam.ts'),
+  'p5-probability': () => import('../src/content/math/grade-5/probability.exam.ts'),
+  'p5-equiv-fractions': () => import('../src/content/math/grade-5/equivalent-fractions.exam.ts'),
+  'p5-fraction-arith': () => import('../src/content/math/grade-5/fraction-arithmetic.exam.ts'),
+  'p5-decimals': () => import('../src/content/math/grade-5/decimals.exam.ts'),
+  'p5-decimal-arith': () => import('../src/content/math/grade-5/decimal-arithmetic.exam.ts'),
+  'p5-word-problems': () => import('../src/content/math/grade-5/word-problems.exam.ts'),
+  'p5-quadrilaterals': () => import('../src/content/math/grade-5/quadrilaterals.exam.ts'),
+  'p5-triangles': () => import('../src/content/math/grade-5/triangles.exam.ts'),
+  'p5-circles': () => import('../src/content/math/grade-5/circles.exam.ts'),
+  'p5-volume': () => import('../src/content/math/grade-5/volume.exam.ts'),
 }
 
 const key = process.argv[2] || 'percent'
