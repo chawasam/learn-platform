@@ -76,6 +76,7 @@ const equivalentFractions: ChapterV2 = {
     {
       id: 'quiz-equiv',
       say: '4/6 = 2/3 เพราะ 2×2=4 และ 3×2=6 — คูณบนล่างด้วย 2 เหมือนกัน',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 3, filled: 2, color: '#4A90D9' }, { parts: 6, filled: 4, color: '#7BC8F6' }], showLabels: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -116,6 +117,7 @@ const equivalentFractions: ChapterV2 = {
     {
       id: 'quiz-reduce',
       say: 'ลดรูป 6/9 = 2/3 เพราะ 6÷3=2 และ 9÷3=3',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 9, filled: 6, color: '#FF7A2F' }, { parts: 3, filled: 2, color: '#8B5A2B' }], showLabels: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',

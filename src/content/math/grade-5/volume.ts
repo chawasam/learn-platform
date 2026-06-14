@@ -31,6 +31,8 @@ const volume: ChapterV2 = {
     {
       id: 'volume-formula',
       say: 'ปริมาตร = กว้าง × ยาว × สูง ถ้าฐาน 2×3 = 6 ซ้อนสูง 4 ชั้น → 6 × 4 = 24',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'กล่องกว้าง 2 ยาว 3 สูง 4 ปริมาตร?', opts: ['24', '9', '14', '12'], ans: 0, hint: '2 × 3 × 4' },
@@ -39,6 +41,8 @@ const volume: ChapterV2 = {
     {
       id: 'cube',
       say: 'ลูกบาศก์คือกล่องที่กว้าง ยาว สูง เท่ากันหมด ด้าน 3 → 3 × 3 × 3',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ลูกบาศก์ด้านยาว 3 ปริมาตร?', opts: ['27', '9', '18', '12'], ans: 0, hint: '3 × 3 × 3' },
@@ -62,6 +66,7 @@ const volume: ChapterV2 = {
     {
       id: 'volume-calc',
       say: 'ทดสอบสูตรปริมาตร!',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'กล่อง กว้าง 3 ยาว 4 สูง 5 ซม. ปริมาตร = ?', opts: ['60 ลบ.ซม.', '24 ลบ.ซม.', '35 ลบ.ซม.', '120 ลบ.ซม.'], ans: 0, hint: '3×4×5 = 60 ลบ.ซม.' },
