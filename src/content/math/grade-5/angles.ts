@@ -12,23 +12,37 @@ const angles: ChapterV2 = {
   scenes: [
     {
       id: 'intro',
-      say: 'มุมเกิดจากเส้น 2 เส้นมาเจอกัน วัดเป็นองศา (°) — ลากแขนสีน้ำเงินดูสิมุมเปลี่ยนยังไง',
+      say: 'มุมเกิดจากเส้น 2 เส้นมาเจอกัน วัดเป็นองศา (°) — ลากแขนสีน้ำเงินให้ได้มุม 90° ดู',
       visual: { component: 'AngleDrag', config: { initialAngle: 45 } },
+      goal: { type: 'reach-value', key: 'angle', value: 90 },
+      hint: 'ลากแขนสีน้ำเงินขึ้นตั้งตรง จนแสดง 90°',
     },
     {
       id: 'right',
-      say: 'มุมฉาก = 90° เป๊ะ เหมือนมุมห้อง มุมหนังสือ — ดูเครื่องหมายมุมฉากตรงมุม',
+      say: 'มุมฉาก = 90° เป๊ะ เหมือนมุมห้อง มุมหนังสือ — ดูเครื่องหมายกล่องเล็กตรงมุม',
       visual: { component: 'AngleDrag', config: { initialAngle: 90, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มุมห้อง มุมหนังสือ มุมกระดาน — มุมเหล่านี้เรียกว่ามุมอะไร?', opts: ['มุมฉาก', 'มุมแหลม', 'มุมป้าน', 'มุมตรง'], ans: 0, hint: 'มุมห้อง = 90° = มุมฉาก' },
+      },
     },
     {
       id: 'acute-obtuse',
-      say: 'มุมแหลม < 90° (เล็กกว่ามุมฉาก) · มุมป้าน > 90° (กว้างกว่า) — ลองลากให้เป็นมุมป้านดู',
+      say: 'มุมแหลม < 90° (เล็กกว่ามุมฉาก) · มุมป้าน > 90° (กว้างกว่า) — ลองลากให้ได้มุมป้าน 120°',
       visual: { component: 'AngleDrag', config: { initialAngle: 60 } },
+      goal: { type: 'reach-value', key: 'angle', value: 120 },
+      hint: 'ลากแขนไปทางซ้ายเลย 90° จนได้ 120°',
     },
     {
       id: 'straight',
-      say: 'ถ้ากางจนสุด 180° จะกลายเป็นเส้นตรง เรียกว่ามุมตรง',
+      say: 'กางสุด 180° กลายเป็นเส้นตรง เรียกว่ามุมตรง — ครึ่งวงกลมพอดี',
       visual: { component: 'AngleDrag', config: { initialAngle: 180, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มุม 180° ที่กลายเป็นเส้นตรงเรียกว่ามุมอะไร?', opts: ['มุมตรง', 'มุมฉาก', 'มุมแหลม', 'มุมป้าน'], ans: 0, hint: 'กางสุดจนเป็นเส้น = มุมตรง' },
+      },
     },
     {
       id: 'quiz',
@@ -43,11 +57,21 @@ const angles: ChapterV2 = {
     {
       id: 'angles-360',
       say: 'มุมรอบจุดรวมกันได้ 360° เสมอ เหมือนหมุนครบรอบนาฬิกา ไม่ว่าจะแบ่งกี่ชิ้นก็รวมได้ 360°',
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เข็มนาฬิกาหมุนครบรอบหนึ่ง รวมกี่องศา?', opts: ['360°', '180°', '270°', '90°'], ans: 0, hint: 'หมุนครบรอบ = 360°' },
+      },
     },
     {
       id: 'angles-180',
       say: 'ถ้ามุม 2 มุมอยู่บนเส้นตรงเดียวกัน รวมกันได้ 180° เสมอ เช่น มุม 60° + มุม 120° = 180°',
       visual: { component: 'AngleDrag', config: { initialAngle: 180, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มุมหนึ่งบนเส้นตรงเป็น 60° มุมที่สองเป็นกี่องศา?', opts: ['120°', '180°', '240°', '90°'], ans: 0, hint: 'บนเส้นตรงรวม 180° → 180 − 60 = 120' },
+      },
     },
     {
       id: 'recap',

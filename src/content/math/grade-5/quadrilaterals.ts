@@ -22,11 +22,21 @@ const quadrilaterals: ChapterV2 = {
       id: 'square-rect',
       say: 'จัตุรัส = 4 ด้านเท่า 4 มุมฉาก · ผืนผ้า = ด้านตรงข้ามเท่ากัน 4 มุมฉาก',
       visual: { component: 'QuadMorph', config: { shape: 'rectangle', readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'จัตุรัสต่างจากผืนผ้าตรงไหน?', opts: ['จัตุรัสทุกด้านยาวเท่ากัน', 'จัตุรัสมีมุมมากกว่า', 'ผืนผ้ามีด้านมากกว่า', 'ผืนผ้ามีมุมฉากกว่า'], ans: 0, hint: 'จัตุรัส 4 ด้านเท่า ผืนผ้าเฉพาะด้านตรงข้าม' },
+      },
     },
     {
       id: 'rhombus',
       say: 'ขนมเปียกปูน = 4 ด้านเท่ากันเหมือนจัตุรัส แต่เอียง มุมไม่เป็นมุมฉาก',
       visual: { component: 'QuadMorph', config: { shape: 'rhombus', readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ขนมเปียกปูนต่างจากจัตุรัสตรงไหน?', opts: ['มุมไม่เป็นมุมฉาก', 'ด้านน้อยกว่า', 'ด้านมากกว่า', 'มุมฉากทุกมุม'], ans: 0, hint: 'ด้านเท่าเหมือนกัน แต่ขนมเปียกปูนเอียง ไม่มีมุมฉาก' },
+      },
     },
     {
       id: 'perimeter',
@@ -40,11 +50,21 @@ const quadrilaterals: ChapterV2 = {
       id: 'parallelogram-props',
       say: 'สี่เหลี่ยมด้านขนาน: ด้านตรงข้ามยาวเท่ากัน มุมตรงข้ามเท่ากัน ลองจับสังเกตดู',
       visual: { component: 'QuadMorph', config: { shape: 'parallelogram', readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สี่เหลี่ยมด้านขนาน ด้านตรงข้ามเป็นอย่างไร?', opts: ['ยาวเท่ากันและขนานกัน', 'ทุกด้านยาวเท่ากัน', 'ทุกมุมเป็นมุมฉาก', 'ด้านตั้งฉากกัน'], ans: 0, hint: 'ชื่อ "ด้านขนาน" บอกแล้ว + ด้านตรงข้ามยาวเท่า' },
+      },
     },
     {
       id: 'quad-family',
       say: 'จัตุรัสเป็นสี่เหลี่ยมผืนผ้าชนิดพิเศษ (ด้านเท่าทุกด้าน) และผืนผ้าเป็นด้านขนานชนิดพิเศษ (มุมฉาก)',
       visual: { component: 'QuadMorph', config: { shape: 'square', readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'จัตุรัสทุกรูปถือว่าเป็นสี่เหลี่ยมผืนผ้าด้วยไหม?', opts: ['ใช่ เพราะมี 4 มุมฉากเหมือนกัน', 'ไม่ใช่ เพราะด้านไม่เท่า', 'ขึ้นอยู่กับขนาด', 'ไม่ใช่ เพราะต้องยาวกว่ากว้าง'], ans: 0, hint: 'จัตุรัส = ผืนผ้าที่พิเศษ (ด้านเท่าทุกด้าน) ยังมีมุมฉากครบ' },
+      },
     },
     {
       id: 'quad-quiz',
