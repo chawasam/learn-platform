@@ -30,11 +30,21 @@ const divide: ChapterV2 = {
       id: 'result-12-3',
       say: 'แจกครบแล้ว! ทุกจานได้เท่ากัน 4 เม็ด เขียนว่า 12 ÷ 3 = 4',
       visual: { component: 'DivideShare', config: { total: 12, plates: 3, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ลูกอม 12 เม็ด แบ่ง 3 จาน จานละกี่เม็ด?', opts: ['4', '3', '6', '12'], ans: 0, hint: '12 ÷ 3 = 4 เม็ดต่อจาน' },
+      },
     },
     {
       id: 'inverse',
       say: 'รู้ไหม? หารกับคูณตรงข้ามกัน — 4 × 3 = 12 ก็เลย 12 ÷ 3 = 4 จำคู่กันได้เลย',
       visual: { component: 'MultiplyArray', config: { a: 4, b: 3, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '4 × 3 = 12 ดังนั้น 12 ÷ 3 = ?', opts: ['4', '3', '6', '12'], ans: 0, hint: 'คูณ↔หาร เป็นคู่กัน: ×3 กลับด้วย ÷3' },
+      },
     },
     {
       id: 'deal-20-4',
@@ -54,6 +64,11 @@ const divide: ChapterV2 = {
       id: 'remainder-explain',
       say: 'เหลือ 1 เม็ดแจกไม่ได้เพราะไม่พอทุกจาน เรียกว่า "เศษ" → 13 ÷ 4 = 3 เศษ 1',
       visual: { component: 'DivideShare', config: { total: 13, plates: 4, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '13 ÷ 4 = ? เศษ ?', opts: ['3 เศษ 1', '4 เศษ 0', '3 เศษ 2', '2 เศษ 5'], ans: 0, hint: '4×3=12 เหลือ 13−12=1 → 3 เศษ 1' },
+      },
     },
     {
       id: 'column-intro',

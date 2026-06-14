@@ -38,6 +38,11 @@ const fractions: ChapterV2 = {
         component: 'PizzaCutter',
         config: { initialParts: 4, allowCut: false, allowPick: false, showLabel: false },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'พิซซ่าแบ่ง 4 ชิ้นเท่ากัน แต่ละชิ้นเรียกว่า?', opts: ['1/4 ของพิซซ่า', '1/2 ของพิซซ่า', '4/1 ของพิซซ่า', 'ครึ่งพิซซ่า'], ans: 0, hint: 'แบ่ง 4 ส่วน เอามา 1 ส่วน = 1/4' },
+      },
     },
     {
       id: 'pick-1',
@@ -56,6 +61,11 @@ const fractions: ChapterV2 = {
         component: 'PizzaCutter',
         config: { initialParts: 4, initialFilled: 1, allowCut: false, allowPick: false, showLabel: true },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เลขล่างในเศษส่วน 1/4 หมายถึงอะไร?', opts: ['แบ่งทั้งหมด 4 ส่วน', 'หยิบมา 4 ส่วน', 'คูณ 4', 'เหลืออีก 4 ชิ้น'], ans: 0, hint: 'เลขล่าง = จำนวนส่วนทั้งหมดที่แบ่ง' },
+      },
     },
     {
       id: 'pick-3',
@@ -73,6 +83,11 @@ const fractions: ChapterV2 = {
       visual: {
         component: 'FractionBars',
         config: { rows: [{ parts: 2, filled: 1, fixed: true, color: '#8B5A2B' }], showLabels: true },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ช็อกโกแลตหักครึ่ง กินไป 1 ซีก เขียนเป็นเศษส่วนว่า?', opts: ['1/2', '2/1', '1/1', '1/3'], ans: 0, hint: 'หักเป็น 2 ส่วน เอามา 1 ส่วน = 1/2' },
       },
     },
     {
