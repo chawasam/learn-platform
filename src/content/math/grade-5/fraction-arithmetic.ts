@@ -35,6 +35,25 @@ const fractionArithmetic: ChapterV2 = {
       },
     },
     {
+      id: 'procedure-add',
+      say: 'สูตรบวก: ตัวล่างเท่ากัน → บวกแค่ตัวบน ตัวล่างคงเดิม',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '1/4 + 2/4 → ตัวล่างเท่ากัน → บวกตัวบน: 1+2=3 → ตอบ 3/4',
+          words: [
+            { text: '1+2=3', color: '#FF7A2F', bold: true },
+            { text: '3/4', color: '#4F80FF', bold: true },
+          ],
+        },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'fill', q: '2/6 + 3/6 = ___/6', ans: '5', hint: 'ล่างเท่ากัน บวกตัวบน 2+3=5' },
+      },
+    },
+    {
       id: 'quiz-add',
       say: '1/5 + 3/5 = 4/5 เพราะตัวล่างเท่ากัน บวกตัวบน 1+3=4 ตัวล่าง 5 ไม่เปลี่ยน',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 5, filled: 1, color: '#FF7A2F' }], showLabels: true } },
@@ -66,6 +85,25 @@ const fractionArithmetic: ChapterV2 = {
           rows: [{ parts: 4, filled: 2, fixed: true, color: '#FF7A2F' }],
           showLabels: true,
         },
+      },
+    },
+    {
+      id: 'procedure-sub',
+      say: 'สูตรลบ: ตัวล่างเท่ากัน → ลบแค่ตัวบน ตัวล่างคงเดิม',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '3/4 − 1/4 → ตัวล่างเท่ากัน → ลบตัวบน: 3−1=2 → ตอบ 2/4',
+          words: [
+            { text: '3−1=2', color: '#FF7A2F', bold: true },
+            { text: '2/4', color: '#4F80FF', bold: true },
+          ],
+        },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'fill', q: '6/8 − 2/8 = ___/8', ans: '4', hint: 'ล่างเท่ากัน ลบตัวบน 6−2=4' },
       },
     },
     {
