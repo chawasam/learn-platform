@@ -33,6 +33,7 @@ const factors: ChapterV2 = {
     {
       id: 'hcf-quiz',
       say: 'ห.ร.ม.(12,18) = 6 เพราะ 6 คือตัวหารร่วมที่ใหญ่สุด',
+      visual: { component: 'FactorBuilder', config: { n: 12, readOnly: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -47,6 +48,7 @@ const factors: ChapterV2 = {
     {
       id: 'lcm-quiz',
       say: 'ค.ร.น.(4,6) = 12 เพราะ 12 หาร 4 ได้ (12÷4=3) และ 12 หาร 6 ได้ (12÷6=2)',
+      visual: { component: 'FactorBuilder', config: { n: 12, readOnly: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -56,6 +58,13 @@ const factors: ChapterV2 = {
     {
       id: 'word-problem',
       say: 'ไฟวาบทุก 4 วินาที และ 6 วินาที จะวาบพร้อมกันอีกที่วินาทีที่เท่าไร? (ค.ร.น. ช่วยตอบ)',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'พหุคูณ 4: 4, 8, 12, 16, 20, 24 ... · พหุคูณ 6: 6, 12, 18, 24 ... เจอกันครั้งแรกที่ ?',
+          words: [{ text: '4, 8, 12', color: '#FF7A2F', bold: true }, { text: '6, 12', color: '#4F80FF', bold: true }],
+        },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ไฟวาบทุก 4 วินาที และ 6 วินาที วาบพร้อมกันอีกที่วินาทีที่เท่าไร?', opts: ['24 วินาที', '12 วินาที', '10 วินาที', '8 วินาที'], ans: 1, hint: 'ค.ร.น.(4,6) = 12 วินาที' },

@@ -21,6 +21,7 @@ const volume: ChapterV2 = {
     {
       id: 'volume',
       say: 'ฐาน 2×3 = 6 ถ้าซ้อนสูง 4 ชั้น → ปริมาตร = 6 × 4 = 24 ลูกบาศก์หน่วย',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'กล่อง 3 × 4 × 5 ปริมาตร?', opts: ['60', '12', '47', '20'], ans: 0, hint: '3 × 4 × 5' },
@@ -29,6 +30,7 @@ const volume: ChapterV2 = {
     {
       id: 'surface',
       say: 'พื้นที่ผิว = ผลรวมพื้นที่ทุกหน้า (กล่องมี 6 หน้า) บอกขนาดเปลือกนอก ส่วนปริมาตรบอกความจุ',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ลูกบาศก์ด้าน 4 ปริมาตร?', opts: ['12', '16', '64', '48'], ans: 2, hint: '4 × 4 × 4' },
@@ -67,6 +69,7 @@ const volume: ChapterV2 = {
     {
       id: 'volume-quiz',
       say: 'ทดสอบปริมาตรก่อนไปต่อ',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'กล่อง กว้าง 3 ยาว 5 สูง 4 ซม. ปริมาตร = ?', opts: ['60 ลบ.ซม.', '24 ลบ.ซม.', '47 ลบ.ซม.', '120 ลบ.ซม.'], ans: 0, hint: '3×5×4=60 ลบ.ซม.' },
