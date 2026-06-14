@@ -47,11 +47,8 @@ const templates: QuestionTemplate[] = [
     return mcNum(r, `มีขนมทั้งหมด ${total} ชิ้น จัดใส่ถุงๆ ละ ${perGroup} ชิ้น ได้กี่ถุง`, total/perGroup, [total*perGroup, total+perGroup, total/perGroup+1], plain, `${total}÷${perGroup}`)
   }},
   { id: 'div-pattern', difficulty: 2, gen: r => {
-    const base = ri(r,2,5)
-    const a=base*36, b=base*12, c=base*4, d=Math.round(base*4/3)
-    // ensure clean pattern: divide by 3 each time
-    const start = ri(r,2,5)*27
-    return mcNum(r, `${start*4}, ${start*4/4*3}, ??? (หารด้วย 4 ทุกครั้ง): ${start*4}, ${start}, ___ = ?`, start/4, [start/4+1, start*4, start/2], plain, `÷4`)
+    const c = ri(r,2,8), b = c*4, a = b*4
+    return mcNum(r, `${a}, ${b}, ___ (หารด้วย 4 ทุกครั้ง) = ?`, c, [c+4, b, a], plain, `${b}÷4=${c}`)
   }},
   { id: 'concept', difficulty: 1, gen: () => ({
     type: 'mc' as const, q: '72 ÷ 8 = 9 เพราะ?',

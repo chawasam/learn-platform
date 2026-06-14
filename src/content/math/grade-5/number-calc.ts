@@ -56,7 +56,13 @@ const numberCalc: ChapterV2 = {
     {
       id: 'nested-brackets',
       say: 'วงเล็บซ้อน: คำนวณวงเล็บในสุดก่อน (3+2)×(4−1) = 5×3 = 15',
-      visual: { component: 'OrderMachine', config: { expression: [3, '+', 2, '×', 4, '-', 1], mode: 'correct' } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '(3+2) × (4−1) = ?',
+          words: [{ text: '(3+2)', color: '#4F80FF', bold: true }, { text: '(4−1)', color: '#FF7A2F', bold: true }],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -66,7 +72,13 @@ const numberCalc: ChapterV2 = {
     {
       id: 'order-complex',
       say: 'มีทั้งวงเล็บ คูณ หาร บวก — ทำวงเล็บก่อน แล้วคูณหาร แล้วบวกลบ',
-      visual: { component: 'OrderMachine', config: { expression: [10, '-', 4, '×', 2, '+', 8], mode: 'correct' } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '(10−4) × 2 + 8 ÷ 4 = ?',
+          words: [{ text: '(10−4)', color: '#4F80FF', bold: true }, { text: '8 ÷ 4', color: '#FF7A2F', bold: true }],
+        },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '(10−4) × 2 + 8 ÷ 4 = ?', opts: ['14', '16', '10', '20'], ans: 0, hint: '6×2=12, 8÷4=2, 12+2=14' },
