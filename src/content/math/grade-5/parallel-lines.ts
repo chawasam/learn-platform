@@ -26,6 +26,11 @@ const parallelLines: ChapterV2 = {
       id: 'perpendicular',
       say: 'ถ้าเส้น 2 เส้นตัดกันเป็นมุม 90° พอดี เรียกว่า "ตั้งฉาก" (ไม่ใช่ขนาน) เช่น มุมห้อง',
       visual: { component: 'ParallelLines', config: { initialAngle: 90, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เส้น 2 เส้นตัดกันเป็นมุม 90° เรียกว่าเส้นอะไร?', opts: ['ตั้งฉาก', 'ขนาน', 'โค้ง', 'ทแยง'], ans: 0, hint: 'มุม 90° = มุมฉาก = ตั้งฉาก' },
+      },
     },
     {
       id: 'quiz',
@@ -39,11 +44,21 @@ const parallelLines: ChapterV2 = {
       id: 'parallel-distance',
       say: 'ไม่ว่าจะวัดตรงไหนบนเส้นขนาน ระยะห่างระหว่างเส้นจะเท่ากันเสมอ นั่นแหละคือนิยามเส้นขนาน',
       visual: { component: 'ParallelLines', config: { initialAngle: 0, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ระยะห่างของเส้นขนาน 2 เส้น เป็นอย่างไร?', opts: ['เท่ากันตลอด', 'แคบลงเรื่อยๆ', 'กว้างขึ้นเรื่อยๆ', 'ขึ้นอยู่กับตำแหน่ง'], ans: 0, hint: 'นิยามเส้นขนาน = ระยะห่างเท่ากันทุกจุด' },
+      },
     },
     {
       id: 'parallel-vs-cross',
       say: 'เส้นที่ไม่ขนานกันจะตัดกันมีจุดตัด 1 จุด แต่เส้นขนานไม่มีจุดตัดเลยแม้ยืดออกไปไม่รู้จบ',
       visual: { component: 'ParallelLines', config: { initialAngle: 30, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เส้นที่ไม่ขนานกัน ถ้ายืดออกไปจะเกิดอะไร?', opts: ['ตัดกันที่จุดหนึ่ง', 'ไม่ตัดกัน', 'วนเป็นวงกลม', 'กลายเป็นขนาน'], ans: 0, hint: 'ไม่ขนาน = มีจุดตัด 1 จุด' },
+      },
     },
     {
       id: 'parallel-quiz',

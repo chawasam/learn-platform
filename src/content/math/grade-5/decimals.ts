@@ -14,6 +14,11 @@ const decimals: ChapterV2 = {
       id: 'intro',
       say: 'แท่งหั่น 10 ช่อง แต่ละช่อง = 0.1 (หนึ่งส่วนสิบ) ดูนี่ระบาย 3 ช่อง = 0.3',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 3, fixed: true, color: '#4F80FF' }], showLabels: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '3 ช่องจาก 10 ช่อง เขียนเป็นทศนิยมว่า?', opts: ['0.3', '3.0', '0.03', '30'], ans: 0, hint: '3/10 = 0.3 (หลังจุด 1 ตัว)' },
+      },
     },
     {
       id: 'make-half',
@@ -26,6 +31,11 @@ const decimals: ChapterV2 = {
       id: 'half',
       say: '5 ช่องจาก 10 = 5/10 = 0.5 = ครึ่งหนึ่ง! ทศนิยมกับเศษส่วนคือเรื่องเดียวกัน',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 5, fixed: true, color: '#4F80FF' }], showLabels: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '5/10 เขียนเป็นทศนิยมว่า?', opts: ['0.5', '5.0', '0.05', '50'], ans: 0, hint: '5 ส่วนสิบ = 0.5 (หลังจุด 1 ตัว)' },
+      },
     },
     {
       id: 'compare',
@@ -39,11 +49,21 @@ const decimals: ChapterV2 = {
       id: 'hundredths',
       say: 'ส่วนร้อย = 0.01 แท่งแบ่ง 100 ช่อง 1 ช่อง = 0.01 เช่น 25 ช่อง = 0.25',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 25, color: '#FF7A2F' }], showLabels: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '25 ช่องจาก 100 ช่อง เขียนเป็นทศนิยมว่า?', opts: ['0.25', '2.5', '0.025', '25'], ans: 0, hint: '25/100 = 0.25 (หลังจุด 2 ตัว)' },
+      },
     },
     {
       id: 'compare-decimals',
       say: 'เทียบ 0.3 กับ 0.25: ดูหลักส่วนสิบก่อน 3 > 2 ดังนั้น 0.3 > 0.25',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 3, color: '#4F80FF' }, { parts: 100, filled: 25, color: '#FF7A2F' }], showLabels: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '0.3 กับ 0.25 เทียบกัน อันไหนมากกว่า?', opts: ['0.3 > 0.25', '0.25 > 0.3', 'เท่ากัน', 'บอกไม่ได้'], ans: 0, hint: 'ดูหลักส่วนสิบก่อน: 3 > 2 ดังนั้น 0.3 มากกว่า' },
+      },
     },
     {
       id: 'order-decimals',
