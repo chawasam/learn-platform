@@ -22,6 +22,10 @@ const scale: ChapterV2 = {
     {
       id: 'direction-quiz',
       say: 'ทิศตรงข้ามกันเป็นคู่ เหนือ↔ใต้ ออก↔ตก ลองตอบดู',
+      visual: {
+        component: 'TextVis',
+        config: { sentence: 'เหนือ ↔ ใต้ · ออก (ตะวันออก) ↔ ตก (ตะวันตก)', words: [{ text: 'เหนือ↔ใต้', color: '#EF4444', bold: true }, { text: 'ออก↔ตก', color: '#22C55E', bold: true }] },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ทิศตรงข้ามกับทิศตะวันออกคือ?', opts: ['เหนือ', 'ใต้', 'ตะวันตก', 'ใต้เฉียงเหนือ'], ans: 2, hint: 'ออก ↔ ตก' },
@@ -43,6 +47,10 @@ const scale: ChapterV2 = {
     {
       id: 'scale-quiz',
       say: 'คำนวณระยะจริง: เอาที่วัดได้ × ตัวเลขมาตราส่วน',
+      visual: {
+        component: 'TextVis',
+        config: { sentence: 'ระยะจริง = ที่วัดได้บนแผนที่ × ตัวเลขมาตราส่วน', words: [{ text: 'ระยะจริง', color: '#4F80FF', bold: true }, { text: '× มาตราส่วน', color: '#FF7A2F', bold: true }] },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'มาตราส่วน 1:100 วัดได้ 5 ซม. ระยะจริง?', opts: ['500 ซม.', '105 ซม.', '5 ซม.', '50 ซม.'], ans: 0, hint: '5 × 100' },
@@ -77,6 +85,10 @@ const scale: ChapterV2 = {
     {
       id: 'scale-quiz-2',
       say: 'ลองคำนวณ: แผนที่ × มาตราส่วน = ระยะจริง แล้วแปลงหน่วยถ้าต้องการ',
+      visual: {
+        component: 'TextVis',
+        config: { sentence: '4 ซม. × 2000 = 8,000 ซม. ÷ 100 = 80 เมตร', words: [{ text: '4 ซม. × 2000', color: '#4F80FF', bold: true }, { text: '80 เมตร', color: '#22C55E', bold: true }] },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'แผนที่ มาตราส่วน 1:2000 วัดได้ 4 ซม. ระยะจริง = ?', opts: ['80 ม.', '40 ม.', '8,000 ซม.', '200 ม.'], ans: 0, hint: '4×2000=8,000 ซม. = 80 ม.' },

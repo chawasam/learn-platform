@@ -14,6 +14,18 @@ const statistics: ChapterV2 = {
     {
       id: 'average',
       say: 'ค่าเฉลี่ย = ผลรวมทั้งหมด ÷ จำนวนข้อมูล เช่น คะแนน 8, 6, 10 → (8+6+10) ÷ 3 = 8',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'คะแนน 8, 6, 10 → ผลรวม = 24 ÷ 3 ตัว = ค่าเฉลี่ย 8',
+          words: [
+            { text: '8+6+10 = 24', color: '#4F80FF', bold: true },
+            { text: '÷ 3', color: '#FF7A2F', bold: true },
+            { text: '= 8', color: '#22C55E', bold: true },
+          ],
+        },
+      },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'คะแนน 8, 6, 10 ค่าเฉลี่ย = ?', opts: ['8', '24', '6', '10'], ans: 0, hint: '(8+6+10) ÷ 3' },
@@ -37,6 +49,8 @@ const statistics: ChapterV2 = {
     {
       id: 'dice',
       say: 'ลูกเต๋า 6 หน้า โอกาสออกเลขใดเลขหนึ่ง = 1 หน้า ÷ 6 หน้า = 1/6',
+      visual: { component: 'ProbabilityBag', config: { readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ลูกเต๋า 6 หน้า โอกาสออกเลข 3 = ?', opts: ['1/3', '1/6', '3/6', '1/2'], ans: 1, hint: '1 หน้าที่ต้องการ จาก 6' },
@@ -85,6 +99,17 @@ const statistics: ChapterV2 = {
     {
       id: 'stats-quiz',
       say: '7+5+8+6+4 = 30 หาร 5 ข้อมูล = 6 — ผลรวมทั้งหมด ÷ จำนวนข้อมูล เสมอ ไม่มีทางลัด',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'คะแนน 7, 5, 8, 6, 4 → ผลรวม = 30 ÷ 5 ตัว = 6',
+          words: [
+            { text: '30', color: '#4F80FF', bold: true },
+            { text: '÷ 5', color: '#FF7A2F', bold: true },
+            { text: '= 6', color: '#22C55E', bold: true },
+          ],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
