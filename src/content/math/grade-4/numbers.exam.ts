@@ -59,7 +59,8 @@ const templates: QuestionTemplate[] = [
   { id: 'missing-digit', difficulty: 2, gen: r => {
     const a = ri(r,1,9), b = ri(r,0,9), c = ri(r,0,9), d = ri(r,0,9)
     const n = a*10000+b*1000+c*100+d*10
-    return { type: 'fill', q: `${a}${b}${c}${d}? = ${n + ri(r,1,9)} ตัวเลขหลักหน่วย = ___`, ans: String((n + ri(r,1,9)) % 10), hint: `ดูหลักขวาสุด` }
+    const units = ri(r,1,9)
+    return { type: 'fill', q: `${a}${b}${c}${d}? = ${n + units} ตัวเลขหลักหน่วย = ___`, ans: String(units), hint: `ดูหลักขวาสุด` }
   }},
   { id: 'concept', difficulty: 1, gen: () => ({
     type: 'mc' as const, q: 'จำนวน 45,678 — ตัวเลข 5 อยู่ในหลักใด',

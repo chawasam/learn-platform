@@ -51,7 +51,7 @@ const templates: QuestionTemplate[] = [
   { id: 'pattern-mul', difficulty: 2, gen: r => {
     const base = ri(r,2,5), step = ri(r,3,6)
     const a=base*step, b=base*step*2, c=base*step*3, d=base*step*4
-    return mcNum(r, `${a}, ${b}, ${c}, ___ = ?`, d, [d+step, d-base, b], plain, `คูณ ${base*step} ไปเรื่อยๆ`)
+    return mcNum(r, `${a}, ${b}, ${c}, ___ = ?`, d, [d+step, d-base, b], plain, `บวก ${base*step} ไปเรื่อยๆ`)
   }},
   { id: 'concept', difficulty: 1, gen: () => ({
     type: 'mc' as const, q: 'สมบัติการสลับที่ของการคูณ หมายความว่าอย่างไร',

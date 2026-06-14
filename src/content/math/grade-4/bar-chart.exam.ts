@@ -45,11 +45,11 @@ const templates: QuestionTemplate[] = [
     return mcNum(r, `แผนภูมิ: ${desc} ค่าเฉลี่ย = ?`, M, [M+d, M-d, total], ppl, `${total}÷4=${M}`)
   }},
   { id: 'find-missing', difficulty: 2, gen: r => {
-    const total = ri(r,40,80), vals = [ri(r,5,20), ri(r,5,20), ri(r,5,20)]
+    const missing = ri(r,5,20), vals = [ri(r,5,20), ri(r,5,20), ri(r,5,20)]
     const known = vals.reduce((a,b)=>a+b,0)
-    const missing = total - known
+    const total = known + missing
     const desc = FRUITS.slice(0,3).map((f,i) => `${f} ${vals[i]} คน`).join(' ')
-    return mcNum(r, `รวมทั้งหมด ${total} คน แต่ละสีเป็น: ${desc} ${FRUITS[3]}มี = ?`, missing, [missing+5, missing-5, total], ppl, `${total}−(${known})=${missing}`)
+    return mcNum(r, `รวมทั้งหมด ${total} คน แต่ละสีเป็น: ${desc} ${FRUITS[3]}มี = ?`, missing, [missing+5, known, total], ppl, `${total}−(${known})=${missing}`)
   }},
   { id: 'scale-read', difficulty: 2, gen: r => {
     const scale = ri(r,2,5)*5, bars = ri(r,2,8)
