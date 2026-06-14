@@ -31,6 +31,8 @@ const percent: ChapterV2 = {
     {
       id: 'discount',
       say: 'ลดราคา: เสื้อ 500 ลด 20% → ลด 100 บาท จ่ายจริง 500 − 100 = 400',
+      visual: { component: 'PercentBar', config: { initialPercent: 25, total: 800, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'เสื้อ 800 บาท ลด 25% ลดกี่บาท?', opts: ['200', '250', '25', '400'], ans: 0, hint: '25/100 × 800' },
@@ -69,6 +71,7 @@ const percent: ChapterV2 = {
     {
       id: 'percent-quiz',
       say: 'ลองคำนวณลดราคาดูก่อนไปต่อ',
+      visual: { component: 'PercentBar', config: { initialPercent: 25, total: 400, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'เสื้อราคา 400 บาท ลด 25% ราคาขาย = ?', opts: ['300 บาท', '100 บาท', '350 บาท', '320 บาท'], ans: 0, hint: 'ลด 400×25÷100=100 บาท ราคาขาย 400−100=300' },

@@ -30,7 +30,8 @@ const circles: ChapterV2 = {
     },
     {
       id: 'quiz',
-      say: 'ลองคิด! ถ้ารัศมี 5 ซม. เส้นผ่านศูนย์กลางยาวเท่าไร?',
+      say: 'ลองคิด! ถ้ารัศมี 5 ซม. เส้นผ่านศูนย์กลางยาวเท่าไร? ดูเส้นแดง (รัศมี) กับเส้นน้ำเงิน (ผ่านศูนย์กลาง)',
+      visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'รัศมี 5 ซม. เส้นผ่านศูนย์กลาง = ?', opts: ['10 ซม.', '5 ซม.', '2.5 ซม.', '25 ซม.'], ans: 0, hint: 'd = 2 × r = 2 × 5' },
@@ -39,6 +40,8 @@ const circles: ChapterV2 = {
     {
       id: 'reverse',
       say: 'กลับกัน! ถ้ารู้เส้นผ่านศูนย์กลาง หารครึ่งได้รัศมี — d 12 → รัศมี 6',
+      visual: { component: 'CircleRadius', config: { initialR: 6, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'เส้นผ่านศูนย์กลาง 12 ซม. รัศมีเท่าไร?', opts: ['6', '12', '24', '3'], ans: 0, hint: 'รัศมี = ครึ่งของ d = 12 ÷ 2' },
@@ -66,7 +69,8 @@ const circles: ChapterV2 = {
     },
     {
       id: 'circumference-calc',
-      say: 'ลองคำนวณเส้นรอบวง!',
+      say: 'ลองคำนวณเส้นรอบวง! C = 2 × π × r ≈ 2 × 3.14 × 5',
+      visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'วงกลม รัศมี 5 ซม. เส้นรอบวง ≈ ?', opts: ['31.4 ซม.', '15.7 ซม.', '25 ซม.', '62.8 ซม.'], ans: 0, hint: 'C = 2×3.14×5 = 31.4 ซม.' },

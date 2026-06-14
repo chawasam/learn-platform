@@ -26,6 +26,8 @@ const decimals: ChapterV2 = {
     {
       id: 'thousandths',
       say: '0.125 = 125/1000 (3 หลักหลังจุด = ส่วนพัน) แปลงเศษส่วนเป็นทศนิยมได้ด้วยการหาร 1÷4 = 0.25',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 1000, filled: 125, color: '#FF7A2F' }], showLabels: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '0.125 เท่ากับเศษส่วนใด?', opts: ['125/100', '125/1000', '1/125', '125/10'], ans: 1, hint: '3 หลักหลังจุด = ส่วนพัน' },
@@ -34,6 +36,8 @@ const decimals: ChapterV2 = {
     {
       id: 'compare',
       say: 'เทียบทศนิยมดูทีละหลักจากซ้าย: 0.05 น้อยกว่า 0.5 เพราะหลักส่วนสิบ 0 < 5',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 50, color: '#4F80FF' }, { parts: 100, filled: 5, color: '#94A3B8' }], showLabels: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'จาก 0.5, 0.05, 0.55 ตัวใดน้อยสุด?', opts: ['0.5', '0.05', '0.55', 'เท่ากัน'], ans: 1, hint: 'หลักส่วนสิบ 0 น้อยสุด' },

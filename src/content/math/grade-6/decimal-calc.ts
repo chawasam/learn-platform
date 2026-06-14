@@ -38,6 +38,18 @@ const decimalCalc: ChapterV2 = {
     {
       id: 'multiply-int',
       say: 'คูณทศนิยมกับจำนวนเต็ม: 2.5 × 4 → 25×4=100 นับจุด 1 ตำแหน่ง → 10.0',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '2.5 × 4: คูณ 25 × 4 = 100 นับจุด 1 ตำแหน่ง → 10.0',
+          words: [
+            { text: '25 × 4 = 100', color: '#4F80FF', bold: true },
+            { text: '1 ตำแหน่ง', color: '#FF7A2F', bold: true },
+            { text: '10.0', color: '#22C55E', bold: true },
+          ],
+        },
+      },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '2.5 × 4 = ?', opts: ['10', '100', '1.0', '8.5'], ans: 0, hint: '25×4=100 จุด 1 ตำแหน่ง → 10.0' },
@@ -46,6 +58,17 @@ const decimalCalc: ChapterV2 = {
     {
       id: 'divide',
       say: 'หารทศนิยมง่ายๆ: 0.6 ÷ 2 → 6÷2=3 แล้วใส่จุดกลับ → 0.3',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '0.6 ÷ 2: หาร 6 ÷ 2 = 3 ใส่จุดกลับ → 0.3',
+          words: [
+            { text: '6 ÷ 2 = 3', color: '#4F80FF', bold: true },
+            { text: '0.3', color: '#22C55E', bold: true },
+          ],
+        },
+      },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '0.6 ÷ 2 = ?', opts: ['0.3', '0.03', '3', '0.12'], ans: 0, hint: '6÷2=3 ใส่จุด → 0.3' },

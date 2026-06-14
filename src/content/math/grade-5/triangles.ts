@@ -31,6 +31,8 @@ const triangles: ChapterV2 = {
     {
       id: 'find-angle',
       say: 'ใช้กฎนี้หามุมที่ขาดได้! รู้ 2 มุม เอา 180 ลบออก จะได้มุมที่ 3',
+      visual: { component: 'TriangleAngles', config: { a: 60, b: 70, c: 50, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'สามเหลี่ยมมีมุม 60° กับ 70° มุมที่ 3 = ?', opts: ['50°', '60°', '130°', '180°'], ans: 0, hint: '180 − 60 − 70 = 50' },
@@ -39,6 +41,8 @@ const triangles: ChapterV2 = {
     {
       id: 'area',
       say: 'พื้นที่สามเหลี่ยม = ครึ่งหนึ่งของฐาน × สูง (½ × ฐาน × สูง)',
+      visual: { component: 'TriangleAngles', config: { a: 50, b: 60, c: 70, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'สามเหลี่ยมฐาน 8 สูง 5 พื้นที่?', opts: ['20', '40', '13', '80'], ans: 0, hint: '½ × 8 × 5 = 20' },
@@ -67,6 +71,7 @@ const triangles: ChapterV2 = {
     {
       id: 'triangle-area-calc',
       say: 'ลองคำนวณพื้นที่สามเหลี่ยม!',
+      visual: { component: 'TriangleAngles', config: { a: 60, b: 80, c: 40, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'สามเหลี่ยมฐาน 6 ซม. สูง 4 ซม. พื้นที่ = ?', opts: ['12 ซม.²', '24 ซม.²', '10 ซม.²', '8 ซม.²'], ans: 0, hint: '½ × 6 × 4 = 12 ซม.²' },

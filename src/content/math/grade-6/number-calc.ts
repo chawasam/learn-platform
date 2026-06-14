@@ -46,6 +46,8 @@ const numberCalc: ChapterV2 = {
     {
       id: 'parentheses',
       say: 'มีวงเล็บทำในวงเล็บก่อนสุด! 100 − (4 + 6) × 5 ทำ 4+6=10 ก่อน แล้ว ×5 แล้วลบ',
+      visual: { component: 'OrderMachine', config: { expression: [100, '-', 4, '+', 6, '×', 5], mode: 'correct' } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '100 − (4 + 6) × 5 = ?', opts: ['50', '450', '30', '480'], ans: 0, hint: 'วงเล็บ 10 → ×5=50 → 100−50' },
