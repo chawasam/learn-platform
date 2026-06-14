@@ -28,7 +28,14 @@ const decimalCalc: ChapterV2 = {
     },
     {
       id: 'multiply',
-      say: '1.5 × 0.2: คิด 15 × 2 = 30 ก่อน แล้วนับจุด 1+1 = 2 ตำแหน่ง → 0.30',
+      say: '1.5 × 0.2: คิด 15 × 2 = 30 ก่อน แล้วนับจุด 1+1 = 2 ตำแหน่ง → 0.30 ลองคิดแบบเดียวกับ 1.2 × 0.5',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '1.2 × 0.5: คูณ 12 × 5 = ? แล้วนับจุด 1+1 = 2 ตำแหน่ง',
+          words: [{ text: '12 × 5 = ?', color: '#4F80FF', bold: true }, { text: '2 ตำแหน่ง', color: '#FF7A2F', bold: true }],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',

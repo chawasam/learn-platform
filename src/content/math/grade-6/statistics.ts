@@ -34,6 +34,13 @@ const statistics: ChapterV2 = {
     {
       id: 'average2',
       say: 'ค่าเฉลี่ยเหมือนเทน้ำหลายแก้วให้เท่ากันทุกแก้ว ลองอีกข้อ',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'ข้อมูล 10, 20, 30, 40 → ผลรวม = ? ÷ 4 ตัว = ?',
+          words: [{ text: '10+20+30+40', color: '#4F80FF', bold: true }, { text: '÷ 4', color: '#FF7A2F', bold: true }],
+        },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ข้อมูล 10, 20, 30, 40 ค่าเฉลี่ย = ?', opts: ['25', '100', '20', '30'], ans: 0, hint: '(10+20+30+40) ÷ 4 = 25' },

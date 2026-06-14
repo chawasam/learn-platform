@@ -66,6 +66,13 @@ const numberCalc: ChapterV2 = {
     {
       id: 'order-word',
       say: 'โจทย์จริงใช้วงเล็บได้เหมือนกัน — ลองคิดดู!',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'ซื้อของ 3 อย่าง ราคา (20+15)×2 บาท = ?',
+          words: [{ text: '(20+15)', color: '#FF7A2F', bold: true }, { text: '×2', color: '#4F80FF', bold: true }],
+        },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ซื้อของ 3 อย่าง ราคา (20+15)×2 บาท ราคารวม = ?', opts: ['70 บาท', '50 บาท', '90 บาท', '110 บาท'], ans: 0, hint: '(20+15)=35, 35×2=70' },

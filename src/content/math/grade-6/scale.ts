@@ -84,11 +84,12 @@ const scale: ChapterV2 = {
     },
     {
       id: 'scale-quiz-2',
-      say: 'ลองคำนวณ: แผนที่ × มาตราส่วน = ระยะจริง แล้วแปลงหน่วยถ้าต้องการ',
+      say: 'คำนวณ 4 ซม. × 2000 = 8,000 ซม. แล้วแปลงเป็นเมตร (÷100) จะได้กี่เมตร?',
       visual: {
         component: 'TextVis',
-        config: { sentence: '4 ซม. × 2000 = 8,000 ซม. ÷ 100 = 80 เมตร', words: [{ text: '4 ซม. × 2000', color: '#4F80FF', bold: true }, { text: '80 เมตร', color: '#22C55E', bold: true }] },
+        config: { sentence: '4 ซม. × 2000 = 8,000 ซม. → แปลงเป็นเมตร = ?', words: [{ text: '4 ซม. × 2000', color: '#4F80FF', bold: true }, { text: '÷ 100 = ?', color: '#FF7A2F', bold: true }] },
       },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'แผนที่ มาตราส่วน 1:2000 วัดได้ 4 ซม. ระยะจริง = ?', opts: ['80 ม.', '40 ม.', '8,000 ซม.', '200 ม.'], ans: 0, hint: '4×2000=8,000 ซม. = 80 ม.' },
