@@ -76,7 +76,7 @@ const quadArea: ChapterV2 = {
     },
     {
       id: 'quad-area-quiz',
-      say: 'ทดสอบพื้นที่คางหมูก่อนไปต่อ',
+      say: 'คางหมู ½×(ด้านบน+ด้านล่าง)×สูง — บวกด้านขนานทั้งสองก่อน แล้วคูณ ½ และสูง',
       visual: {
         component: 'TextVis',
         config: {

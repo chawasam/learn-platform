@@ -70,7 +70,7 @@ const triangles: ChapterV2 = {
     },
     {
       id: 'triangle-area-calc',
-      say: 'ลองคำนวณพื้นที่สามเหลี่ยม!',
+      say: 'พื้นที่ = ½ × ฐาน × สูง ครึ่งหนึ่งของพื้นที่สี่เหลี่ยมที่ครอบอยู่',
       visual: { component: 'TriangleAngles', config: { a: 60, b: 80, c: 40, readOnly: true } },
       goal: {
         type: 'answer',

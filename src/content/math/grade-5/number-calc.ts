@@ -65,7 +65,7 @@ const numberCalc: ChapterV2 = {
     },
     {
       id: 'order-complex',
-      say: 'ลองโจทย์ผสม!',
+      say: 'มีทั้งวงเล็บ คูณ หาร บวก — ทำวงเล็บก่อน แล้วคูณหาร แล้วบวกลบ',
       visual: { component: 'OrderMachine', config: { expression: [10, '-', 4, '×', 2, '+', 8], mode: 'correct' } },
       goal: {
         type: 'answer',

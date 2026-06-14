@@ -70,7 +70,7 @@ const percent: ChapterV2 = {
     },
     {
       id: 'percent-quiz',
-      say: 'ลองคำนวณลดราคาดูก่อนไปต่อ',
+      say: 'ส่วนลด = ราคา × % ÷ 100 แล้วลบออก — เสื้อ 400 บาท ลด 25% คิดส่วนลดก่อน แล้วค่อยหักออก',
       visual: { component: 'PercentBar', config: { initialPercent: 25, total: 400, readOnly: true } },
       goal: {
         type: 'answer',

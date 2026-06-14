@@ -63,7 +63,7 @@ const parallelLines: ChapterV2 = {
     },
     {
       id: 'parallel-quiz',
-      say: 'ทดสอบ! เส้นขนานคืออะไรกันแน่?',
+      say: 'เส้นขนาน = ไม่ตัดกันเลยไม่ว่าจะยืดออกไปไกลแค่ไหน ระยะห่างเท่ากันตลอด',
       visual: { component: 'ParallelLines', config: { initialAngle: 0, readOnly: true } },
       goal: {
         type: 'answer',

@@ -91,7 +91,7 @@ const divide: ChapterV2 = {
     },
     {
       id: 'quiz',
-      say: 'ทดสอบ! 84 ÷ 3 = ?',
+      say: '84 ÷ 3 — ลองนึกในใจ: หาร 8÷3 ก่อน ได้ 2 เหลือ 2 แล้วดึง 4 ลงมาต่อ 24÷3=8',
       visual: { component: 'DivideColumn', config: { a: 84, b: 3, readOnly: true, initialStep: 0 } },
       goal: {
         type: 'answer',

@@ -65,7 +65,7 @@ const volume: ChapterV2 = {
     },
     {
       id: 'volume-calc',
-      say: 'ทดสอบสูตรปริมาตร!',
+      say: 'ปริมาตร = กว้าง×ยาว×สูง คูณทั้ง 3 ด้านเลย ไม่ใช่บวก ลองคิดกล่อง 3×4×5',
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
       goal: {
         type: 'answer',

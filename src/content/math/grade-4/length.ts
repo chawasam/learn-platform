@@ -54,7 +54,7 @@ const length: ChapterV2 = {
     },
     {
       id: 'check',
-      say: 'ลองแปลงหน่วยตอบดู',
+      say: 'ใหญ่→เล็กให้คูณ เมตร→เซนติเมตรคูณ 100 ลองแปลง: 2 เมตร × 100 = ?',
       visual: { component: 'NumberLine', config: { min: 0, max: 300, step: 50, initialValue: 0, readOnly: true } },
       goal: {
         type: 'answer',
