@@ -64,8 +64,9 @@ const decimals: ChapterV2 = {
     },
     {
       id: 'check',
-      say: 'ลองตอบดู',
-      visual: { component: 'FractionBars', config: { readOnly: true, showLabels: true, rows: [{ parts: 10, filled: 3, fixed: true, color: '#F59E0B' }] } },
+      say: '5 ช่อง = 0.5 = 5/10 ลดรูปได้เป็น 1/2 — ลองตอบดู',
+      visual: { component: 'FractionBars', config: { readOnly: true, showLabels: true, rows: [{ parts: 10, filled: 5, fixed: true, color: '#F59E0B' }] } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '0.5 เท่ากับเศษส่วนใด?', opts: ['5/100', '1/2', '1/5', '5/1'], ans: 1, hint: '0.5 = 5/10 ลดรูปเหลือ 1/2' },
