@@ -12,52 +12,119 @@ const fractionCalc: ChapterV2 = {
   slug: 'fraction-calc',
   scenes: [
     {
-      id: 'intro',
-      say: 'บวกเศษส่วนที่ตัวล่างต่างกัน เช่น 1/2 + 1/3 บวกตรงๆ ไม่ได้! ดูแท่งสองอันยาวไม่เท่าช่อง',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 2, filled: 1, fixed: true, color: '#8B5A2B' }, { parts: 3, filled: 1, fixed: true, color: '#FF7A2F' }], showLabels: true } },
-    },
-    {
-      id: 'common',
-      say: 'ต้องทำตัวล่างให้เท่ากันก่อน (หา ค.ร.น. ของ 2,3 = 6) → 1/2 = 3/6 และ 1/3 = 2/6',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 6, filled: 3, fixed: true, color: '#8B5A2B' }, { parts: 6, filled: 2, fixed: true, color: '#FF7A2F' }], showLabels: true } },
-    },
-    {
-      id: 'add',
-      say: 'ตอนนี้ล่างเท่ากันแล้ว (6 ทั้งคู่) บวกตัวบน 3 + 2 = 5 ลองระบายแท่งล่างให้ครบ 5/6',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 6, filled: 0, color: '#22C55E' }], showLabels: true } },
-      goal: { type: 'reach-value', key: 'r0', value: 5 },
-      hint: 'แตะช่องที่ 5 → 5/6 = ผลของ 1/2 + 1/3',
-    },
-    {
-      id: 'multiply',
-      say: 'คูณเศษส่วนง่ายกว่า: คูณบน×บน ล่าง×ล่าง เลย เช่น 1/2 × 1/3 = 1/6',
-      goal: {
-        type: 'answer',
-        question: { type: 'mc', q: '1/2 × 1/3 = ?', opts: ['1/6', '2/5', '1/5', '2/6'], ans: 0, hint: 'บน×บน=1, ล่าง×ล่าง=6' },
+      id: 'problem',
+      say: '1/2 กับ 1/3 ช่องกว้างไม่เท่ากัน — บวกตรงๆ ไม่ได้เพราะหน่วยต่างกัน เหมือนบวก "นาที" กับ "ชั่วโมง" ต้องแปลงก่อน',
+      visual: {
+        component: 'FractionBars',
+        config: {
+          rows: [
+            { parts: 2, filled: 1, fixed: true, color: '#8B5A2B' },
+            { parts: 3, filled: 1, fixed: true, color: '#FF7A2F' },
+          ],
+          showLabels: true,
+        },
       },
     },
     {
-      id: 'unlike-denom-add',
-      say: 'บวกเศษส่วนส่วนไม่เท่า: 1/2 + 1/3 → หา ค.ร.น.(2,3)=6 → แปลง 3/6 + 2/6 = 5/6',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 6, filled: 3, color: '#FF7A2F' }, { parts: 6, filled: 2, color: '#60A5FA' }], showLabels: true } },
+      id: 'convert-half',
+      say: 'แปลง 1/2 ให้มี 6 ส่วน — ลองระบายแท่งล่าง (6 ส่วน) ให้ยาวเท่าแท่งบน (1/2)',
+      visual: {
+        component: 'FractionBars',
+        config: {
+          rows: [
+            { parts: 2, filled: 1, fixed: true, color: '#8B5A2B' },
+            { parts: 6, filled: 0, color: '#22C55E' },
+          ],
+          showEquals: true,
+          showLabels: true,
+        },
+      },
+      goal: { type: 'reach-value', key: 'equal', value: 1 },
+      hint: 'แตะช่องที่ 3 → 3/6 = 1/2',
     },
     {
-      id: 'multiply-frac',
-      say: 'คูณเศษส่วน: 2/3 × 3/4 = (2×3)÷(3×4) = 6/12 = 1/2 — คูณตัวบนคูณตัวล่าง',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 4, filled: 3, fixed: true }], showLabels: true } },
+      id: 'convert-third',
+      say: '1/2 = 3/6 แล้ว คราวนี้แปลง 1/3 ให้มี 6 ส่วนบ้าง',
+      visual: {
+        component: 'FractionBars',
+        config: {
+          rows: [
+            { parts: 3, filled: 1, fixed: true, color: '#FF7A2F' },
+            { parts: 6, filled: 0, color: '#60A5FA' },
+          ],
+          showEquals: true,
+          showLabels: true,
+        },
+      },
+      goal: { type: 'reach-value', key: 'equal', value: 1 },
+      hint: 'แตะช่องที่ 2 → 2/6 = 1/3',
     },
     {
-      id: 'frac-calc-quiz',
-      say: 'ทดสอบการบวกเศษส่วนส่วนต่าง — ลองคิดดู!',
+      id: 'add-result',
+      say: '3/6 + 2/6 ตอนนี้ล่างเท่ากัน! บวกตัวบน 3+2=5 → ได้ 5/6 ลองระบายแท่งนี้ให้ครบ 5 ช่อง',
+      visual: {
+        component: 'FractionBars',
+        config: {
+          rows: [{ parts: 6, filled: 0, color: '#22C55E' }],
+          showLabels: true,
+        },
+      },
+      goal: { type: 'reach-value', key: 'r0', value: 5 },
+      hint: 'แตะช่องที่ 5',
+    },
+    {
+      id: 'lcm-rule',
+      say: 'ตัวล่างที่เท่ากันที่เล็กสุดเรียกว่า ค.ร.น. — ค.ร.น.(2,3)=6 ค.ร.น.(3,4)=12 ค.ร.น.(2,5)=10',
+      visual: {
+        component: 'FractionBars',
+        config: {
+          rows: [
+            { parts: 6, filled: 3, fixed: true, color: '#8B5A2B' },
+            { parts: 6, filled: 2, fixed: true, color: '#FF7A2F' },
+          ],
+          showLabels: true,
+        },
+      },
+    },
+    {
+      id: 'quiz-add',
+      say: '1/3 + 1/4 = 7/12 เพราะ ค.ร.น.(3,4)=12 → 4/12 + 3/12 = 7/12',
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '1/3 + 1/4 = ?', opts: ['7/12', '2/7', '5/12', '1/6'], ans: 0, hint: 'ค.ร.น.(3,4)=12 → 4/12+3/12=7/12' },
       },
     },
     {
+      id: 'multiply',
+      say: 'คูณเศษส่วน: บน×บน ล่าง×ล่าง ตรงๆ เลย — ไม่ต้องหา ค.ร.น. เช่น 1/2 × 1/3 = 1/6',
+      visual: {
+        component: 'FractionBars',
+        config: {
+          rows: [{ parts: 6, filled: 1, fixed: true, color: '#A855F7' }],
+          showLabels: true,
+        },
+      },
+    },
+    {
+      id: 'quiz-multiply',
+      say: '2/3 × 1/2 = 2/6 = 1/3 เพราะ 2×1=2 และ 3×2=6 แล้วลดรูป',
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '2/3 × 1/2 = ?', opts: ['2/6', '3/5', '2/5', '1/3'], ans: 0, hint: 'บน 2×1=2 ล่าง 3×2=6' },
+      },
+    },
+    {
       id: 'recap',
-      say: 'สรุป 🏠 บวกลบส่วนต่าง → ทำล่างเท่ากันก่อน (ค.ร.น.) · คูณ → บน×บน ล่าง×ล่าง',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 6, filled: 5, fixed: true, color: '#22C55E' }], showLabels: true } },
+      say: 'สรุป 🏠 บวกลบส่วนต่าง → หา ค.ร.น. แปลงก่อน แล้วค่อยบวกลบตัวบน · คูณ → บน×บน ล่าง×ล่าง ตรงๆ',
+      visual: {
+        component: 'FractionBars',
+        config: {
+          rows: [{ parts: 6, filled: 5, fixed: true, color: '#22C55E' }],
+          showLabels: true,
+        },
+      },
     },
   ],
   finalPractice: [
