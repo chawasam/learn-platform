@@ -29,6 +29,14 @@ const wordProblems: ChapterV2 = {
     {
       id: 'solve',
       say: 'คำว่า "แบ่งเท่าๆ กัน" = ใช้การหาร! ส้ม 24 ผล แบ่ง 4 คน คนละกี่ผล?',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'ส้ม 24 ผล แบ่ง 4 คน → 24 ÷ 4 = ?',
+          words: [{ text: '24 ผล', color: '#FF7A2F', bold: true }, { text: '÷ 4', color: '#A855F7', bold: true }],
+        },
+      },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '24 ผล แบ่ง 4 คนเท่าๆ กัน คนละกี่ผล?', opts: ['6', '28', '20', '96'], ans: 0, hint: '"แบ่งเท่าๆ กัน" → 24 ÷ 4' },
@@ -53,6 +61,14 @@ const wordProblems: ChapterV2 = {
     {
       id: 'quiz',
       say: '"เล่มละ 45" หลายเล่มเท่าๆ กัน = คูณ! 5 เล่ม เล่มละ 45 บาท รวมเท่าไร?',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'หนังสือ 5 เล่ม เล่มละ 45 บาท → 5 × 45 = ?',
+          words: [{ text: '5 เล่ม', color: '#FF7A2F', bold: true }, { text: '× 45', color: '#22C55E', bold: true }],
+        },
+      },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'หนังสือ 5 เล่ม เล่มละ 45 บาท รวม?', opts: ['225 บาท', '50 บาท', '9 บาท', '200 บาท'], ans: 0, hint: 'เท่าๆ กันหลายชุด → 5 × 45' },
