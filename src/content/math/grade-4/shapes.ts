@@ -68,8 +68,9 @@ const shapes: ChapterV2 = {
     },
     {
       id: 'circle',
-      say: 'วงกลมพิเศษ! เส้นรอบรูปโค้งไม่มีหัวมุมเลย ลองคิดดู วงกลมมีกี่มุม?',
+      say: 'วงกลมพิเศษ! เส้นโค้งรอบกลม ไม่มีจุดหักมุมเลยแม้แต่จุดเดียว',
       visual: { component: 'ShapeExplorer', config: { shape: 'circle', count: 'none', readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'วงกลมมีกี่มุม?', opts: ['ไม่มีมุม (0)', '1 มุม', '3 มุม', '4 มุม'], ans: 0, hint: 'วงกลมโค้งกลม ไม่มีจุดหักมุม' },
