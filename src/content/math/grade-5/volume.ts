@@ -22,6 +22,11 @@ const volume: ChapterV2 = {
       id: 'base',
       say: 'ชั้นล่างมี 2 × 3 = 6 ลูกบาศก์ นี่คือพื้นที่ฐาน ถ้าซ้อนหลายชั้นจะได้ปริมาตร',
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ฐานที่เห็นนี้ กว้าง 2 ยาว 3 มีลูกบาศก์กี่ก้อน?', opts: ['6', '5', '9', '4'], ans: 0, hint: '2 × 3 = 6 ก้อน' },
+      },
     },
     {
       id: 'volume-formula',
@@ -43,6 +48,11 @@ const volume: ChapterV2 = {
       id: 'volume-units',
       say: 'หน่วยปริมาตร: ลูกบาศก์เซนติเมตร (ลบ.ซม.) คือกล่องขนาด 1×1×1 ซม.',
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ปริมาตรวัดเป็นหน่วยอะไร?', opts: ['ลูกบาศก์หน่วย (ลบ.ซม.)', 'ตารางหน่วย (ตร.ซม.)', 'เซนติเมตร (ซม.)', 'กิโลกรัม (กก.)'], ans: 0, hint: 'ปริมาตร = 3 มิติ = ลูกบาศก์หน่วย' },
+      },
     },
     {
       id: 'volume-formula-visual',

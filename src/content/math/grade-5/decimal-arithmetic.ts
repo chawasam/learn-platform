@@ -43,11 +43,21 @@ const decimalArithmetic: ChapterV2 = {
       id: 'add-align',
       say: 'บวกทศนิยม ต้องตั้งจุดทศนิยมตรงกัน: 1.5 + 0.35 → 1.50 + 0.35 = 1.85',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 5, fixed: true, color: '#4ADE80' }, { parts: 100, filled: 35, fixed: true, color: '#60A5FA' }], showLabels: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '1.5 + 0.35 = ?', opts: ['1.85', '1.55', '0.85', '18.5'], ans: 0, hint: '1.50 + 0.35 ตั้งจุดตรงกัน = 1.85' },
+      },
     },
     {
       id: 'subtract-decimal',
       say: 'ลบทศนิยม: 2.3 − 1.15 → 2.30 − 1.15 = 1.15 ตั้งจุดตรงกัน เติม 0 ถ้าหลักไม่ครบ',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 30, fixed: true, color: '#4ADE80' }, { parts: 100, filled: 15, fixed: true, color: '#60A5FA' }], showLabels: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '2.3 − 1.15 = ?', opts: ['1.15', '1.25', '1.05', '1.20'], ans: 0, hint: '2.30 − 1.15 ตั้งจุดตรงกัน เติม 0 = 1.15' },
+      },
     },
     {
       id: 'money-decimal',
