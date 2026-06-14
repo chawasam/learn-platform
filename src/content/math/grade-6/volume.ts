@@ -38,16 +38,31 @@ const volume: ChapterV2 = {
       id: 'volume-box',
       say: 'ปริมาตรทรงสี่เหลี่ยมมุมฉาก V = กว้าง × ยาว × สูง เช่น 4×3×5=60 ลบ.ซม.',
       visual: { component: 'CubeBuilder', config: { gridSize: 4 } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สูตรปริมาตรทรงสี่เหลี่ยมมุมฉากคือ?', opts: ['กว้าง × ยาว × สูง', 'กว้าง × ยาว', 'กว้าง + ยาว + สูง', '2 × (กว้าง × ยาว)'], ans: 0, hint: 'คูณทั้ง 3 ด้าน' },
+      },
     },
     {
       id: 'volume-calculate',
       say: 'กล่อง กว้าง 4 ยาว 3 สูง 5 ซม. V = 4×3×5 = 60 ลบ.ซม. (เหมือนวาง 5 ชั้น ชั้นละ 12 ลูก)',
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'กล่อง กว้าง 2 ยาว 5 สูง 3 ซม. ปริมาตรเท่าไร?', opts: ['30 ลบ.ซม.', '10 ลบ.ซม.', '60 ลบ.ซม.', '15 ลบ.ซม.'], ans: 0, hint: '2×5×3=30 ลบ.ซม.' },
+      },
     },
     {
       id: 'surface-area',
       say: 'พื้นที่ผิว = ผลรวมพื้นที่ทุกหน้า = 2(กย+กส+ยส) ลองคลี่กล่องดู',
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ลูกบาศก์ด้าน 3 ซม. พื้นที่ผิวทั้งหมดเท่าไร?', opts: ['54 ตร.ซม.', '27 ตร.ซม.', '18 ตร.ซม.', '9 ตร.ซม.'], ans: 0, hint: '6 หน้า แต่ละหน้า 3×3=9 รวม 6×9=54' },
+      },
     },
     {
       id: 'volume-quiz',

@@ -31,6 +31,8 @@ const statistics: ChapterV2 = {
       id: 'probability',
       say: 'ความน่าจะเป็น = จำนวนที่ต้องการ ÷ จำนวนทั้งหมด ลองหยิบลูกบอลดูว่าสีไหนออกบ่อย',
       visual: { component: 'ProbabilityBag', config: {} },
+      goal: { type: 'reach-value', key: 'draws', value: 5 },
+      hint: 'กดหยิบลูกบอลอย่างน้อย 5 ครั้ง — สังเกตว่าสีไหนออกบ่อย',
     },
     {
       id: 'dice',
@@ -54,6 +56,11 @@ const statistics: ChapterV2 = {
           ],
         },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ค่าสถิติใดคำนวณจากผลรวม ÷ จำนวนข้อมูล?', opts: ['ค่าเฉลี่ย (Mean)', 'มัธยฐาน (Median)', 'ฐานนิยม (Mode)', 'ช่วงข้อมูล'], ans: 0, hint: 'Mean = ผลรวม ÷ จำนวน' },
+      },
     },
     {
       id: 'calculate-mean',
@@ -68,6 +75,11 @@ const statistics: ChapterV2 = {
             { text: '= 8', color: '#22C55E', bold: true },
           ],
         },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ข้อมูล 4, 6, 8, 10, 12 ค่าเฉลี่ย = ?', opts: ['8', '6', '10', '40'], ans: 0, hint: '(4+6+8+10+12) ÷ 5 = 40 ÷ 5 = 8' },
       },
     },
     {
