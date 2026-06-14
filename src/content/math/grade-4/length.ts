@@ -29,11 +29,21 @@ const length: ChapterV2 = {
       id: 'cm-to-m',
       say: 'หน่วยใหญ่ขึ้น: 1 เมตร = 100 เซนติเมตร เหมือนกระเบื้อง 100 แผ่นต่อกันยาว 1 เมตร',
       visual: { component: 'NumberLine', config: { min: 0, max: 100, step: 10, initialValue: 100, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '1 เมตร เท่ากับกี่เซนติเมตร?', opts: ['100 ซม.', '10 ซม.', '1,000 ซม.', '1 ซม.'], ans: 0, hint: '1 ม. = 100 ซม. — จำว่า "ร้อย"' },
+      },
     },
     {
       id: 'convert-rule',
       say: 'เคล็ดลับแปลงหน่วย: หน่วยใหญ่ → เล็ก ให้ "คูณ" · หน่วยเล็ก → ใหญ่ ให้ "หาร" เช่น 2 เมตร = 2 × 100 = 200 ซม.',
       visual: { component: 'NumberLine', config: { min: 0, max: 300, step: 50, initialValue: 200, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'แปลงหน่วยใหญ่เป็นหน่วยเล็กต้องทำอย่างไร?', opts: ['คูณ (เช่น 2 ม. × 100 = 200 ซม.)', 'หาร', 'บวก 100', 'ลบ 100'], ans: 0, hint: 'ใหญ่→เล็ก คูณ เช่น เมตร→ซม. ×100' },
+      },
     },
     {
       id: 'measure-eraser',

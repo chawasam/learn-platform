@@ -46,11 +46,21 @@ const quadArea: ChapterV2 = {
       id: 'trapezoid-area',
       say: 'พื้นที่คางหมู = ½ × (ด้านขนาน a + ด้านขนาน b) × สูง เช่น a=6, b=4, h=3 → ½×10×3=15 ซม.²',
       visual: { component: 'AreaTiles', config: { width: 6, height: 3 } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'คางหมูด้านขนาน 6 กับ 4 สูง 3 พื้นที่เท่าไร?', opts: ['15 ซม.²', '30 ซม.²', '12 ซม.²', '9 ซม.²'], ans: 0, hint: '½ × (6+4) × 3 = ½ × 10 × 3 = 15' },
+      },
     },
     {
       id: 'compound-shapes',
       say: 'รูปประกอบ: แบ่งออกเป็นรูปย่อย หาพื้นที่แต่ละส่วนแล้วบวก',
       visual: { component: 'AreaTiles', config: { width: 5, height: 4 } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'วิธีหาพื้นที่รูปประกอบทำอย่างไร?', opts: ['แบ่งเป็นรูปย่อยๆ หาพื้นที่แต่ละส่วนแล้วบวกรวม', 'วัดรอบรูปแล้วหาร 4', 'ใช้สูตร π r² ทุกรูป', 'แบ่งแล้วลบออก'], ans: 0, hint: 'ทุกรูปประกอบ แยกแล้ว บวกพื้นที่ย่อยรวมกัน' },
+      },
     },
     {
       id: 'quad-area-quiz',

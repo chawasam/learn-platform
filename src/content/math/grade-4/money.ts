@@ -29,11 +29,21 @@ const money: ChapterV2 = {
       id: 'shop',
       say: 'ไปซื้อของราคา 75 บาท แต่เรามีแค่แบงก์ 100 — จ่าย 100 ร้านต้อง "ทอน" เงินกลับมา',
       visual: { component: 'MoneyDrag', config: { readOnly: true, initialCounts: { 100: 1 }, availableDenominations: [1000, 500, 100, 50, 20, 10, 5, 1] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ซื้อของราคา 75 บาท จ่าย 100 บาท ต้องทอนเท่าไร?', opts: ['25 บาท', '75 บาท', '100 บาท', '175 บาท'], ans: 0, hint: '100 − 75 = 25 บาท' },
+      },
     },
     {
       id: 'change-concept',
       say: 'เงินทอน = เงินที่จ่าย − ราคาของ = 100 − 75 = 25 บาท เข้าใจง่ายๆ แค่นี้เอง!',
       visual: { component: 'MoneyDrag', config: { readOnly: true, initialCounts: { 20: 1, 5: 1 }, availableDenominations: [1000, 500, 100, 50, 20, 10, 5, 1] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สูตรเงินทอนคือ?', opts: ['จ่าย − ราคา', 'ราคา − จ่าย', 'จ่าย + ราคา', 'จ่าย ÷ ราคา'], ans: 0, hint: 'เงินทอน = เงินที่จ่ายไป ลบ ราคาของ' },
+      },
     },
     {
       id: 'build-change',
