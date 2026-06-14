@@ -94,7 +94,7 @@ const fractions: ChapterV2 = {
     },
     {
       id: 'compare',
-      say: 'ข้อสอบเพื่อนรัก: พิซซ่า 3/4 กับช็อกโกแลต 1/2 — อันไหนเยอะกว่ากัน? ดูความยาวแท่งช่วยได้นะ',
+      say: '3/4 มากกว่า 1/2 เพราะแท่งสีส้มยาวกว่า — ดูภาพ: แท่งไหนยาวกว่า เศษส่วนนั้นมากกว่า เปรียบได้ทันทีโดยไม่ต้องคำนวณ',
       visual: {
         component: 'FractionBars',
         config: {
@@ -105,6 +105,7 @@ const fractions: ChapterV2 = {
           showLabels: true,
         },
       },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'อันไหนมากกว่ากัน?', opts: ['3/4', '1/2', 'เท่ากัน'], ans: 0, hint: 'แท่งไหนระบายยาวกว่า อันนั้นมากกว่า' },

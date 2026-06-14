@@ -32,8 +32,9 @@ const angles: ChapterV2 = {
     },
     {
       id: 'quiz',
-      say: 'ลองดู! มุมขนาด 60° เป็นมุมประเภทไหน?',
+      say: 'มุม 60° < 90° → มุมแหลม · กฎ: น้อยกว่า 90° = แหลม · เท่ากับ 90° = ฉาก · มากกว่า 90° (ไม่ถึง 180°) = ป้าน',
       visual: { component: 'AngleDrag', config: { initialAngle: 60, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'มุม 60° เป็นมุมประเภทใด?', opts: ['มุมแหลม', 'มุมฉาก', 'มุมป้าน', 'มุมตรง'], ans: 0, hint: 'น้อยกว่า 90° = แหลม' },

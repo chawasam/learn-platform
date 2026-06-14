@@ -80,6 +80,7 @@ export type Scene = {
   visual?: { component: ComponentName; config: Record<string, unknown> }
   goal?: SceneGoal
   hint?: string
+  revealAfterGoal?: boolean   // discovery mode: hide say until goal is met, then reveal with animation
 }
 
 // ── Metaphor: dual-coding memory hook (vivid imagery ↔ concept) ──

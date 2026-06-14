@@ -14,11 +14,22 @@ const decimalCalc: ChapterV2 = {
     {
       id: 'intro',
       say: 'คูณทศนิยม: คูณเหมือนเลขเต็มก่อน แล้วนับจำนวนหลักหลังจุดรวมกัน ใส่ในผลลัพธ์',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 6, fixed: true, color: '#4F80FF' }], showLabels: true } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '1.5 × 0.2: คูณก่อน 15 × 2 = 30 แล้วนับจุด 1+1 = 2 ตำแหน่ง → 0.30',
+          words: [
+            { text: '15 × 2 = 30', color: '#4F80FF', bold: true },
+            { text: '1+1 = 2 ตำแหน่ง', color: '#FF7A2F', bold: true },
+            { text: '0.30', color: '#22C55E', bold: true },
+          ],
+        },
+      },
     },
     {
       id: 'multiply',
       say: '1.5 × 0.2: คิด 15 × 2 = 30 ก่อน แล้วนับจุด 1+1 = 2 ตำแหน่ง → 0.30',
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '1.2 × 0.5 = ?', opts: ['0.6', '6', '0.06', '1.7'], ans: 0, hint: '12×5=60 นับจุด 2 ตำแหน่ง → 0.60' },
@@ -43,16 +54,37 @@ const decimalCalc: ChapterV2 = {
     {
       id: 'multiply-decimal-count',
       say: 'คูณทศนิยม: 0.3 × 0.4 = 0.12 เพราะ 3×4=12 แล้วนับจุดรวม 1+1=2 ตำแหน่ง',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 12, color: '#FF7A2F' }], showLabels: true } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '0.3 × 0.4: คิด 3×4 = 12 นับจุด 1+1 = 2 ตำแหน่ง → 0.12',
+          words: [
+            { text: '3×4 = 12', color: '#4F80FF', bold: true },
+            { text: '1+1 = 2', color: '#FF7A2F', bold: true },
+            { text: '0.12', color: '#22C55E', bold: true },
+          ],
+        },
+      },
     },
     {
       id: 'multiply-larger',
       say: '1.2 × 3.4: คูณก่อน 12×34=408 แล้วนับจุด 1+1=2 ตำแหน่ง → ผล = 4.08',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 1000, filled: 408, color: '#FF7A2F' }], showLabels: true } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '1.2 × 3.4: คิด 12×34 = 408 นับจุด 1+1 = 2 ตำแหน่ง → 4.08',
+          words: [
+            { text: '12×34 = 408', color: '#4F80FF', bold: true },
+            { text: '1+1 = 2', color: '#FF7A2F', bold: true },
+            { text: '4.08', color: '#22C55E', bold: true },
+          ],
+        },
+      },
     },
     {
       id: 'decimal-calc-quiz',
-      say: 'ลองทำดู: นับจุดหลังจากคูณเลขเต็มแล้วใส่กลับในผลลัพธ์',
+      say: '5×6=30 แล้วนับจุด 1+1=2 ตำแหน่ง → 0.30 — กฎเดิมทุกครั้ง: คูณเลขเต็มก่อน แล้วนับจุดรวมใส่ผล',
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '0.5 × 0.6 = ?', opts: ['0.30', '3.0', '0.03', '0.11'], ans: 0, hint: '5×6=30, นับจุด 1+1=2 ตำแหน่ง → 0.30' },
@@ -61,7 +93,16 @@ const decimalCalc: ChapterV2 = {
     {
       id: 'recap',
       say: 'สรุป 🏠 คูณ: คูณเลขเต็มแล้วนับจุดรวมใส่ผล · หาร: หารแล้วใส่จุดกลับให้ตรง',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 3, fixed: true, color: '#4F80FF' }], showLabels: true } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'คูณ: คูณเลขเต็ม → นับจุดรวม → ใส่ผล | หาร: หาร → ใส่จุดกลับตำแหน่งเดิม',
+          words: [
+            { text: 'นับจุดรวม', color: '#4F80FF', bold: true },
+            { text: 'ใส่จุดกลับ', color: '#22C55E', bold: true },
+          ],
+        },
+      },
     },
   ],
   finalPractice: [

@@ -22,8 +22,9 @@ const probability: ChapterV2 = {
     },
     {
       id: 'chance',
-      say: 'แดงมี 5 จาก 10 = โอกาสครึ่งหนึ่ง · เขียวมี 2 จาก 10 = โอกาสน้อยสุด',
+      say: 'แดงมี 5 จาก 10 = โอกาสครึ่งหนึ่ง · เขียวมี 2 จาก 10 = โอกาสน้อยสุด — ลูกเยอะกว่า = โอกาสมากกว่า',
       visual: { component: 'ProbabilityBag', config: { readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'หยิบ 1 ลูก โอกาสได้สีใดมากที่สุด?', opts: ['แดง', 'น้ำเงิน', 'เขียว', 'เท่ากันหมด'], ans: 0, hint: 'สีไหนมีลูกเยอะสุด' },
@@ -46,7 +47,8 @@ const probability: ChapterV2 = {
     },
     {
       id: 'prob-quiz',
-      say: 'ทดสอบ! คำนวณความน่าจะเป็น',
+      say: 'แดง 3 จากทั้งหมด 4 ลูก → ความน่าจะเป็น = 3/4 — หารจำนวนที่ต้องการด้วยทั้งหมดเสมอ',
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ถุงมีลูกบอล 4 ลูก สีแดง 3 ลูก สีน้ำเงิน 1 ลูก ความน่าจะเป็นหยิบสีแดง = ?', opts: ['1/4', '3/4', '1/3', '3/1'], ans: 1, hint: 'แดง 3 ลูก รวม 4 ลูก = 3/4' },

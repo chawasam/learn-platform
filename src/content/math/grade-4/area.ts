@@ -46,8 +46,9 @@ const area: ChapterV2 = {
     },
     {
       id: 'quiz',
-      say: 'ลองคิดดู! ห้องนี้กว้าง 4 ยาว 7 พื้นที่กี่ตารางหน่วย?',
+      say: 'กว้าง 4 ยาว 7 → แถวละ 4 แผ่น มี 7 แถว → 4 × 7 = 28 ตารางหน่วย — สูตรพื้นที่ = กว้าง × ยาว ทุกครั้ง',
       visual: { component: 'AreaTiles', config: { width: 4, height: 7, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'พื้นที่ห้องกว้าง 4 ยาว 7 = ?', opts: ['28', '24', '11', '21'], ans: 0, hint: '4 × 7 — แถวละ 4 มี 7 แถว' },

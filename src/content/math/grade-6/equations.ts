@@ -25,8 +25,9 @@ const equations: ChapterV2 = {
     },
     {
       id: 'rule',
-      say: 'กฎทอง: ทำอะไรข้างหนึ่ง ต้องทำอีกข้างเหมือนกัน ตาชั่งถึงจะยังสมดุล',
+      say: 'กฎทอง: ทำอะไรข้างหนึ่ง ต้องทำอีกข้างเหมือนกัน ตาชั่งถึงจะยังสมดุล — x+5=12 ลบ 5 ทั้งสองข้าง → x=7',
       visual: { component: 'EquationBalance', config: { c: 3, r: 7, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'x + 5 = 12 แล้ว x = ?', opts: ['7', '17', '5', '12'], ans: 0, hint: 'ลบ 5 ทั้งสองข้าง 12−5=7' },

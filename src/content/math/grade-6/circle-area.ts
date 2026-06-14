@@ -53,7 +53,8 @@ const circleArea: ChapterV2 = {
     },
     {
       id: 'circle-area-quiz',
-      say: 'ลองคำนวณพื้นที่วงกลมด้วยตัวเอง',
+      say: 'r=5 → A = 3.14 × 5 × 5 = 3.14 × 25 = 78.5 ซม.² — จำ: πr² คือรัศมีคูณตัวเองแล้วคูณ 3.14',
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'วงกลม r=5 ซม. พื้นที่ ≈ ?', opts: ['78.5 ซม.²', '31.4 ซม.²', '50 ซม.²', '157 ซม.²'], ans: 0, hint: '3.14×5²=3.14×25=78.5 ซม.²' },

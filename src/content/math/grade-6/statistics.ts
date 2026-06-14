@@ -43,16 +43,37 @@ const statistics: ChapterV2 = {
     {
       id: 'mean-median-mode',
       say: 'ค่าเฉลี่ย (Mean) = ผลรวม÷จำนวน · มัธยฐาน (Median) = ค่ากลางเมื่อเรียงลำดับ · ฐานนิยม (Mode) = ค่าที่ซ้ำบ่อยสุด',
-      visual: { component: 'ProbabilityBag', config: {} },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'Mean: ผลรวม÷จำนวน | Median: ค่ากลางเมื่อเรียง | Mode: ค่าที่ซ้ำมากสุด',
+          words: [
+            { text: 'Mean', color: '#4F80FF', bold: true },
+            { text: 'Median', color: '#FF7A2F', bold: true },
+            { text: 'Mode', color: '#22C55E', bold: true },
+          ],
+        },
+      },
     },
     {
       id: 'calculate-mean',
       say: 'ข้อมูล {4, 6, 8, 10, 12} ค่าเฉลี่ย = (4+6+8+10+12)÷5 = 40÷5 = 8',
-      visual: { component: 'ProbabilityBag', config: {} },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '4+6+8+10+12 = 40 ÷ 5 ข้อมูล = 8',
+          words: [
+            { text: '40', color: '#4F80FF', bold: true },
+            { text: '÷ 5', color: '#FF7A2F', bold: true },
+            { text: '= 8', color: '#22C55E', bold: true },
+          ],
+        },
+      },
     },
     {
       id: 'stats-quiz',
-      say: 'ทดสอบการหาค่าเฉลี่ยก่อนไปต่อ',
+      say: '7+5+8+6+4 = 30 หาร 5 ข้อมูล = 6 — ผลรวมทั้งหมด ÷ จำนวนข้อมูล เสมอ ไม่มีทางลัด',
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'คะแนนสอบ: 7, 5, 8, 6, 4 ค่าเฉลี่ย = ?', opts: ['6', '7', '5', '30'], ans: 0, hint: '(7+5+8+6+4)÷5=30÷5=6' },

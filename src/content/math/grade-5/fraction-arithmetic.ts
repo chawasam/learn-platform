@@ -29,7 +29,8 @@ const fractionArithmetic: ChapterV2 = {
     },
     {
       id: 'quiz',
-      say: 'ลองคิด! 1/5 + 3/5 = ?',
+      say: '1/5 + 3/5 = 4/5 เพราะส่วนเท่ากัน บวกแค่ตัวบน 1+3=4 ตัวล่าง 5 ไม่เปลี่ยน',
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '1/5 + 3/5 = ?', opts: ['4/5', '4/10', '4/25', '3/5'], ans: 0, hint: 'ล่างเท่ากัน บวกตัวบน 1+3=4' },

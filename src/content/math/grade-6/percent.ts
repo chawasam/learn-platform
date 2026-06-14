@@ -22,6 +22,7 @@ const percent: ChapterV2 = {
       id: 'calc',
       say: 'หา % ของจำนวน: เอา % หาร 100 แล้วคูณจำนวน 20% ของ 500 = 20/100 × 500 = 100',
       visual: { component: 'PercentBar', config: { initialPercent: 20, total: 500, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '20% ของ 500 = ?', opts: ['100', '20', '480', '250'], ans: 0, hint: '20/100 × 500 = 100' },

@@ -47,6 +47,8 @@ export default function LessonStory({ chapter, color, examHref }: Props) {
   }, [])
 
   const goalDone = !scene?.goal || met[scene.id]
+  const isDiscovery = !!scene?.revealAfterGoal
+  const showNarration = !isDiscovery || goalDone
 
   // Declarative goal checking — components report state via onStateChange.
   // 'interact' unlocks on any reported state change (more reliable than the
@@ -100,10 +102,19 @@ export default function LessonStory({ chapter, color, examHref }: Props) {
             transition={{ duration: 0.18 }}
             className="flex flex-col gap-4"
           >
-            {/* Narration */}
-            <p className="text-lg font-semibold leading-relaxed text-center px-2" style={{ color: '#1E3A5F' }}>
-              {scene.say}
-            </p>
+            {/* Narration — always visible normally; hidden until goal met in discovery mode */}
+            {showNarration && (
+              <motion.p
+                key={`say-${scene.id}-${String(showNarration)}`}
+                initial={isDiscovery && goalDone ? { opacity: 0, y: -8 } : false}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                className="text-lg font-semibold leading-relaxed text-center px-2"
+                style={{ color: '#1E3A5F' }}
+              >
+                {scene.say}
+              </motion.p>
+            )}
 
             {/* Visual — full focus, large */}
             {Visual && scene.visual && (
