@@ -65,6 +65,11 @@ const decimalCalc: ChapterV2 = {
           ],
         },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '0.3 × 0.4 = ?', opts: ['0.12', '1.2', '0.012', '12'], ans: 0, hint: '3×4=12 นับจุด 1+1=2 ตำแหน่ง → 0.12' },
+      },
     },
     {
       id: 'multiply-larger',
@@ -79,6 +84,11 @@ const decimalCalc: ChapterV2 = {
             { text: '4.08', color: '#22C55E', bold: true },
           ],
         },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '1.2 × 3.4 = ?', opts: ['4.08', '40.8', '0.408', '4.8'], ans: 0, hint: '12×34=408 นับจุด 1+1=2 ตำแหน่ง → 4.08' },
       },
     },
     {

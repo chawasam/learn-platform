@@ -40,7 +40,7 @@ const decimals: ChapterV2 = {
       },
     },
     {
-      id: 'thousandths',
+      id: 'thousandths-visual',
       say: 'ส่วนพัน = 0.001 เช่น 0.125 คือ 125 ส่วนพัน แบ่งแท่งออก 1000 ส่วน',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 1000, filled: 125, color: '#FF7A2F' }], showLabels: true } },
     },
@@ -48,6 +48,11 @@ const decimals: ChapterV2 = {
       id: 'compare-3dec',
       say: 'เทียบ 0.125 กับ 0.13: ส่วนสิบเท่ากัน ดูส่วนร้อย: 2 < 3 ดังนั้น 0.125 < 0.13',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 1000, filled: 125 }, { parts: 1000, filled: 130 }], showLabels: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '0.125 กับ 0.13 อันไหนน้อยกว่า?', opts: ['0.125 < 0.13', '0.125 > 0.13', 'เท่ากัน', 'บอกไม่ได้'], ans: 0, hint: 'ส่วนสิบเท่ากัน (1=1) ดูส่วนร้อย: 2 < 3 → 0.125 น้อยกว่า' },
+      },
     },
     {
       id: 'round-decimal',
