@@ -50,12 +50,12 @@ const templates: QuestionTemplate[] = [
     return mcStr(r, `${a*k}/${d*k} อยู่ในรูปต่ำสุดหรือยัง`,
       `ยังไม่ใช่ ลดได้อีก (= ${a}/${d})`,
       ['ใช่ อยู่ในรูปต่ำสุดแล้ว', 'ขึ้นอยู่กับโจทย์', 'ต้องคำนวณเพิ่ม'],
-      `ห.ร.ม.(${a*k},${d*k})=${k} ยังลดได้`)
+      `หาร ${k} ทั้งตัวบนและล่างได้อีก → ${a*k}÷${k}=${a}, ${d*k}÷${k}=${d}`)
   }},
   { id: 'reduce-fill', difficulty: 2, gen: r => {
     const d = ri(r,2,8), a = ri(r,1,d-1), k = ri(r,2,4)
     const G = gcd(a*k, d*k)
-    return { type: 'fill', q: `${a*k}/${d*k} ลดรูปต่ำสุดได้เท่ากับ ___/${d*k/G}`, ans: String(a*k/G), hint: `หาร ห.ร.ม.(${a*k},${d*k})=${G}` }
+    return { type: 'fill', q: `${a*k}/${d*k} ลดรูปต่ำสุดได้เท่ากับ ___/${d*k/G}`, ans: String(a*k/G), hint: `หาร ${G} ทั้งตัวบนและล่าง: ${a*k}÷${G}=${a*k/G}` }
   }},
   { id: 'equiv-list', difficulty: 2, gen: r => {
     const base = ri(r,1,4), bd = ri(r,2,6), k = ri(r,2,4)
@@ -75,7 +75,7 @@ const templates: QuestionTemplate[] = [
 const bank: QuizQuestion[] = [
   { type: 'fill', q: '2/3 = ___/9', ans: '6', hint: 'คูณตัวบนล่างด้วย 3' },
   { type: 'mc', q: 'เศษส่วนใดเท่ากับ 3/4', opts: ['6/8', '4/5', '3/8', '4/4'], ans: 0, hint: '3×2/4×2 = 6/8' },
-  { type: 'fill', q: '8/12 ลดรูปต่ำสุด = ___/3', ans: '2', hint: 'ห.ร.ม.(8,12)=4 → 8÷4=2, 12÷4=3' },
+  { type: 'fill', q: '8/12 ลดรูปต่ำสุด = ___/3', ans: '2', hint: 'หาร 4 ทั้งตัวบนและล่าง: 8÷4=2, 12÷4=3' },
 ]
 
 const equivFractionsExam: ChapterExam = { chapterId: 'math-5-equiv-fractions', templates, bank }
