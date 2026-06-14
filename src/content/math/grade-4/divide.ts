@@ -91,8 +91,9 @@ const divide: ChapterV2 = {
     },
     {
       id: 'quiz',
-      say: '84 ÷ 3 — ลองนึกในใจ: หาร 8÷3 ก่อน ได้ 2 เหลือ 2 แล้วดึง 4 ลงมาต่อ 24÷3=8',
+      say: 'ถูกต้อง! ขั้นตอน: 8÷3=2 เหลือ 2 → ดึง 4 ลงมา → 24÷3=8 → ผลลัพธ์ 28',
       visual: { component: 'DivideColumn', config: { a: 84, b: 3, readOnly: true, initialStep: 0 } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '84 ÷ 3 = ?', opts: ['28', '24', '21', '32'], ans: 0, hint: '8÷3=2 เหลือ 2 → 24÷3=8 → ผล 28' },
