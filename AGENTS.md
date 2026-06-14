@@ -6,18 +6,6 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # learn-platform — Thai K-12 Interactive Learning Platform
 
-## ⛔ STANDING RULE — อ่านแผนหลักก่อนทำงานทุก session
-
-**ก่อนแตะโค้ดใดๆ ต้องอ่านไฟล์แผนนี้ก่อนเสมอ:**
-
-```
-C:\Users\ck_sa\.claude\plans\stateless-conjuring-panda.md
-```
-
-แผนนั้นคือ source of truth: vision, การตัดสินใจที่ user lock แล้ว, รายละเอียดทุกบททั้ง 39 บท, สถานะ phase ปัจจุบัน
-ทำงานเสร็จส่วนไหน → อัปเดต checkbox + Progress Log ในไฟล์แผนทันที
-**Rule นี้ลบได้เมื่อทุก phase ในแผนเป็น DONE เท่านั้น**
-
 ## Vision (ห้ามหลุด)
 
 เด็กที่เรียนช้าที่สุดในห้อง **มองภาพแล้วเข้าใจทันที** — ระดับเดียวกับงานอธิบาย fiber optic ใต้มหาสมุทรของ ciechanow.ski
@@ -40,6 +28,33 @@ C:\Users\ck_sa\.claude\plans\stateless-conjuring-panda.md
 - ชนะ **Khan Academy** ด้าน: interactive-first (ไม่ใช่ video-first) + ภาพที่ตรง concept
 
 **กฎตัดสิน:** ทุก scene ที่เขียนใหม่ต้องถามตัวเองว่า "ถ้าเด็กป.4 ที่อ่อนสุดดูฉากนี้ เขาจะเข้าใจ concept ทันทีโดยไม่ต้องมีคนอธิบายเพิ่มไหม?" — ถ้าคำตอบไม่ใช่ YES ให้ออกแบบใหม่
+
+### วิธีชนะ — กลยุทธ์ต่อมิติ
+
+**มิติ 1 Comprehension — ชนะด้วย discovery-first + goal-gating**
+- เด็ก interact ก่อนเสมอ แล้วค่อยมีคำอธิบาย (ไม่ใช่ "อ่าน → ลอง")
+- 1 scene = 1 ไอเดียเท่านั้น ห้ามยัด 2 concept ในฉากเดียว
+- ข้อความ ≤ 2 ประโยค โทนเพื่อนเล่าให้ฟัง ไม่ใช่ภาษาตำรา
+- Goal-gated scenes: ต้อง interact สำเร็จจริงก่อนไปต่อ — ห้ามกดข้ามได้เฉยๆ
+- ทุก scene ผ่านกฎตัดสินข้างบนก่อน mark done
+
+**มิติ 2 Interactivity — ชนะด้วย custom-per-concept + audit loop**
+- ทุก concept มี component ตัดมาเพื่อ concept นั้นโดยเฉพาะ — ห้าม reuse generic ที่ไม่ตรง
+- ทุก component ผ่าน SELF-TEST PROTOCOL (render จริง + อ่านภาพ + test interaction)
+- ใช้ `/audit` page ส่ง prompt ให้ AI ภายนอกตรวจ 4 มิติ (Teacher/Parent/Child/UX) → แก้ทุก severity สูง/กลางก่อน ship
+- Metaphor button `💡` ทุกบท ช่วย visual hook สำหรับเด็กที่จำยาก
+
+**มิติ 3 ครบ — ชนะด้วย reference เดียวที่ตรวจแล้ว**
+- ยึด math-thai-p456 เป็น single source of truth (ตรวจถูกแล้ว 39 บท)
+- finalPractice ทุกบท ≥ 10 ข้อ (3 ข้อจาก reference + แต่งเพิ่ม) คำนวณมือยืนยันทุกข้อ
+- ห้ามแต่งหัวข้อบทเอง — เคยพลาด "จำนวนเต็ม" ลง ป.6 ซึ่งเป็นเนื้อหา ม.1
+
+**Loop การปรับปรุงต่อเนื่อง (ทำซ้ำต่อบท):**
+1. Build — เขียน scene + custom component ตาม vision
+2. Self-test — SELF-TEST PROTOCOL ทุก state สำคัญ
+3. AI Audit — `/audit` copy prompt → AI ภายนอกตรวจ → เอา report กลับมาแก้
+4. Operator test — AI cloud browser เล่นจริงบน live URL (ต้อง deploy ก่อน)
+5. Fix → repeat จน severity สูงเหลือ 0
 
 ## Curriculum
 
