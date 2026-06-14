@@ -29,6 +29,11 @@ const area: ChapterV2 = {
       id: 'count-rows',
       say: 'ปูเต็มแล้ว! แถวละ 5 แผ่น มี 3 แถว ไม่ต้องนับทีละแผ่น แค่ 5 × 3 = 15 แผ่น',
       visual: { component: 'AreaTiles', config: { width: 5, height: 3, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ห้องแถวละ 5 แผ่น มี 3 แถว กระเบื้องทั้งหมดกี่แผ่น?', opts: ['15', '8', '10', '20'], ans: 0, hint: '5 × 3 = 15 — ไม่ต้องนับทีละแผ่น' },
+      },
     },
     {
       id: 'tile-4x6',

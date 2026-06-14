@@ -38,6 +38,11 @@ const addSub: ChapterV2 = {
         component: 'AddSubCarry',
         config: { a: 25, b: 18, op: '+', readOnly: true, initialStep: 2 },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '25 + 18 = ?', opts: ['43', '34', '42', '33'], ans: 0, hint: 'หน่วย 5+8=13 ทด 1 → สิบ 2+1+1=4 → ได้ 43' },
+      },
     },
     {
       id: 'add-big',
@@ -56,6 +61,11 @@ const addSub: ChapterV2 = {
         component: 'AddSubCarry',
         config: { a: 52, b: 27, op: '-', readOnly: true, initialStep: 0 },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ลบ 52 − 27 หลักหน่วย 2 − 7 ลบไม่ได้ ต้องทำอะไร?', opts: ['ยืม 1 จากหลักสิบ', 'ทด 1 ขึ้นหลักสิบ', 'ยืม 1 จากหลักร้อย', 'ข้ามไปลบหลักสิบก่อน'], ans: 0, hint: 'ยืมจากหลักซ้าย (หลักสิบ) ให้หลักหน่วยมีพอลบ' },
+      },
     },
     {
       id: 'sub-units',
@@ -73,6 +83,11 @@ const addSub: ChapterV2 = {
       visual: {
         component: 'AddSubCarry',
         config: { a: 52, b: 27, op: '-', readOnly: true, initialStep: 2 },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '52 − 27 = ?', opts: ['25', '35', '29', '15'], ans: 0, hint: 'ยืม: 12−7=5 หลักสิบ 4−2=2 → 25' },
       },
     },
     {
