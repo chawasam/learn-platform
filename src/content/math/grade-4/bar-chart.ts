@@ -28,6 +28,11 @@ const barChart: ChapterV2 = {
         component: 'BarChartDrag',
         config: { readOnly: true, maxValue: 10, yLabel: 'แก้ว', initialData: [{ label: 'จ', value: 4, color: '#94A3B8' }, { label: 'อ', value: 6, color: '#94A3B8' }, { label: 'พ', value: 3, color: '#94A3B8' }, { label: 'พฤ', value: 7, color: '#22C55E' }] },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'วันพฤหัส (พฤ) แท่งสูงที่สุด แปลว่าขายได้อย่างไร?', opts: ['มากที่สุด', 'น้อยที่สุด', 'เท่ากับวันอื่น', 'ไม่บอกจำนวน'], ans: 0, hint: 'แท่งยิ่งสูง = ขายได้ยิ่งเยอะ' },
+      },
     },
     {
       id: 'try-drag',
@@ -46,6 +51,11 @@ const barChart: ChapterV2 = {
         component: 'BarChartDrag',
         config: { readOnly: true, maxValue: 10, yLabel: 'แก้ว', initialData: [{ label: 'จ', value: 4, color: '#4F80FF' }, { label: 'อ', value: 6, color: '#FF7A2F' }, { label: 'พ', value: 3, color: '#4F80FF' }] },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'แท่งสีส้ม (วันอังคาร) สูงถึงระดับไหน?', opts: ['6 แก้ว', '4 แก้ว', '3 แก้ว', '7 แก้ว'], ans: 0, hint: 'หัวแท่งสีส้มอยู่ที่ระดับ 6' },
+      },
     },
     {
       id: 'compare',
@@ -53,6 +63,11 @@ const barChart: ChapterV2 = {
       visual: {
         component: 'BarChartDrag',
         config: { readOnly: true, maxValue: 10, yLabel: 'แก้ว', initialData: [{ label: 'อ', value: 6, color: '#FF7A2F' }, { label: 'พ', value: 3, color: '#4F80FF' }] },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'อังคาร(6) ขายได้มากกว่าพุธ(3) กี่แก้ว?', opts: ['3 แก้ว', '9 แก้ว', '2 แก้ว', '6 แก้ว'], ans: 0, hint: '6 − 3 = 3' },
       },
     },
     {

@@ -20,11 +20,21 @@ const numberCalc: ChapterV2 = {
       id: 'wrong',
       say: 'ทำซ้ายไปขวา: 1000 − 250 = 750 แล้ว 750 × 3 = 2250 — ผิด!',
       visual: { component: 'OrderMachine', config: { expression: [1000, '-', 250, '×', 3], mode: 'left' } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '1000 − 250 × 3 ถ้าทำซ้ายไปขวา (ผิดกฎ) จะได้เท่าไร?', opts: ['2250', '250', '750', '1750'], ans: 0, hint: '(1000−250)=750 แล้ว 750×3=2250 (ผิดกฎ!)' },
+      },
     },
     {
       id: 'right',
       say: 'คูณก่อน: 250 × 3 = 750 แล้ว 1000 − 750 = 250 ถูกต้อง',
       visual: { component: 'OrderMachine', config: { expression: [1000, '-', 250, '×', 3], mode: 'correct' } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '1000 − 250 × 3 ตามกฎที่ถูก (×ก่อน) ได้เท่าไร?', opts: ['250', '2250', '500', '750'], ans: 0, hint: 'คูณก่อน 250×3=750 แล้ว 1000−750=250' },
+      },
     },
     {
       id: 'solve',
@@ -45,6 +55,11 @@ const numberCalc: ChapterV2 = {
       id: 'nested-complex',
       say: 'วงเล็บซ้อน: {5×(12÷4)}−3 = {5×3}−3 = 15−3 = 12 คำนวณในสุดก่อน',
       visual: { component: 'OrderMachine', config: { expression: [5, '×', '(', 12, '÷', 4, ')', '-', 3], mode: 'correct' } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '5 × (12 ÷ 4) − 3 = ?', opts: ['12', '9', '72', '3'], ans: 0, hint: 'ในวงเล็บ 12÷4=3 → 5×3=15 → 15−3=12' },
+      },
     },
     {
       id: 'order-word',
