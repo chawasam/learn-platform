@@ -46,6 +46,8 @@ const numberCalc: ChapterV2 = {
     {
       id: 'parentheses',
       say: 'มีวงเล็บต้องทำในวงเล็บก่อนสุด! (45 + 15) ÷ 6 ทำ 45+15=60 ก่อน แล้ว 60÷6',
+      visual: { component: 'OrderMachine', config: { expression: [45, '+', 15, '÷', 6], mode: 'correct' } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '(45 + 15) ÷ 6 = ?', opts: ['10', '47.5', '50', '5'], ans: 0, hint: 'วงเล็บก่อน 45+15=60 แล้ว 60÷6=10' },
@@ -64,6 +66,7 @@ const numberCalc: ChapterV2 = {
     {
       id: 'order-complex',
       say: 'ลองโจทย์ผสม!',
+      visual: { component: 'OrderMachine', config: { expression: [10, '-', 4, '×', 2, '+', 8], mode: 'correct' } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '(10−4) × 2 + 8 ÷ 4 = ?', opts: ['14', '16', '10', '20'], ans: 0, hint: '6×2=12, 8÷4=2, 12+2=14' },
