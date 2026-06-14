@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { SUBJECTS, GRADE_LABEL } from '@/types/curriculum'
+import { SUBJECTS, isChapterV2 } from '@/types/curriculum'
 import { getChapter, getAllChapterParams } from '@/lib/content'
 import type { Subject } from '@/types/curriculum'
 import ChapterView from './ChapterView'
@@ -18,7 +18,7 @@ export default async function ChapterPage({
   if (!meta) notFound()
 
   const chapterData = await getChapter(subject as Subject, parseInt(grade), chapter)
-  if (!chapterData) notFound()
+  if (!chapterData || !isChapterV2(chapterData)) notFound()
 
   return (
     <ChapterView
