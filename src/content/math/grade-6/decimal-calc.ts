@@ -124,6 +124,13 @@ const decimalCalc: ChapterV2 = {
     {
       id: 'decimal-calc-quiz',
       say: '5×6=30 แล้วนับจุด 1+1=2 ตำแหน่ง → 0.30 — กฎเดิมทุกครั้ง: คูณเลขเต็มก่อน แล้วนับจุดรวมใส่ผล',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '0.5 × 0.6 = ? คิด 5×6=? แล้วนับจุด 1+1=2 ตำแหน่ง',
+          words: [{ text: '5×6', color: '#4F80FF', bold: true }, { text: '1+1=2 ตำแหน่ง', color: '#FF7A2F', bold: true }],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',

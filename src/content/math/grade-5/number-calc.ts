@@ -45,8 +45,14 @@ const numberCalc: ChapterV2 = {
     },
     {
       id: 'parentheses',
-      say: 'มีวงเล็บต้องทำในวงเล็บก่อนสุด! (45 + 15) ÷ 6 ทำ 45+15=60 ก่อน แล้ว 60÷6',
-      visual: { component: 'OrderMachine', config: { expression: [45, '+', 15, '÷', 6], mode: 'correct' } },
+      say: 'มีวงเล็บต้องทำในวงเล็บก่อนสุด! (45 + 15) ÷ 6 ทำ 45+15=60 ก่อน แล้ว 60÷6=10',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '(45 + 15) ÷ 6 → วงเล็บก่อน: 45+15 = ? → แล้ว ?÷6',
+          words: [{ text: '(45 + 15)', color: '#4F80FF', bold: true }, { text: '÷ 6', color: '#FF7A2F', bold: true }],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',

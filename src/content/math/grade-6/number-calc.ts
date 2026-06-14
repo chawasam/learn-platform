@@ -46,7 +46,13 @@ const numberCalc: ChapterV2 = {
     {
       id: 'parentheses',
       say: 'มีวงเล็บทำในวงเล็บก่อนสุด! 100 − (4 + 6) × 5 ทำ 4+6=10 ก่อน แล้ว ×5 แล้วลบ',
-      visual: { component: 'OrderMachine', config: { expression: [100, '-', 4, '+', 6, '×', 5], mode: 'correct' } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '100 − (4+6) × 5 → วงเล็บก่อน: 4+6 = ? → แล้ว ?×5 แล้วลบจาก 100',
+          words: [{ text: '(4+6)', color: '#4F80FF', bold: true }, { text: '×5', color: '#FF7A2F', bold: true }],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -55,8 +61,14 @@ const numberCalc: ChapterV2 = {
     },
     {
       id: 'nested-complex',
-      say: 'วงเล็บซ้อน: {5×(12÷4)}−3 = {5×3}−3 = 15−3 = 12 คำนวณในสุดก่อน',
-      visual: { component: 'OrderMachine', config: { expression: [5, '×', '(', 12, '÷', 4, ')', '-', 3], mode: 'correct' } },
+      say: 'วงเล็บซ้อน: 5×(12÷4)−3 = 5×3−3 = 15−3 = 12 คำนวณในวงเล็บก่อน',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '5 × (12÷4) − 3 → ในวงเล็บก่อน: 12÷4 = ? → ต่อไป: 5×?−3',
+          words: [{ text: '(12÷4)', color: '#4F80FF', bold: true }, { text: '5×?−3', color: '#FF7A2F', bold: true }],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
