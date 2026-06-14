@@ -22,6 +22,11 @@ const multiply: ChapterV2 = {
       id: 'as-addition',
       say: 'นับทีละแถว: 4 + 4 + 4 = 12 เขียนสั้นๆ ว่า 4 × 3 = 12 — "4 สามแถว"',
       visual: { component: 'MultiplyArray', config: { a: 4, b: 3, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '4 แถวๆ ละ 3 ชิ้น รวมกี่ชิ้น? เขียนเป็นการคูณว่า?', opts: ['3 × 4 = 12', '3 + 4 = 7', '4 + 4 = 8', '3 × 3 = 9'], ans: 0, hint: 'แถวละ 3 × 4 แถว = 3 × 4 = 12' },
+      },
     },
     {
       id: 'build-2x3',
@@ -34,6 +39,11 @@ const multiply: ChapterV2 = {
       id: 'commutative',
       say: 'เคล็ดลับ! สลับที่ได้ผลเท่าเดิม — 3 × 2 ก็ได้ 6 เหมือนกับ 2 × 3 ลองนับดูได้เลย',
       visual: { component: 'MultiplyArray', config: { a: 3, b: 2, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '4 × 3 กับ 3 × 4 ได้ผลเท่ากันไหม?', opts: ['เท่ากัน (12)', '4×3 มากกว่า', '3×4 มากกว่า', 'ต้องคำนวณก่อน'], ans: 0, hint: 'สลับที่ได้ผลเท่าเดิมเสมอ' },
+      },
     },
     {
       id: 'build-3x4',
@@ -51,6 +61,11 @@ const multiply: ChapterV2 = {
       id: 'column-intro',
       say: 'ถ้าตัวเลขใหญ่ขึ้น เช่น 45 × 6 — มีวิธีเร็วกว่า: "ตั้งคูณ" เขียนซ้อนกัน คูณทีละหลักจากขวาไปซ้าย',
       visual: { component: 'MultiplyColumn', config: { a: 45, b: 6, readOnly: true, initialStep: 0 } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'การตั้งคูณ 45 × 6 เริ่มคูณที่หลักอะไรก่อน?', opts: ['หลักหน่วย (5×6)', 'หลักสิบ (4×6)', 'หลักร้อย', 'ทำพร้อมกันได้เลย'], ans: 0, hint: 'ตั้งคูณเสมอเริ่มจากขวาสุด = หลักหน่วย' },
+      },
     },
     {
       id: 'column-step',

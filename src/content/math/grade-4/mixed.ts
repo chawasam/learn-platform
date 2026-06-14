@@ -22,11 +22,21 @@ const mixed: ChapterV2 = {
       id: 'wrong-way',
       say: 'ถ้าทำซ้ายไปขวาเฉยๆ: 2 + 3 = 5 แล้ว 5 × 4 = 20 — แต่นี่ผิดนะ! ลองดูทางที่ถูก',
       visual: { component: 'OrderMachine', config: { expression: [2, '+', 3, '×', 4], mode: 'left' } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '2 + 3 × 4 ถ้าทำซ้ายไปขวา (ผิดกฎ) จะได้เท่าไร?', opts: ['20', '14', '12', '10'], ans: 0, hint: '(2+3)=5 แล้ว 5×4=20 (ผิดกฎ!)' },
+      },
     },
     {
       id: 'right-way',
       say: 'กฎคือ "คูณหารก่อน บวกลบทีหลัง"! ทำ 3 × 4 = 12 ก่อน แล้ว 2 + 12 = 14 ถึงจะถูก',
       visual: { component: 'OrderMachine', config: { expression: [2, '+', 3, '×', 4], mode: 'correct' } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '2 + 3 × 4 ตามกฎที่ถูก (×ก่อน) ได้เท่าไร?', opts: ['14', '20', '10', '12'], ans: 0, hint: 'คูณก่อน 3×4=12 แล้ว 2+12=14' },
+      },
     },
     {
       id: 'solve-1',
