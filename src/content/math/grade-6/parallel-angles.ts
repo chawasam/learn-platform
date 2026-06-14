@@ -70,6 +70,7 @@ const parallelAngles: ChapterV2 = {
     {
       id: 'angles-quiz',
       say: 'ทดสอบ: มุมแย้งเท่ากันเสมอเพราะเส้นขนาน ลองคิดดู',
+      visual: { component: 'TransversalAngles', config: { initialAngle: 65, mode: 'alt', readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'เส้นขนาน มุมแย้ง α=65° มุม β (มุมแย้งกับ α) = ?', opts: ['65°', '115°', '90°', '75°'], ans: 0, hint: 'มุมแย้ง = เท่ากัน → 65°' },

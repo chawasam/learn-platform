@@ -21,6 +21,8 @@ const quadArea: ChapterV2 = {
     {
       id: 'parallelogram',
       say: 'สี่เหลี่ยมด้านขนาน พื้นที่ = ฐาน × สูง (เหมือนผืนผ้าที่เฉือนมุมไปต่ออีกข้าง)',
+      visual: { component: 'AreaTiles', config: { width: 8, height: 5, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ด้านขนานฐาน 8 สูง 5 พื้นที่?', opts: ['13', '40', '20', '45'], ans: 1, hint: 'ฐาน × สูง = 8×5' },
@@ -29,6 +31,8 @@ const quadArea: ChapterV2 = {
     {
       id: 'rectangle',
       say: 'ผืนผ้ากว้าง 6 ยาว 9 พื้นที่ = 6 × 9 ลองคิดดู',
+      visual: { component: 'AreaTiles', config: { width: 6, height: 9, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ผืนผ้ากว้าง 6 ยาว 9 พื้นที่?', opts: ['54', '15', '30', '63'], ans: 0, hint: '6 × 9' },
@@ -37,6 +41,14 @@ const quadArea: ChapterV2 = {
     {
       id: 'trapezoid',
       say: 'คางหมู มีด้านขนานคู่หนึ่งยาวไม่เท่ากัน พื้นที่ = ½ × (ด้านขนานสองด้านบวกกัน) × สูง',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'คางหมู ½ × (ด้านบน + ด้านล่าง) × สูง = ½ × (4+6) × 5 = 25',
+          words: [{ text: '½ × (4+6) × 5', color: '#4F80FF', bold: true }, { text: '= 25', color: '#22C55E', bold: true }],
+        },
+      },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'คางหมูด้านขนาน 4 และ 6 สูง 5 พื้นที่?', opts: ['25', '30', '50', '15'], ans: 0, hint: '½ × (4+6) × 5 = ½ × 10 × 5' },
@@ -65,6 +77,13 @@ const quadArea: ChapterV2 = {
     {
       id: 'quad-area-quiz',
       say: 'ทดสอบพื้นที่คางหมูก่อนไปต่อ',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'คางหมู ½ × (8+4) × 5 = ½ × 12 × 5 = ?',
+          words: [{ text: '½ × (8+4) × 5', color: '#4F80FF', bold: true }],
+        },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'คางหมู ด้านขนาน 8 ซม. และ 4 ซม. สูง 5 ซม. พื้นที่ = ?', opts: ['30 ซม.²', '60 ซม.²', '20 ซม.²', '40 ซม.²'], ans: 0, hint: '½×(8+4)×5=½×12×5=30 ซม.²' },

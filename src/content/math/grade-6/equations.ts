@@ -36,6 +36,8 @@ const equations: ChapterV2 = {
     {
       id: 'multiply',
       say: 'ถ้าเป็นการคูณ เช่น 3x = 15 ให้หารทั้งสองข้างด้วย 3 → x = 5',
+      visual: { component: 'EquationBalance', config: { c: 0, r: 5, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '3x = 15 แล้ว x = ?', opts: ['3', '5', '12', '45'], ans: 1, hint: 'หาร 3 ทั้งสองข้าง 15÷3' },
@@ -64,6 +66,7 @@ const equations: ChapterV2 = {
     {
       id: 'equation-quiz',
       say: 'ตรวจสอบคำตอบทำได้เสมอ: แทนค่า x กลับเข้าสมการ แล้วดูว่าสองข้างเท่ากันไหม',
+      visual: { component: 'EquationBalance', config: { c: 5, r: 10, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '3x − 5 = 10 แล้ว x = ?', opts: ['5', '3', '15', '7'], ans: 0, hint: '3x=15 → x=5 ตรวจ: 3×5−5=10 ✓' },

@@ -22,6 +22,7 @@ const circleArea: ChapterV2 = {
       id: 'circumference',
       say: 'เส้นรอบวง = 2 × π × รัศมี ถ้ารัศมี 5: 2 × 3.14 × 5 = 31.4',
       visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'วงกลมรัศมี 10 เส้นรอบวง (2×3.14×10)?', opts: ['62.8', '31.4', '314', '20'], ans: 0, hint: '2 × 3.14 × 10' },
@@ -31,6 +32,7 @@ const circleArea: ChapterV2 = {
       id: 'area',
       say: 'พื้นที่วงกลม = π × รัศมี × รัศมี ถ้ารัศมี 5: 3.14 × 5 × 5 = 78.5',
       visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'วงกลมรัศมี 2 พื้นที่ (3.14×2×2)?', opts: ['12.56', '6.28', '4', '25.12'], ans: 0, hint: '3.14 × 2 × 2' },
@@ -69,6 +71,7 @@ const circleArea: ChapterV2 = {
     {
       id: 'circle-area-quiz',
       say: 'r=5 → A = 3.14 × 5 × 5 = 3.14 × 25 = 78.5 ซม.² — จำ: πr² คือรัศมีคูณตัวเองแล้วคูณ 3.14',
+      visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
