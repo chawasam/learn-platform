@@ -58,6 +58,13 @@ C:\Users\ck_sa\.claude\plans\stateless-conjuring-panda.md
 
 > ที่มา: BalanceDrag เคยปล่อยบั๊ก "ฝั่งหนักลอยขึ้น" เพราะเช็คแค่ compile ผ่าน ไม่เคยดูภาพจริง — ภาพที่สอนฟิสิกส์ผิดให้เด็ก แย่กว่าไม่มีภาพ
 
+## ⛔ ไม่มีระบบ Login / Auth
+
+**ไม่มี** และ **ไม่เพิ่ม** ระบบ login, user accounts, authentication, หรือ backend server ใดๆ ทั้งสิ้น
+- เว็บเป็น static export ล้วน ไม่มี server-side state
+- progress/data เก็บใน localStorage เท่านั้น (ถ้าจะทำในอนาคต)
+- ห้ามแนะนำหรือ implement auth แม้จะถูกถามก็ตาม
+
 ## Stack & Commands
 
 - Next.js 16 App Router, `output: 'export'` (static), Tailwind v4, Framer Motion
