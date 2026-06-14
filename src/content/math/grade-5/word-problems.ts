@@ -76,14 +76,15 @@ const wordProblems: ChapterV2 = {
     },
     {
       id: 'two-step',
-      say: 'โจทย์ 2 ขั้น: ซื้อดินสอ 3 แท่ง แท่งละ 5 บาท ยางลบ 2 อัน อันละ 3 บาท จ่ายรวมเท่าไร?',
+      say: 'โจทย์ 2 ขั้น: แบ่งเป็นส่วนๆ ก่อน คำนวณทีละส่วน แล้วค่อยรวม ขั้น 1: ดินสอ 3×5=15 บาท | ขั้น 2: ยางลบ 2×3=6 บาท | รวม 15+6=21 บาท',
       visual: {
         component: 'TextVis',
         config: {
-          sentence: 'ขั้น 1: ดินสอ 3×5=15 บาท | ขั้น 2: ยางลบ 2×3=6 บาท | รวม 15+6=21 บาท',
-          words: [{ text: 'ขั้น 1', color: '#FF7A2F', bold: true }, { text: 'ขั้น 2', color: '#4F80FF', bold: true }, { text: 'รวม', color: '#22C55E', bold: true }],
+          sentence: 'ดินสอ 3 แท่งๆ ละ 5 บาท + ยางลบ 2 อันๆ ละ 3 บาท = ?',
+          words: [{ text: '3 × 5', color: '#FF7A2F', bold: true }, { text: '2 × 3', color: '#4F80FF', bold: true }, { text: '+', color: '#22C55E', bold: true }],
         },
       },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ดินสอ 3 แท่งๆ ละ 5 บาท ยางลบ 2 อันๆ ละ 3 บาท รวมเท่าไร?', opts: ['21 บาท', '16 บาท', '24 บาท', '11 บาท'], ans: 0, hint: 'ขั้น 1: 3×5=15 ขั้น 2: 2×3=6 รวม 15+6=21' },
@@ -107,6 +108,13 @@ const wordProblems: ChapterV2 = {
     {
       id: 'check-answer',
       say: 'ตรวจสอบคำตอบ: อ่านโจทย์ซ้ำ ดูว่าตอบถูกสิ่ง ตัวเลขสมเหตุผลไหม (ซื้อของไม่ควรได้เงิน)',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'น้ำ 4 ขวดๆ ละ 8 บาท จ่าย 50 บาท เงินทอน = ?',
+          words: [{ text: '4 × 8', color: '#FF7A2F', bold: true }, { text: 'จ่าย 50', color: '#4F80FF', bold: true }, { text: 'ทอน = ?', color: '#22C55E', bold: true }],
+        },
+      },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ซื้อน้ำ 4 ขวด ขวดละ 8 บาท จ่าย 50 บาท เงินทอน = ?', opts: ['18 บาท', '10 บาท', '14 บาท', '20 บาท'], ans: 0, hint: 'น้ำรวม 4×8=32 บาท, เงินทอน 50−32=18' },

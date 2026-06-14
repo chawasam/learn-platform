@@ -46,7 +46,7 @@ const angles: ChapterV2 = {
     },
     {
       id: 'quiz',
-      say: 'มุม 60° < 90° → มุมแหลม · กฎ: น้อยกว่า 90° = แหลม · เท่ากับ 90° = ฉาก · มากกว่า 90° (ไม่ถึง 180°) = ป้าน',
+      say: 'กฎ: น้อยกว่า 90° = แหลม · เท่ากับ 90° = ฉาก · มากกว่า 90° (ไม่ถึง 180°) = ป้าน ดูมุมที่แสดงอยู่ แล้วตอบว่าเป็นมุมประเภทใด',
       visual: { component: 'AngleDrag', config: { initialAngle: 60, readOnly: true } },
       revealAfterGoal: true,
       goal: {
@@ -66,7 +66,7 @@ const angles: ChapterV2 = {
     },
     {
       id: 'angles-180',
-      say: 'ถ้ามุม 2 มุมอยู่บนเส้นตรงเดียวกัน รวมกันได้ 180° เสมอ เช่น มุม 60° + มุม 120° = 180°',
+      say: 'มุม 2 มุมบนเส้นตรงเดียวกันรวมกันได้ 180° เสมอ ดูเส้นตรงแล้วลองคิดว่ามุมที่ขาดเท่าไร',
       visual: { component: 'AngleDrag', config: { initialAngle: 180, readOnly: true } },
       revealAfterGoal: true,
       goal: {
