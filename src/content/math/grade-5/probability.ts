@@ -12,17 +12,24 @@ const probability: ChapterV2 = {
   scenes: [
     {
       id: 'intro',
-      say: 'ในถุงมีลูกบอล 3 สี แดง 5 น้ำเงิน 3 เขียว 2 รวม 10 ลูก — สีไหนมีเยอะที่สุด?',
+      say: 'ในถุงมีลูกบอล 3 สี แดง 5 น้ำเงิน 3 เขียว 2 รวม 10 ลูก — ดูสัดส่วนในถุง สีไหนมีมากสุด?',
       visual: { component: 'ProbabilityBag', config: { readOnly: true } },
+      revealAfterGoal: false,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สีไหนมีลูกมากสุดในถุง?', opts: ['แดง', 'น้ำเงิน', 'เขียว', 'เท่ากันหมด'], ans: 0, hint: 'แดง 5 น้ำเงิน 3 เขียว 2' },
+      },
     },
     {
       id: 'draw',
-      say: 'ลองหยิบสุ่มหลายๆ ครั้ง! ดูแถบสถิติ — สีที่มีลูกเยอะจะออกบ่อยกว่า นั่นคือ "โอกาส" มากกว่า',
+      say: 'หยิบสุ่มหลายๆ ครั้งดู — สีที่มีลูกเยอะจะออกบ่อยกว่าไหม? ลองหยิบ 5 ครั้งขึ้นไป',
       visual: { component: 'ProbabilityBag', config: {} },
+      goal: { type: 'reach-value', key: 'draws', value: 5 },
+      hint: 'กดปุ่ม "หยิบ 1 ลูก" อย่างน้อย 5 ครั้ง',
     },
     {
       id: 'chance',
-      say: 'แดงมี 5 จาก 10 = โอกาสครึ่งหนึ่ง · เขียวมี 2 จาก 10 = โอกาสน้อยสุด — ลูกเยอะกว่า = โอกาสมากกว่า',
+      say: 'เห็นแล้วใช่ไหม! แดงมี 5/10 ออกบ่อยสุด เขียวมี 2/10 ออกน้อยสุด — ลูกเยอะกว่า = โอกาสออกมากกว่า',
       visual: { component: 'ProbabilityBag', config: { readOnly: true } },
       revealAfterGoal: true,
       goal: {
@@ -31,23 +38,28 @@ const probability: ChapterV2 = {
       },
     },
     {
-      id: 'prob-space',
-      say: 'ผลลัพธ์ที่เป็นไปได้ทั้งหมดเรียกว่า "แซมเปิลสเปซ" เช่น โยนเหรียญ = {หัว, ก้อย} มี 2 ผล',
-      visual: { component: 'ProbabilityBag', config: { readOnly: true } },
-    },
-    {
       id: 'prob-fraction',
-      say: 'ความน่าจะเป็น = จำนวนผลที่ต้องการ ÷ จำนวนผลทั้งหมด เช่น แดง 3 ลูก จาก 5 ลูก = 3/5',
-      visual: { component: 'ProbabilityBag', config: {} },
+      say: 'ความน่าจะเป็น = จำนวนลูกที่ต้องการ ÷ ลูกทั้งหมด เช่น แดง 5 ลูก จาก 10 ลูก = 5/10 = 1/2',
+      visual: { component: 'ProbabilityBag', config: { readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ถุงมีแดง 3 น้ำเงิน 2 รวม 5 ลูก ความน่าจะเป็นหยิบได้แดง = ?', opts: ['3/5', '2/5', '1/5', '5/3'], ans: 0, hint: 'แดง 3 จากทั้งหมด 5' },
+      },
     },
     {
       id: 'prob-certain',
-      say: 'ความน่าจะเป็น = 1 หมายถึงแน่นอน 100% ส่วน = 0 หมายถึงเป็นไปไม่ได้เลย',
+      say: 'ความน่าจะเป็น = 1 หมายถึงแน่นอน 100% (มีแต่สีนั้นเลย) · = 0 หมายถึงเป็นไปไม่ได้ (ไม่มีสีนั้นในถุง)',
       visual: { component: 'ProbabilityBag', config: { readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ถุงมีลูกแดงล้วน 4 ลูก หยิบ 1 ลูก ความน่าจะเป็นได้แดง = ?', opts: ['0', '1/2', '1', '1/4'], ans: 2, hint: 'มีแต่แดงเลย = แน่นอน 100% = 1' },
+      },
     },
     {
       id: 'prob-quiz',
-      say: 'แดง 3 จากทั้งหมด 4 ลูก → ความน่าจะเป็น = 3/4 — หารจำนวนที่ต้องการด้วยทั้งหมดเสมอ',
+      say: 'ถุงมีแดง 3 ลูก จากทั้งหมด 4 ลูก → ความน่าจะเป็น = 3/4',
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -56,7 +68,7 @@ const probability: ChapterV2 = {
     },
     {
       id: 'recap',
-      say: 'สรุป 🏠 โอกาส = จำนวนสิ่งที่อยากได้ ÷ ทั้งหมด · ค่า 0 = ไม่มีทาง · ค่า 1 = แน่นอน',
+      say: 'สรุป 🏠 ความน่าจะเป็น = สิ่งที่ต้องการ ÷ ทั้งหมด · ค่า 0 = ไม่มีทาง · ค่า 1 = แน่นอน · ของมาก = โอกาสมาก',
       visual: { component: 'ProbabilityBag', config: { readOnly: true } },
     },
   ],
