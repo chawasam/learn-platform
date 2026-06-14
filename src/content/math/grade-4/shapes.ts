@@ -53,6 +53,7 @@ const shapes: ChapterV2 = {
       id: 'rectangle',
       say: 'สี่เหลี่ยมผืนผ้าก็มี 4 ด้าน 4 มุม แต่ด้านยาวคู่หนึ่ง ด้านสั้นอีกคู่หนึ่ง',
       visual: { component: 'ShapeExplorer', config: { shape: 'rectangle', count: 'angles', readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'สี่เหลี่ยมผืนผ้ามีกี่มุม?', opts: ['3', '4', '5', '6'], ans: 1, hint: 'นับจุดมุมทั้งสี่มุม' },
