@@ -52,7 +52,17 @@ const decimalArithmetic: ChapterV2 = {
     {
       id: 'add-align',
       say: 'บวกทศนิยม ต้องตั้งจุดทศนิยมตรงกัน: 1.5 + 0.35 → 1.50 + 0.35 = 1.85',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 5, fixed: true, color: '#4ADE80' }, { parts: 100, filled: 35, fixed: true, color: '#60A5FA' }], showLabels: true } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '1.5 + 0.35 → เติม 0 ให้ครบ: 1.50 + 0.35 → จุดตรงกัน → บวก: 50+35=85 → ตอบ 1.85',
+          words: [
+            { text: 'เติม 0', color: '#FF7A2F', bold: true },
+            { text: 'จุดตรงกัน', color: '#4F80FF', bold: true },
+            { text: '1.85', color: '#22C55E', bold: true },
+          ],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -62,7 +72,17 @@ const decimalArithmetic: ChapterV2 = {
     {
       id: 'subtract-decimal',
       say: 'ลบทศนิยม: 2.3 − 1.15 → 2.30 − 1.15 = 1.15 ตั้งจุดตรงกัน เติม 0 ถ้าหลักไม่ครบ',
-      visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 30, fixed: true, color: '#4ADE80' }, { parts: 100, filled: 15, fixed: true, color: '#60A5FA' }], showLabels: true } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '2.3 − 1.15 → เติม 0: 2.30 − 1.15 → จุดตรงกัน → ลบ: 230−115=115 → ตอบ 1.15',
+          words: [
+            { text: 'เติม 0', color: '#FF7A2F', bold: true },
+            { text: 'จุดตรงกัน', color: '#4F80FF', bold: true },
+            { text: '1.15', color: '#22C55E', bold: true },
+          ],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',

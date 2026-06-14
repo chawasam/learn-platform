@@ -87,6 +87,46 @@ const fractionCalc: ChapterV2 = {
       },
     },
     {
+      id: 'procedure-add',
+      say: 'สูตร 3 ขั้น: 1) หา ค.ร.น. 2) คูณขยายทั้งสองเศษ 3) บวกตัวบน ตัวล่างคงเดิม',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '1/2 + 1/3 → ค.ร.น.(2,3)=6 → 3/6 + 2/6 → 3+2=5 → ตอบ 5/6',
+          words: [
+            { text: 'ค.ร.น.(2,3)=6', color: '#4F80FF', bold: true },
+            { text: '3+2=5', color: '#FF7A2F', bold: true },
+            { text: '5/6', color: '#22C55E', bold: true },
+          ],
+        },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'fill', q: '1/3 + 1/4 = ___/12', ans: '7', hint: 'ค.ร.น.(3,4)=12 → 4/12+3/12=7/12' },
+      },
+    },
+    {
+      id: 'procedure-sub',
+      say: 'ลบก็เหมือนกัน — หา ค.ร.น. แปลงก่อน แล้วลบตัวบน ตัวล่างคงเดิม',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '1/2 − 1/3 → ค.ร.น.(2,3)=6 → 3/6 − 2/6 → 3−2=1 → ตอบ 1/6',
+          words: [
+            { text: 'ค.ร.น.(2,3)=6', color: '#4F80FF', bold: true },
+            { text: '3−2=1', color: '#FF7A2F', bold: true },
+            { text: '1/6', color: '#22C55E', bold: true },
+          ],
+        },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'fill', q: '3/4 − 1/3 = ___/12', ans: '5', hint: 'ค.ร.น.(4,3)=12 → 9/12−4/12=5/12' },
+      },
+    },
+    {
       id: 'quiz-add',
       say: '1/3 + 1/4 = 7/12 เพราะ ค.ร.น.(3,4)=12 → 4/12 + 3/12 = 7/12',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 3, filled: 1, color: '#FF7A2F' }, { parts: 4, filled: 1, color: '#4F80FF' }], showLabels: true } },
