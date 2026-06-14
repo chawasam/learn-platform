@@ -89,6 +89,7 @@ const fractionCalc: ChapterV2 = {
     {
       id: 'quiz-add',
       say: '1/3 + 1/4 = 7/12 เพราะ ค.ร.น.(3,4)=12 → 4/12 + 3/12 = 7/12',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 3, filled: 1, color: '#FF7A2F' }, { parts: 4, filled: 1, color: '#4F80FF' }], showLabels: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -109,6 +110,7 @@ const fractionCalc: ChapterV2 = {
     {
       id: 'quiz-multiply',
       say: '2/3 × 1/2 = 2/6 = 1/3 เพราะ 2×1=2 และ 3×2=6 แล้วลดรูป',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 3, filled: 2, color: '#A855F7' }, { parts: 6, filled: 2, color: '#22C55E' }], showLabels: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
