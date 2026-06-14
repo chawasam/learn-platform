@@ -62,6 +62,16 @@ const length: ChapterV2 = {
       },
     },
     {
+      id: 'km-convert',
+      say: '1 กิโลเมตร = 1,000 เมตร — ถนนสายหนึ่งยาว 3 กิโลเมตร ยาว 3 × 1,000 = 3,000 เมตร',
+      visual: { component: 'NumberLine', config: { min: 0, max: 5000, step: 1000, initialValue: 3000, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ถนนยาว 3 กิโลเมตร = กี่เมตร?', opts: ['3,000 เมตร', '300 เมตร', '30 เมตร', '30,000 เมตร'], ans: 0, hint: '3 × 1,000 = 3,000 เมตร' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป: 1 ซม. = 10 มม. · 1 ม. = 100 ซม. · 1 กม. = 1,000 ม. · ใหญ่→เล็ก คูณ, เล็ก→ใหญ่ หาร 📐',
       visual: { component: 'NumberLine', config: { min: 0, max: 10, step: 1, initialValue: 5, readOnly: true } },

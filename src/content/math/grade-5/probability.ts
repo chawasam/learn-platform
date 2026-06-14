@@ -68,6 +68,16 @@ const probability: ChapterV2 = {
       },
     },
     {
+      id: 'coin-dice',
+      say: 'โยนเหรียญ: ผลที่เป็นไปได้ 2 อย่าง (หัว/ก้อย) โอกาสออกหัว = 1/2 · โยนลูกเต๋า: มี 6 หน้า โอกาสออกเลขใดเลขหนึ่ง = 1/6',
+      visual: { component: 'ProbabilityBag', config: { readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'โยนลูกเต๋า 1 ลูก โอกาสออกเลข 3 เท่ากับเท่าไร?', opts: ['1/6', '1/2', '3/6', '1/3'], ans: 0, hint: 'ลูกเต๋ามี 6 หน้า เลข 3 มีแค่ 1 หน้า = 1/6' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 ความน่าจะเป็น = สิ่งที่ต้องการ ÷ ทั้งหมด · ค่า 0 = ไม่มีทาง · ค่า 1 = แน่นอน · ของมาก = โอกาสมาก',
       visual: { component: 'ProbabilityBag', config: { readOnly: true } },

@@ -65,6 +65,16 @@ const time: ChapterV2 = {
       },
     },
     {
+      id: 'elapsed-time',
+      say: 'นับเวลาผ่านไป: จาก 09:30 ถึง 11:00 — นับชั่วโมงก่อน (09:30→10:30 = 1 ชั่วโมง) แล้วนับนาที (10:30→11:00 = 30 นาที) รวม 1 ชั่วโมง 30 นาที',
+      visual: { component: 'ClockDrag', config: { initialHour: 9, initialMinute: 30, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เริ่ม 09:30 น. สิ้นสุด 11:00 น. ผ่านไปกี่นาที?', opts: ['90 นาที', '60 นาที', '30 นาที', '70 นาที'], ans: 0, hint: '09:30→10:30 = 60 นาที แล้ว 10:30→11:00 = 30 นาที รวม 90 นาที' },
+      },
+    },
+    {
       id: 'recap',
       say: 'จำง่ายๆ: 1 ชั่วโมง = 60 นาที · เข็มยาวเดินรอบ = 1 ชั่วโมง · แต่ละเลขห่างกัน 5 นาที',
       visual: { component: 'ClockDrag', config: { initialHour: 12, initialMinute: 0, readOnly: true } },

@@ -63,6 +63,13 @@ const mixed: ChapterV2 = {
       },
     },
     {
+      id: 'solve-3',
+      say: 'ท้าให้ลองอีกข้อ — 12 ÷ 4 + 5 มีหารกับบวก ทำอันไหนก่อน?',
+      visual: { component: 'OrderMachine', config: { expression: [12, '÷', 4, '+', 5], mode: 'solve' } },
+      goal: { type: 'reach-value', key: 'done', value: 1 },
+      hint: 'แตะ ÷ ก่อน (12÷4=3) แล้วแตะ + (3+5=8)',
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 ลำดับ: วงเล็บก่อนสุด → คูณหาร → บวกลบ ทำซ้ายไปขวาเฉยๆ จะได้ผิด!',
       visual: { component: 'OrderMachine', config: { expression: [10, '-', 6, '÷', 2], mode: 'correct' } },

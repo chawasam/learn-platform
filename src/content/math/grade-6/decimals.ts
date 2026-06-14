@@ -60,10 +60,22 @@ const decimals: ChapterV2 = {
     },
     {
       id: 'round-decimal',
-      say: 'ปัดทศนิยม: ดูหลักถัดไป ถ้า ≥5 ปัดขึ้น ถ้า <5 ปัดทิ้ง — ลองคิดดู!',
+      say: 'ปัดทศนิยม: ดูหลักถัดไป ถ้า ≥5 ปัดขึ้น ถ้า <5 ปัดทิ้ง เช่น 3.456 ปัด 2 ตำแหน่ง ดูหลักที่ 3 = 6 ≥ 5 → ปัดขึ้นเป็น 3.46',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 46, fixed: true, color: '#4F80FF' }], showLabels: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '3.456 ปัดทศนิยม 2 ตำแหน่ง = ?', opts: ['3.46', '3.45', '3.5', '3.4'], ans: 0, hint: 'ดูหลักที่ 3 = 6 ≥ 5 → ปัดขึ้น 3.46' },
+      },
+    },
+    {
+      id: 'fraction-to-decimal',
+      say: 'แปลงเศษส่วนเป็นทศนิยม: หารบน÷ล่าง เช่น 1/4 = 1÷4 = 0.25 · 3/4 = 0.75',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 4, filled: 1, fixed: true, color: '#FF7A2F' }, { parts: 100, filled: 25, fixed: true, color: '#4F80FF' }], showLabels: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '3/4 แปลงเป็นทศนิยมได้เท่าไร?', opts: ['0.75', '0.34', '0.3', '0.43'], ans: 0, hint: '3 ÷ 4 = 0.75 หรือ 1/4=0.25 คูณ 3' },
       },
     },
     {

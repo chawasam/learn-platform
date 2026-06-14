@@ -60,6 +60,16 @@ const area: ChapterV2 = {
       },
     },
     {
+      id: 'find-side',
+      say: 'รู้พื้นที่แล้วหาด้าน: ถ้า กว้าง × ยาว = พื้นที่ แล้ว ยาว = พื้นที่ ÷ กว้าง เช่น พื้นที่ 24 กว้าง 4 → ยาว = 24 ÷ 4 = 6',
+      visual: { component: 'AreaTiles', config: { width: 4, height: 6, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ห้องพื้นที่ 24 ตร.ม. กว้าง 4 ม. ยาวกี่เมตร?', opts: ['6', '20', '96', '8'], ans: 0, hint: 'ยาว = พื้นที่ ÷ กว้าง = 24 ÷ 4 = 6' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 พื้นที่สี่เหลี่ยม = กว้าง × ยาว · มองเป็นแถวๆ จะนับเร็ว ไม่ต้องนับทีละช่อง',
       visual: { component: 'AreaTiles', config: { width: 5, height: 3, readOnly: true } },

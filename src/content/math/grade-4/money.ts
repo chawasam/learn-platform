@@ -62,6 +62,16 @@ const money: ChapterV2 = {
       },
     },
     {
+      id: 'multi-item',
+      say: 'ซื้อหลายอย่าง: บวกราคาทั้งหมดก่อน แล้วค่อยคิดทอน เช่น ขนม 35 บาท น้ำ 20 บาท รวม 55 บาท จ่าย 100 ทอน 45 บาท',
+      visual: { component: 'MoneyDrag', config: { readOnly: true, initialCounts: { 20: 2, 5: 1 }, availableDenominations: [1000, 500, 100, 50, 20, 10, 5, 1] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ซื้อขนม 35 บาท และน้ำ 20 บาท จ่าย 100 บาท ทอนเท่าไร?', opts: ['45 บาท', '55 บาท', '65 บาท', '25 บาท'], ans: 0, hint: 'รวมก่อน 35+20=55 แล้ว 100−55=45' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป: จ่ายเกินเท่าไร ร้านต้องทอนกลับเท่านั้น · เงินทอน = จ่าย − ราคา 🎯',
       visual: { component: 'MoneyDrag', config: { readOnly: true, initialCounts: { 20: 1, 10: 1, 5: 1 }, availableDenominations: [1000, 500, 100, 50, 20, 10, 5, 1] } },
