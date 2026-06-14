@@ -55,7 +55,13 @@ const mixed: ChapterV2 = {
     {
       id: 'parentheses',
       say: 'ถ้ามีวงเล็บ ( ) ต้องทำในวงเล็บก่อนสุด! เช่น (5 + 3) × 2 ทำ 5+3=8 ก่อน แล้ว 8×2=16',
-      visual: { component: 'OrderMachine', config: { expression: [5, '+', 3, '×', 2], mode: 'correct' } },
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '(5+3) × 2 → วงเล็บก่อน: 5+3 = ? → แล้ว ?×2',
+          words: [{ text: '(5+3)', color: '#4F80FF', bold: true }, { text: '×2', color: '#FF7A2F', bold: true }],
+        },
+      },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
