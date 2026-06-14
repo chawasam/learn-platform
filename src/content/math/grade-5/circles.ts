@@ -22,6 +22,11 @@ const circles: ChapterV2 = {
       id: 'diameter',
       say: 'เส้นสีน้ำเงินพาดผ่านจุดกลาง = "เส้นผ่านศูนย์กลาง" ยาวเป็น 2 เท่าของรัศมีเสมอ (d = 2r)',
       visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'รัศมี 3 ซม. เส้นผ่านศูนย์กลางยาวเท่าไร?', opts: ['6 ซม.', '3 ซม.', '9 ซม.', '1.5 ซม.'], ans: 0, hint: 'd = 2 × r = 2 × 3 = 6' },
+      },
     },
     {
       id: 'quiz',
@@ -43,11 +48,21 @@ const circles: ChapterV2 = {
       id: 'diameter-radius',
       say: 'เส้นผ่านศูนย์กลาง d = 2 × รัศมี r — วัดจากขอบผ่านจุดศูนย์กลางไปอีกขอบ',
       visual: { component: 'CircleRadius', config: { initialR: 3, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เส้นผ่านศูนย์กลาง 8 ซม. รัศมีเท่าไร?', opts: ['4 ซม.', '8 ซม.', '16 ซม.', '2 ซม.'], ans: 0, hint: 'รัศมี = d ÷ 2 = 8 ÷ 2 = 4' },
+      },
     },
     {
       id: 'circumference-formula',
       say: 'เส้นรอบวง C = π × d ≈ 3.14 × d หรือ 2 × π × r — π ≈ 3.14',
       visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สูตรเส้นรอบวงคือ?', opts: ['π × d (หรือ 2πr)', 'r × r', 'd × d', 'r + d'], ans: 0, hint: 'C = 3.14 × เส้นผ่านศูนย์กลาง' },
+      },
     },
     {
       id: 'circumference-calc',

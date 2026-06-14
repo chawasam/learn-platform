@@ -36,6 +36,11 @@ const shapes: ChapterV2 = {
       id: 'tri-recap',
       say: 'จำง่ายๆ สามเหลี่ยม = 3 ด้าน 3 มุม จำนวนด้านเท่ากับจำนวนมุมเสมอในรูปเหลี่ยม',
       visual: { component: 'ShapeExplorer', config: { shape: 'triangle', count: 'angles', readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สามเหลี่ยมมีกี่ด้านและกี่มุม?', opts: ['3 ด้าน 3 มุม', '3 ด้าน 4 มุม', '4 ด้าน 3 มุม', '3 ด้าน 0 มุม'], ans: 0, hint: 'จำนวนด้าน = จำนวนมุมเสมอ' },
+      },
     },
     {
       id: 'sq-sides',
