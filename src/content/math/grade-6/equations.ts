@@ -45,11 +45,21 @@ const equations: ChapterV2 = {
       id: 'write-from-word',
       say: 'เขียนสมการ: เด็กอายุ x ปี อีก 5 ปีจะอายุ 12 → x + 5 = 12 หา x',
       visual: { component: 'EquationBalance', config: { c: 5, r: 12, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เด็กอายุ x ปี อีก 5 ปีจะอายุ 12 — สมการคือ?', opts: ['x + 5 = 12', 'x + 12 = 5', '5x = 12', 'x − 5 = 12'], ans: 0, hint: 'อายุปัจจุบัน + 5 = 12' },
+      },
     },
     {
       id: 'two-step-eq',
       say: 'สมการ 2 ขั้น: 2x + 3 = 11 → ลบ 3 ทั้งสองข้าง → 2x = 8 → x = 4',
       visual: { component: 'EquationBalance', config: { c: 3, r: 11, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '2x + 3 = 11 แล้ว x = ?', opts: ['4', '7', '3', '8'], ans: 0, hint: 'ลบ 3 → 2x=8 → หาร 2 → x=4' },
+      },
     },
     {
       id: 'equation-quiz',

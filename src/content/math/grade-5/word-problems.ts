@@ -20,6 +20,11 @@ const wordProblems: ChapterV2 = {
           words: [{ text: 'แบ่ง', color: '#A855F7', bold: true }, { text: 'เท่าๆ กัน', color: '#A855F7', bold: true }],
         },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'คำว่า "แบ่งเท่าๆ กัน" ในโจทย์บอกให้ใช้วิธีใด?', opts: ['หาร', 'บวก', 'ลบ', 'คูณ'], ans: 0, hint: '"แบ่ง" = แจกออกให้เท่ากัน = หาร' },
+      },
     },
     {
       id: 'solve',
@@ -38,6 +43,11 @@ const wordProblems: ChapterV2 = {
           sentence: 'หนังสือ 5 เล่ม เล่มละ 45 บาท รวมเป็นเงินเท่าไร',
           words: [{ text: 'เล่มละ', color: '#FF7A2F', bold: true }, { text: 'รวม', color: '#22C55E', bold: true }],
         },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '"หนังสือ 5 เล่ม เล่มละ 45 บาท" ต้องใช้วิธีใด?', opts: ['คูณ', 'หาร', 'บวก', 'ลบ'], ans: 0, hint: '"เล่มละ" = แต่ละอัน × จำนวน = คูณ' },
       },
     },
     {
@@ -58,6 +68,10 @@ const wordProblems: ChapterV2 = {
           words: [{ text: 'ขั้น 1', color: '#FF7A2F', bold: true }, { text: 'ขั้น 2', color: '#4F80FF', bold: true }, { text: 'รวม', color: '#22C55E', bold: true }],
         },
       },
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ดินสอ 3 แท่งๆ ละ 5 บาท ยางลบ 2 อันๆ ละ 3 บาท รวมเท่าไร?', opts: ['21 บาท', '16 บาท', '24 บาท', '11 บาท'], ans: 0, hint: 'ขั้น 1: 3×5=15 ขั้น 2: 2×3=6 รวม 15+6=21' },
+      },
     },
     {
       id: 'write-equation',
@@ -68,6 +82,10 @@ const wordProblems: ChapterV2 = {
           sentence: 'ให้ x = คำตอบ → เขียนสมการ → แก้ x → ตรวจคำตอบ',
           words: [{ text: 'ให้ x', color: '#A855F7', bold: true }, { text: 'เขียนสมการ', color: '#FF7A2F', bold: true }, { text: 'ตรวจคำตอบ', color: '#22C55E', bold: true }],
         },
+      },
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ออม x บาทต่อวัน 4 วัน รวม 200 บาท สมการคือ?', opts: ['4x = 200', 'x + 4 = 200', 'x ÷ 4 = 200', '4 + x = 200'], ans: 0, hint: 'วันละ x × 4 วัน = รวม 200 → 4x = 200' },
       },
     },
     {
