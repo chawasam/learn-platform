@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { SUBJECTS, GRADE_LABEL } from '@/types/curriculum'
-import { getChapters } from '@/lib/content'
+import { getChapters, availableGrades } from '@/lib/content'
 import type { Subject } from '@/types/curriculum'
 
 export async function generateStaticParams() {
   const params: { subject: string; grade: string }[] = []
   for (const s of SUBJECTS) {
-    for (const g of s.grades) {
+    for (const g of availableGrades(s.id as Subject)) {
       params.push({ subject: s.id, grade: String(g) })
     }
   }
