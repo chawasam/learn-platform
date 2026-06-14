@@ -40,6 +40,8 @@ const decimals: ChapterV2 = {
     {
       id: 'compare',
       say: 'เทียบทศนิยมดูทีละหลักจากซ้าย: 0.5 > 0.45 เพราะหลักส่วนสิบ 5 มากกว่า 4',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 5, color: '#4F80FF' }, { parts: 100, filled: 45, color: '#FF7A2F' }], showLabels: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ตัวเลขใดมากที่สุด?', opts: ['0.5', '0.45', '0.405', '0.49'], ans: 0, hint: 'เทียบหลักส่วนสิบก่อน 5 > 4' },
@@ -68,6 +70,7 @@ const decimals: ChapterV2 = {
     {
       id: 'order-decimals',
       say: 'ลองเรียงทศนิยมจากน้อยไปมาก ดูหลักส่วนสิบทีละตัว',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 4, color: '#4F80FF' }, { parts: 100, filled: 38, color: '#FF7A2F' }, { parts: 10, filled: 5, color: '#22C55E' }], showLabels: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '0.4, 0.38, 0.5 เรียงจากน้อยไปมาก = ?', opts: ['0.38, 0.4, 0.5', '0.5, 0.4, 0.38', '0.4, 0.38, 0.5', '0.38, 0.5, 0.4'], ans: 0, hint: 'ดูหลักส่วนสิบก่อน: 3<4<5' },

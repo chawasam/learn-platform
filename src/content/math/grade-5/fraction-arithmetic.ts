@@ -37,6 +37,7 @@ const fractionArithmetic: ChapterV2 = {
     {
       id: 'quiz-add',
       say: '1/5 + 3/5 = 4/5 เพราะตัวล่างเท่ากัน บวกตัวบน 1+3=4 ตัวล่าง 5 ไม่เปลี่ยน',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 5, filled: 1, color: '#FF7A2F' }], showLabels: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',
@@ -70,6 +71,7 @@ const fractionArithmetic: ChapterV2 = {
     {
       id: 'quiz-sub',
       say: '5/8 − 2/8 = 3/8 ลบตัวบน 5−2=3 ตัวล่าง 8 ไม่เปลี่ยน',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 8, filled: 5, color: '#FF7A2F' }], showLabels: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',

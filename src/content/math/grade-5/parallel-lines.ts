@@ -35,6 +35,7 @@ const parallelLines: ChapterV2 = {
     {
       id: 'quiz',
       say: 'ลองคิดดู! ข้อใดเป็นเส้นขนานในชีวิตจริง?',
+      visual: { component: 'ParallelLines', config: { initialAngle: 0, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ข้อใดเป็นเส้นขนาน?', opts: ['รางรถไฟ', 'เข็มนาฬิกา', 'มุมห้อง', 'ใบพัดลม'], ans: 0, hint: '2 เส้นห่างเท่ากันตลอด ไม่ตัดกัน' },
@@ -63,6 +64,7 @@ const parallelLines: ChapterV2 = {
     {
       id: 'parallel-quiz',
       say: 'ทดสอบ! เส้นขนานคืออะไรกันแน่?',
+      visual: { component: 'ParallelLines', config: { initialAngle: 0, readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'เส้นขนานคือเส้นที่...', opts: ['ตัดกันที่จุดหนึ่ง', 'มีระยะห่างเท่ากันตลอดไม่ตัดกัน', 'ยาวเท่ากัน', 'สั้นกว่ากัน'], ans: 1, hint: 'ระยะห่างเท่ากัน ไม่ตัดกัน' },

@@ -41,6 +41,8 @@ const quadrilaterals: ChapterV2 = {
     {
       id: 'perimeter',
       say: 'เส้นรอบรูป = รวมความยาวทุกด้าน จัตุรัสด้าน 6 = 6+6+6+6 = 6×4',
+      visual: { component: 'QuadMorph', config: { shape: 'square', readOnly: true } },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'จัตุรัสด้านยาว 6 ซม. เส้นรอบรูป?', opts: ['24 ซม.', '12 ซม.', '36 ซม.', '18 ซม.'], ans: 0, hint: '4 ด้านเท่ากัน 6×4' },
@@ -69,6 +71,7 @@ const quadrilaterals: ChapterV2 = {
     {
       id: 'quad-quiz',
       say: 'ทดสอบความเข้าใจ!',
+      visual: { component: 'QuadMorph', config: { shape: 'square', readOnly: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'รูปสี่เหลี่ยมที่มีด้านเท่ากันทุกด้านและมุมฉากทุกมุมคือ?', opts: ['สี่เหลี่ยมด้านขนาน', 'สี่เหลี่ยมผืนผ้า', 'จัตุรัส', 'สี่เหลี่ยมคางหมู'], ans: 2, hint: 'ด้านเท่า + มุมฉาก = จัตุรัส' },

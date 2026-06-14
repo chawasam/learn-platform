@@ -60,6 +60,7 @@ const probability: ChapterV2 = {
     {
       id: 'prob-quiz',
       say: 'ถุงมีแดง 3 ลูก จากทั้งหมด 4 ลูก → ความน่าจะเป็น = 3/4',
+      visual: { component: 'ProbabilityBag', config: { readOnly: true } },
       revealAfterGoal: true,
       goal: {
         type: 'answer',

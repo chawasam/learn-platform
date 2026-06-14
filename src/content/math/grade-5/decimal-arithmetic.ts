@@ -18,6 +18,7 @@ const decimalArithmetic: ChapterV2 = {
     {
       id: 'add',
       say: 'ลองคิด! 2.5 + 1.25 ตั้งจุดตรงกัน: 2.50 + 1.25 บวกได้เท่าไร?',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 25, color: '#4ADE80' }, { parts: 100, filled: 125, color: '#60A5FA' }], showLabels: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '2.5 + 1.25 = ?', opts: ['3.75', '3.30', '1.50', '37.5'], ans: 0, hint: 'ตั้งจุดตรงกัน 2.50 + 1.25' },
@@ -26,6 +27,7 @@ const decimalArithmetic: ChapterV2 = {
     {
       id: 'subtract',
       say: 'ลบก็ตั้งจุดตรงกัน 5.0 − 1.5 คิดเหมือน 50 − 15 แล้วใส่จุด',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 5, color: '#4F80FF' }], showLabels: true } },
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '5.0 − 1.5 = ?', opts: ['3.5', '4.5', '3.0', '4.0'], ans: 0, hint: 'เหมือน 50−15=35 ใส่จุด' },
@@ -34,6 +36,14 @@ const decimalArithmetic: ChapterV2 = {
     {
       id: 'multiply',
       say: 'คูณทศนิยม: คูณเหมือนเลขเต็มก่อน แล้วนับจุดทศนิยมใส่ผล 0.2 × 3 → 2×3=6 มีจุด 1 ตำแหน่ง',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: '0.2 × 3 → คูณเลขเต็ม: 2 × 3 = 6 → นับจุด 1 ตำแหน่ง → ?',
+          words: [{ text: '2 × 3 = 6', color: '#4F80FF', bold: true }, { text: '1 ตำแหน่ง', color: '#FF7A2F', bold: true }],
+        },
+      },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: '0.2 × 3 = ?', opts: ['0.6', '6', '0.06', '0.23'], ans: 0, hint: '2×3=6 มีจุด 1 ตำแหน่ง → 0.6' },
@@ -62,6 +72,14 @@ const decimalArithmetic: ChapterV2 = {
     {
       id: 'money-decimal',
       say: 'โจทย์เงิน: ซื้อของ 12.50 บาท จ่าย 20.00 บาท เงินทอน 20.00 − 12.50 = 7.50 บาท',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'จ่าย 20.00 บาท − ราคา 12.50 บาท = เงินทอน ?',
+          words: [{ text: '20.00 บาท', color: '#22C55E', bold: true }, { text: '12.50 บาท', color: '#FF7A2F', bold: true }],
+        },
+      },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ซื้อของ 12.50 บาท จ่าย 20 บาท เงินทอน = ?', opts: ['7.50 บาท', '8.50 บาท', '7.00 บาท', '8.00 บาท'], ans: 0, hint: '20.00 − 12.50 = 7.50' },
