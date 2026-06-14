@@ -31,6 +31,7 @@ export type ComponentName =
   | 'PercentBar'
   | 'TransversalAngles'
   | 'MultiplyColumn'
+  | 'DivideColumn'
 
 export type ExplainBlock =
   | { type: 'text'; html: string }

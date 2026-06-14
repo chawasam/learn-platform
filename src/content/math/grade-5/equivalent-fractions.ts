@@ -1,6 +1,5 @@
 import type { ChapterV2 } from '@/types/curriculum'
 
-// ป.5 บท 5 เศษส่วน (ref: p5-c05) — เศษส่วนเท่ากัน + ลดรูป (แท่งซ้อนพิสูจน์)
 const equivalentFractions: ChapterV2 = {
   version: 2,
   id: 'math-5-equiv-fractions',
@@ -45,8 +44,24 @@ const equivalentFractions: ChapterV2 = {
       },
     },
     {
+      id: 'simplify',
+      say: 'ลดรูปเศษส่วนคือหารตัวบนและตัวล่างด้วยจำนวนเดียวกัน เช่น 4/8 ÷ 4 = 1/2 ดูแท่งสองแถวนี้ยาวเท่ากัน',
+      visual: {
+        component: 'FractionBars',
+        config: { rows: [{ parts: 8, filled: 4, fixed: true, color: '#FF7A2F' }, { parts: 2, filled: 1, fixed: true, color: '#8B5A2B' }], showLabels: true },
+      },
+    },
+    {
+      id: 'compare-diff-denom',
+      say: 'เทียบ 1/2 กับ 1/3 ส่วนไม่เท่ากันต้องแปลงก่อน: 1/2 = 3/6 และ 1/3 = 2/6 แล้วค่อยเทียบ',
+      visual: {
+        component: 'FractionBars',
+        config: { rows: [{ parts: 6, filled: 3, fixed: true, color: '#8B5A2B' }, { parts: 6, filled: 2, fixed: true, color: '#4A90D9' }], showLabels: true },
+      },
+    },
+    {
       id: 'recap',
-      say: 'สรุป 🏠 เท่ากัน = คูณบนล่างด้วยเลขเดียว · ลดรูป = หารบนล่างด้วยเลขเดียว',
+      say: 'สรุป 🏠 เท่ากัน = คูณบนล่างด้วยเลขเดียว · ลดรูป = หารบนล่างด้วยเลขเดียว · เทียบต้องทำส่วนให้เท่ากันก่อน',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 2, filled: 1, fixed: true, color: '#8B5A2B' }, { parts: 4, filled: 2, fixed: true, color: '#FF7A2F' }], showLabels: true } },
     },
   ],
@@ -58,7 +73,7 @@ const equivalentFractions: ChapterV2 = {
     { type: 'fill', q: 'ลดรูป 4/8 = 1/___', ans: '2', hint: 'หารด้วย 4' },
     { type: 'mc', q: 'เศษส่วนใดเท่ากับ 1/3?', opts: ['2/6', '2/3', '1/2', '3/4'], ans: 0, hint: 'คูณบนล่างด้วย 2' },
     { type: 'fill', q: 'ลดรูป 10/15 = 2/___', ans: '3', hint: 'หารด้วย 5' },
-    { type: 'mc', q: '2/4 เท่ากับเศษส่วนใด?', opts: ['1/2', '2/3', '1/4', '3/4'], ans: 0, hint: 'หารด้วย 2' },
+    { type: 'mc', q: '1/2 กับ 1/3 อันไหนมากกว่า? (แปลงส่วนให้เท่าก่อน)', opts: ['1/2', '1/3', 'เท่ากัน', 'บอกไม่ได้'], ans: 0, hint: '1/2 = 3/6, 1/3 = 2/6 ตัวบน 3 > 2' },
     { type: 'slider', q: 'แท่ง 6 ช่อง ระบายกี่ช่องให้เท่ากับ 1/2?', min: 0, max: 6, step: 1, ans: 3, unit: 'ช่อง', hint: 'ครึ่งหนึ่งของ 6' },
     { type: 'fill', q: 'ลดรูป 9/12 = 3/___', ans: '4', hint: 'หารด้วย 3' },
   ],

@@ -38,6 +38,29 @@ const parallelAngles: ChapterV2 = {
       },
     },
     {
+      id: 'angle-types-review',
+      say: 'มุมแย้ง (Alternate) อยู่คนละฝั่งเส้นตัด ตัว Z ขนาดเท่ากัน เพราะเส้นสองเส้นขนานกันสนิท',
+      visual: { component: 'TransversalAngles', config: { initialAngle: 60, mode: 'alt', readOnly: true } },
+    },
+    {
+      id: 'alternate-angles',
+      say: 'ลองกด "มุมแย้ง" ดู มุมสีเดียวกัน = ขนาดเท่ากัน เพราะเส้นขนาน',
+      visual: { component: 'TransversalAngles', config: { initialAngle: 55, mode: 'alt', readOnly: true } },
+    },
+    {
+      id: 'co-interior-detail',
+      say: 'มุมภายในข้างเดียวกัน (Co-interior) ตัว C รวมกัน = 180° เสมอ ไม่ว่ามุมจะเป็นเท่าไร',
+      visual: { component: 'TransversalAngles', config: { initialAngle: 80, mode: 'co', readOnly: true } },
+    },
+    {
+      id: 'angles-quiz',
+      say: 'ทดสอบ: มุมแย้งเท่ากันเสมอเพราะเส้นขนาน ลองคิดดู',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เส้นขนาน มุมแย้ง α=65° มุม β (มุมแย้งกับ α) = ?', opts: ['65°', '115°', '90°', '75°'], ans: 0, hint: 'มุมแย้ง = เท่ากัน → 65°' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 มุมแย้ง (ตัว Z) = เท่ากัน · มุมภายในข้างเดียวกัน (ตัว C) = รวม 180° · รู้มุมเดียวหามุมอื่นได้หมด',
       visual: { component: 'TransversalAngles', config: { initialAngle: 60, mode: 'alt', readOnly: true } },
@@ -54,6 +77,9 @@ const parallelAngles: ChapterV2 = {
     { type: 'fill', q: 'มุมหนึ่ง 100° มุมแย้ง = ___ องศา', ans: '100', hint: 'มุมแย้งเท่ากัน' },
     { type: 'mc', q: 'เมื่อเส้นตัดเส้นขนาน มุมแย้งจะ...?', opts: ['เท่ากัน', 'ต่างกัน', 'รวม 90', 'หายไป'], ans: 0, hint: 'สมบัติมุมบนเส้นขนาน' },
     { type: 'fill', q: 'มุมหนึ่ง 65° มุมภายในข้างเดียวกัน (รวม 180) = ___ องศา', ans: '115', hint: '180 − 65' },
+    { type: 'mc', q: 'มุมแย้ง α=65° มุม β = ?', opts: ['65°', '115°', '90°', '75°'], ans: 0, hint: 'มุมแย้งเท่ากัน → 65°' },
+    { type: 'fill', q: 'มุมภายในข้างเดียวกัน มุมหนึ่ง 55° อีกมุม = ___ องศา', ans: '125', hint: '180 − 55 = 125' },
+    { type: 'mc', q: 'มุมภายในข้างเดียวกัน (Co-interior) รวมกันได้กี่องศา?', opts: ['90°', '180°', '270°', '360°'], ans: 1, hint: 'ตัว C รวม 180° เสมอ' },
   ],
 }
 

@@ -1,6 +1,5 @@
 import type { ChapterV2 } from '@/types/curriculum'
 
-// ป.5 บท 6 การคำนวณเศษส่วน (ref: p5-c06) — ส่วนเท่ากัน บวกลบเฉพาะตัวบน
 const fractionArithmetic: ChapterV2 = {
   version: 2,
   id: 'math-5-fraction-arith',
@@ -37,6 +36,23 @@ const fractionArithmetic: ChapterV2 = {
       },
     },
     {
+      id: 'subtract-fractions',
+      say: 'ลบเศษส่วนที่ส่วนเท่ากัน: 3/4 − 1/4 = 2/4 ลบแค่ตัวบน ตัวล่างคงเดิม',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 4, filled: 3, fixed: true, color: '#FF7A2F' }], showLabels: true } },
+    },
+    {
+      id: 'subtract-practice',
+      say: 'ลองแตะช่องที่ 3 ออก ให้เหลือแค่ 2 ช่อง (3/4 − 1/4 = 2/4)',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 4, filled: 3, color: '#FF7A2F' }], showLabels: true } },
+      goal: { type: 'reach-value', key: 'r0', value: 2 },
+      hint: 'แตะช่องที่ 3 ออก',
+    },
+    {
+      id: 'frac-word',
+      say: 'โจทย์คำ: เค้ก 5/8 ชิ้น กิน 2/8 ชิ้น เหลือ 3/8 ชิ้น — บวกลบส่วนเท่ากัน ทำแค่ตัวบน',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 8, filled: 3, fixed: true, color: '#FF7A2F' }], showLabels: true } },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 ส่วนเท่ากัน → บวกลบตัวบน ตัวล่างคงเดิม · ถ้าส่วนไม่เท่าต้องทำให้เท่าก่อน (เรียนต่อ ป.6)',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 4, filled: 3, fixed: true, color: '#FF7A2F' }], showLabels: true } },
@@ -53,6 +69,7 @@ const fractionArithmetic: ChapterV2 = {
     { type: 'fill', q: '3/10 + 4/10 = ___/10', ans: '7', hint: '3+4' },
     { type: 'slider', q: 'แท่ง 8 ช่อง: 2/8 + 3/8 ระบายรวมกี่ช่อง?', min: 0, max: 8, step: 1, ans: 5, unit: 'ช่อง', hint: '2+3' },
     { type: 'fill', q: '7/8 − 4/8 = ___/8', ans: '3', hint: '7−4' },
+    { type: 'fill', q: '7/9 − 3/9 = ___/9', ans: '4', hint: 'ล่างเท่ากัน ลบตัวบน 7−3=4' },
   ],
 }
 

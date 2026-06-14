@@ -42,6 +42,19 @@ const numberCalc: ChapterV2 = {
       },
     },
     {
+      id: 'nested-complex',
+      say: 'วงเล็บซ้อน: {5×(12÷4)}−3 = {5×3}−3 = 15−3 = 12 คำนวณในสุดก่อน',
+      visual: { component: 'OrderMachine', config: { expression: [5, '×', '(', 12, '÷', 4, ')', '-', 3], mode: 'correct' } },
+    },
+    {
+      id: 'order-word',
+      say: 'โจทย์จริงใช้วงเล็บได้เหมือนกัน — ลองคิดดู!',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ซื้อของ 3 อย่าง ราคา (20+15)×2 บาท ราคารวม = ?', opts: ['70 บาท', '50 บาท', '90 บาท', '110 บาท'], ans: 0, hint: '(20+15)=35, 35×2=70' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 ลำดับ: วงเล็บ → คูณหาร → บวกลบ ทำตามนี้ทุกครั้งจะไม่ผิด',
       visual: { component: 'OrderMachine', config: { expression: [1000, '-', 250, '×', 3], mode: 'correct' } },

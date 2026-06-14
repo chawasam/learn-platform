@@ -37,6 +37,24 @@ const quadrilaterals: ChapterV2 = {
       },
     },
     {
+      id: 'parallelogram-props',
+      say: 'สี่เหลี่ยมด้านขนาน: ด้านตรงข้ามยาวเท่ากัน มุมตรงข้ามเท่ากัน ลองจับสังเกตดู',
+      visual: { component: 'QuadMorph', config: { shape: 'parallelogram', readOnly: true } },
+    },
+    {
+      id: 'quad-family',
+      say: 'จัตุรัสเป็นสี่เหลี่ยมผืนผ้าชนิดพิเศษ (ด้านเท่าทุกด้าน) และผืนผ้าเป็นด้านขนานชนิดพิเศษ (มุมฉาก)',
+      visual: { component: 'QuadMorph', config: { shape: 'square', readOnly: true } },
+    },
+    {
+      id: 'quad-quiz',
+      say: 'ทดสอบความเข้าใจ!',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'รูปสี่เหลี่ยมที่มีด้านเท่ากันทุกด้านและมุมฉากทุกมุมคือ?', opts: ['สี่เหลี่ยมด้านขนาน', 'สี่เหลี่ยมผืนผ้า', 'จัตุรัส', 'สี่เหลี่ยมคางหมู'], ans: 2, hint: 'ด้านเท่า + มุมฉาก = จัตุรัส' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 จัตุรัส=4ด้านเท่า+มุมฉาก · ผืนผ้า=ด้านตรงข้ามเท่า · ขนมเปียกปูน=4ด้านเท่าแต่เอียง · เส้นรอบรูป=รวมทุกด้าน',
       visual: { component: 'QuadMorph', config: { shape: 'parallelogram', readOnly: true } },

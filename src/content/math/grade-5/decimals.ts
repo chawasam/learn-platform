@@ -1,6 +1,5 @@
 import type { ChapterV2 } from '@/types/curriculum'
 
-// ป.5 บท 7 ทศนิยม (ref: p5-c07) — ส่วนสิบ/ร้อย แท่ง 10 ช่อง + เทียบทศนิยม
 const decimals: ChapterV2 = {
   version: 2,
   id: 'math-5-decimals',
@@ -37,6 +36,24 @@ const decimals: ChapterV2 = {
       },
     },
     {
+      id: 'hundredths',
+      say: 'ส่วนร้อย = 0.01 แท่งแบ่ง 100 ช่อง 1 ช่อง = 0.01 เช่น 25 ช่อง = 0.25',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 25, color: '#FF7A2F' }], showLabels: true } },
+    },
+    {
+      id: 'compare-decimals',
+      say: 'เทียบ 0.3 กับ 0.25: ดูหลักส่วนสิบก่อน 3 > 2 ดังนั้น 0.3 > 0.25',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 3, color: '#4F80FF' }, { parts: 100, filled: 25, color: '#FF7A2F' }], showLabels: true } },
+    },
+    {
+      id: 'order-decimals',
+      say: 'ลองเรียงทศนิยมจากน้อยไปมาก ดูหลักส่วนสิบทีละตัว',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '0.4, 0.38, 0.5 เรียงจากน้อยไปมาก = ?', opts: ['0.38, 0.4, 0.5', '0.5, 0.4, 0.38', '0.4, 0.38, 0.5', '0.38, 0.5, 0.4'], ans: 0, hint: 'ดูหลักส่วนสิบก่อน: 3<4<5' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 หลังจุด: ส่วนสิบ ส่วนร้อย · 0.5 = 5/10 = ครึ่ง · เทียบทีละหลักจากซ้าย',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 5, fixed: true, color: '#4F80FF' }], showLabels: true } },
@@ -53,6 +70,8 @@ const decimals: ChapterV2 = {
     { type: 'mc', q: 'ตัวเลขใดน้อยที่สุด?', opts: ['0.6', '0.06', '0.66', '0.16'], ans: 1, hint: 'หลักส่วนสิบ 0 น้อยสุด' },
     { type: 'slider', q: 'แท่ง 10 ช่อง: 0.7 ระบายกี่ช่อง?', min: 0, max: 10, step: 1, ans: 7, unit: 'ช่อง', hint: '7/10' },
     { type: 'fill', q: '1/2 เขียนเป็นทศนิยม = ___', ans: '0.5', hint: '1/2 = 5/10' },
+    { type: 'fill', q: '5 ส่วนร้อย (0.01) เขียนเป็นทศนิยม = ___', ans: '0.05', hint: '2 หลักหลังจุด: 0.05' },
+    { type: 'mc', q: '0.3 เทียบกับ 0.25 แล้ว?', opts: ['0.3 > 0.25', '0.3 < 0.25', '0.3 = 0.25', 'บอกไม่ได้'], ans: 0, hint: 'หลักส่วนสิบ 3 > 2' },
   ],
 }
 

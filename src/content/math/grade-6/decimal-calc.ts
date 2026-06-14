@@ -41,6 +41,24 @@ const decimalCalc: ChapterV2 = {
       },
     },
     {
+      id: 'multiply-decimal-count',
+      say: 'คูณทศนิยม: 0.3 × 0.4 = 0.12 เพราะ 3×4=12 แล้วนับจุดรวม 1+1=2 ตำแหน่ง',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 12, color: '#FF7A2F' }], showLabels: true } },
+    },
+    {
+      id: 'multiply-larger',
+      say: '1.2 × 3.4: คูณก่อน 12×34=408 แล้วนับจุด 1+1=2 ตำแหน่ง → ผล = 4.08',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 1000, filled: 408, color: '#FF7A2F' }], showLabels: true } },
+    },
+    {
+      id: 'decimal-calc-quiz',
+      say: 'ลองทำดู: นับจุดหลังจากคูณเลขเต็มแล้วใส่กลับในผลลัพธ์',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '0.5 × 0.6 = ?', opts: ['0.30', '3.0', '0.03', '0.11'], ans: 0, hint: '5×6=30, นับจุด 1+1=2 ตำแหน่ง → 0.30' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 คูณ: คูณเลขเต็มแล้วนับจุดรวมใส่ผล · หาร: หารแล้วใส่จุดกลับให้ตรง',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 3, fixed: true, color: '#4F80FF' }], showLabels: true } },
@@ -57,6 +75,9 @@ const decimalCalc: ChapterV2 = {
     { type: 'fill', q: '1.5 × 0.2 = ___', ans: '0.3', hint: '15×2=30 จุด 2 ตำแหน่ง → 0.30' },
     { type: 'fill', q: '6.4 ÷ 2 = ___', ans: '3.2', hint: '64÷2=32 ใส่จุด' },
     { type: 'slider', q: '2.5 × 4 = ?', min: 0, max: 20, step: 1, ans: 10, unit: '', hint: '25×4=100 จุด 1' },
+    { type: 'mc', q: '0.3 × 0.4 = ? (นับจุด 1+1=2 ตำแหน่ง)', opts: ['0.12', '1.2', '0.012', '12'], ans: 0, hint: '3×4=12 นับจุด 2 ตำแหน่ง → 0.12' },
+    { type: 'fill', q: '1.2 × 3.4 = ___', ans: '4.08', hint: '12×34=408 นับจุด 1+1=2 ตำแหน่ง → 4.08' },
+    { type: 'mc', q: '0.5 × 0.6 = ?', opts: ['0.30', '3.0', '0.03', '0.11'], ans: 0, hint: '5×6=30 นับจุด 2 ตำแหน่ง → 0.30' },
   ],
 }
 

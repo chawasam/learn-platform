@@ -40,6 +40,24 @@ const triangles: ChapterV2 = {
       },
     },
     {
+      id: 'triangle-by-sides',
+      say: 'แบ่งตามด้าน: สามเหลี่ยมด้านเท่า (3 ด้านเท่า), หน้าจั่ว (2 ด้านเท่า), ด้านไม่เท่า (3 ด้านไม่เท่ากัน)',
+      visual: { component: 'TriangleAngles', config: { a: 60, b: 60, c: 60, readOnly: true } },
+    },
+    {
+      id: 'triangle-area',
+      say: 'พื้นที่สามเหลี่ยม = ½ × ฐาน × สูง — ตัดสามเหลี่ยมออกจากสี่เหลี่ยมผืนผ้าได้ครึ่งหนึ่งพอดี',
+      visual: { component: 'TriangleAngles', config: { a: 50, b: 60, c: 70, readOnly: true } },
+    },
+    {
+      id: 'triangle-area-calc',
+      say: 'ลองคำนวณพื้นที่สามเหลี่ยม!',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สามเหลี่ยมฐาน 6 ซม. สูง 4 ซม. พื้นที่ = ?', opts: ['12 ซม.²', '24 ซม.²', '10 ซม.²', '8 ซม.²'], ans: 0, hint: '½ × 6 × 4 = 12 ซม.²' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 3 มุมรวม 180° เสมอ · หามุมขาด = 180 − สองมุม · พื้นที่ = ½ × ฐาน × สูง',
       visual: { component: 'TriangleAngles', config: { a: 60, b: 60, c: 60, combined: true, readOnly: true } },

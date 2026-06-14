@@ -36,4 +36,5 @@ export const INTERACTIVE_COMPONENTS: Record<ComponentName, LazyComp> = {
   PercentBar:      lazy(() => import('./PercentBar')),
   TransversalAngles: lazy(() => import('./TransversalAngles')),
   MultiplyColumn:   lazy(() => import('./MultiplyColumn')),
+  DivideColumn:     lazy(() => import('./DivideColumn')),
 }

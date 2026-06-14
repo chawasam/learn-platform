@@ -37,6 +37,29 @@ const circleArea: ChapterV2 = {
       },
     },
     {
+      id: 'area-formula',
+      say: 'พื้นที่วงกลม A = π × r² ≈ 3.14 × r × r',
+      visual: { component: 'CircleRadius', config: { initialR: 4 } },
+    },
+    {
+      id: 'area-calculate',
+      say: 'r=7 ซม. A=3.14×7²=3.14×49≈153.86 ซม.² — กดปุ่มดูรัศมี',
+      visual: { component: 'CircleRadius', config: { initialR: 7, readOnly: true } },
+    },
+    {
+      id: 'circumference-vs-area',
+      say: 'ต่างกัน: เส้นรอบวง C=2πr คือความยาวขอบ · พื้นที่ A=πr² คือพื้นที่ข้างใน หน่วยต่างกัน (ซม. vs ซม.²)',
+      visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
+    },
+    {
+      id: 'circle-area-quiz',
+      say: 'ลองคำนวณพื้นที่วงกลมด้วยตัวเอง',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'วงกลม r=5 ซม. พื้นที่ ≈ ?', opts: ['78.5 ซม.²', '31.4 ซม.²', '50 ซม.²', '157 ซม.²'], ans: 0, hint: '3.14×5²=3.14×25=78.5 ซม.²' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 π ≈ 3.14 · เส้นรอบวง = 2πr · พื้นที่ = πr² (π × รัศมี × รัศมี)',
       visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
@@ -53,6 +76,9 @@ const circleArea: ChapterV2 = {
     { type: 'fill', q: 'วงกลมรัศมี 3 พื้นที่ = 3.14×3×3 = ___', ans: '28.26', hint: 'π × 9' },
     { type: 'mc', q: 'รัศมี 4 เส้นรอบวง 2×3.14×4 = ?', opts: ['25.12', '50.24', '12.56', '8'], ans: 0, hint: '2 × 3.14 × 4' },
     { type: 'fill', q: 'π เขียนเป็นเศษส่วนประมาณ 22/___', ans: '7', hint: '22/7 ≈ 3.14' },
+    { type: 'mc', q: 'วงกลม r=5 ซม. พื้นที่ ≈ ?', opts: ['78.5 ซม.²', '31.4 ซม.²', '50 ซม.²', '157 ซม.²'], ans: 0, hint: '3.14×25=78.5 ซม.²' },
+    { type: 'fill', q: 'วงกลมรัศมี 7 พื้นที่ = 3.14×7×7 = ___', ans: '153.86', hint: '3.14 × 49' },
+    { type: 'mc', q: 'วงกลม r=1 พื้นที่ ≈ ?', opts: ['3.14', '6.28', '1', '9.42'], ans: 0, hint: '3.14×1×1=3.14' },
   ],
 }
 

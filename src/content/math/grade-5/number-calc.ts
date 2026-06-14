@@ -42,6 +42,19 @@ const numberCalc: ChapterV2 = {
       },
     },
     {
+      id: 'nested-brackets',
+      say: 'วงเล็บซ้อน: คำนวณวงเล็บในสุดก่อน (3+2)×(4−1) = 5×3 = 15',
+      visual: { component: 'OrderMachine', config: { expression: [3, '+', 2, '×', 4, '-', 1], mode: 'correct' } },
+    },
+    {
+      id: 'order-complex',
+      say: 'ลองโจทย์ผสม!',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '(10−4) × 2 + 8 ÷ 4 = ?', opts: ['14', '16', '10', '20'], ans: 0, hint: '6×2=12, 8÷4=2, 12+2=14' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 ลำดับ: วงเล็บ → คูณหาร → บวกลบ · ประมาณค่าก่อนช่วยเช็คว่าคำตอบสมเหตุสมผล',
       visual: { component: 'OrderMachine', config: { expression: [25, '×', 4, '-', 50], mode: 'correct' } },
@@ -58,6 +71,8 @@ const numberCalc: ChapterV2 = {
     { type: 'mc', q: 'ในโจทย์ 50 − (10 + 5) ต้องทำอะไรก่อน?', opts: ['10 + 5 ในวงเล็บ', '50 − 10', 'ซ้ายไปขวา', '5 ก่อน'], ans: 0, hint: 'วงเล็บก่อนเสมอ' },
     { type: 'slider', q: '7 + 3 × 4 = ?', min: 0, max: 40, step: 1, ans: 19, unit: '', hint: '3×4=12 แล้ว 7+12' },
     { type: 'fill', q: '(8 + 2) × (6 − 1) = ___', ans: '50', hint: 'วงเล็บทั้งสอง: 10 × 5' },
+    { type: 'mc', q: '(10−4) × 2 + 8 ÷ 4 = ?', opts: ['14', '16', '10', '20'], ans: 0, hint: '6×2=12, 8÷4=2, 12+2=14' },
+    { type: 'fill', q: '(3 + 2) × (4 − 1) = ___', ans: '15', hint: '5 × 3 = 15' },
   ],
 }
 

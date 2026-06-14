@@ -40,6 +40,24 @@ const circles: ChapterV2 = {
       },
     },
     {
+      id: 'diameter-radius',
+      say: 'เส้นผ่านศูนย์กลาง d = 2 × รัศมี r — วัดจากขอบผ่านจุดศูนย์กลางไปอีกขอบ',
+      visual: { component: 'CircleRadius', config: { initialR: 3, readOnly: true } },
+    },
+    {
+      id: 'circumference-formula',
+      say: 'เส้นรอบวง C = π × d ≈ 3.14 × d หรือ 2 × π × r — π ≈ 3.14',
+      visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
+    },
+    {
+      id: 'circumference-calc',
+      say: 'ลองคำนวณเส้นรอบวง!',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'วงกลม รัศมี 5 ซม. เส้นรอบวง ≈ ?', opts: ['31.4 ซม.', '15.7 ซม.', '25 ซม.', '62.8 ซม.'], ans: 0, hint: 'C = 2×3.14×5 = 31.4 ซม.' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 รัศมี = กลางถึงขอบ · เส้นผ่านศูนย์กลาง d = 2 × รัศมี · พาดผ่านจุดกลางพอดี',
       visual: { component: 'CircleRadius', config: { initialR: 4, readOnly: true } },
@@ -56,6 +74,8 @@ const circles: ChapterV2 = {
     { type: 'fill', q: 'เส้นผ่านศูนย์กลาง 14 รัศมี = ___', ans: '7', hint: '14 ÷ 2' },
     { type: 'slider', q: 'รัศมี 6 ซม. เส้นผ่านศูนย์กลางเท่าไร?', min: 0, max: 20, step: 1, ans: 12, unit: 'ซม.', hint: '2 × 6' },
     { type: 'mc', q: 'เส้นผ่านศูนย์กลางยาวเป็นกี่เท่าของรัศมี?', opts: ['2 เท่า', '3 เท่า', 'ครึ่งหนึ่ง', 'เท่ากัน'], ans: 0, hint: 'd = 2r' },
+    { type: 'mc', q: 'วงกลมรัศมี 5 ซม. เส้นรอบวง ≈ ?', opts: ['31.4 ซม.', '15.7 ซม.', '10 ซม.', '78.5 ซม.'], ans: 0, hint: 'C = 2×3.14×5 = 31.4' },
+    { type: 'fill', q: 'วงกลมเส้นผ่านศูนย์กลาง 10 ซม. เส้นรอบวง ≈ ___ ซม.', ans: '31.4', hint: 'C = 3.14 × 10' },
   ],
 }
 

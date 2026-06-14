@@ -36,6 +36,29 @@ const percent: ChapterV2 = {
       },
     },
     {
+      id: 'percent-of-total',
+      say: 'คิดเปอร์เซ็นต์จากยอดรวม: 30 คนจาก 50 คน = 30÷50×100 = 60%',
+      visual: { component: 'PercentBar', config: { initialPercent: 60, total: 50, readOnly: true } },
+    },
+    {
+      id: 'increase-percent',
+      say: 'เพิ่ม 20%: ราคาเดิม 500 บาท เพิ่ม 20% = 500×20÷100=100 บาท ราคาใหม่ = 600 บาท',
+      visual: { component: 'PercentBar', config: { initialPercent: 20, total: 500, readOnly: true } },
+    },
+    {
+      id: 'decrease-percent',
+      say: 'ลด 15%: ราคาเดิม 200 บาท ลด 15% = 200×15÷100=30 บาท ราคาใหม่ = 170 บาท',
+      visual: { component: 'PercentBar', config: { initialPercent: 15, total: 200, readOnly: true } },
+    },
+    {
+      id: 'percent-quiz',
+      say: 'ลองคำนวณลดราคาดูก่อนไปต่อ',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เสื้อราคา 400 บาท ลด 25% ราคาขาย = ?', opts: ['300 บาท', '100 บาท', '350 บาท', '320 บาท'], ans: 0, hint: 'ลด 400×25÷100=100 บาท ราคาขาย 400−100=300' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 % = ส่วนของ 100 · หา % ของจำนวน: %÷100 × จำนวน · ส่วนลด = ราคา × %',
       visual: { component: 'PercentBar', config: { initialPercent: 50, total: 200, readOnly: true } },
@@ -52,6 +75,9 @@ const percent: ChapterV2 = {
     { type: 'fill', q: '100% ของ 45 = ___', ans: '45', hint: 'ทั้งหมด' },
     { type: 'slider', q: '10% ของ 100 = ?', min: 0, max: 50, step: 1, ans: 10, unit: '', hint: '10/100 × 100' },
     { type: 'mc', q: '5% ของ 200 = ?', opts: ['10', '5', '20', '40'], ans: 0, hint: '5/100 × 200' },
+    { type: 'mc', q: 'เสื้อราคา 400 บาท ลด 25% ราคาขาย = ?', opts: ['300 บาท', '100 บาท', '350 บาท', '320 บาท'], ans: 0, hint: 'ลด 100 จาก 400 = 300' },
+    { type: 'fill', q: 'ราคาเดิม 600 บาท เพิ่ม 10% ราคาใหม่ = ___', ans: '660', hint: '600×10÷100=60 ราคาใหม่ 600+60=660' },
+    { type: 'mc', q: 'ราคาเดิม 250 บาท ลด 20% ราคาขาย = ?', opts: ['200 บาท', '50 บาท', '230 บาท', '150 บาท'], ans: 0, hint: 'ลด 250×20÷100=50 ราคาขาย 250−50=200' },
   ],
 }
 

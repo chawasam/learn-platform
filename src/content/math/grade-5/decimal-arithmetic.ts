@@ -1,6 +1,5 @@
 import type { ChapterV2 } from '@/types/curriculum'
 
-// ป.5 บท 8 การคำนวณทศนิยม (ref: p5-c08) — ตั้งจุดตรงกัน
 const decimalArithmetic: ChapterV2 = {
   version: 2,
   id: 'math-5-decimal-arith',
@@ -41,6 +40,24 @@ const decimalArithmetic: ChapterV2 = {
       },
     },
     {
+      id: 'add-align',
+      say: 'บวกทศนิยม ต้องตั้งจุดทศนิยมตรงกัน: 1.5 + 0.35 → 1.50 + 0.35 = 1.85',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 5, fixed: true, color: '#4ADE80' }, { parts: 100, filled: 35, fixed: true, color: '#60A5FA' }], showLabels: true } },
+    },
+    {
+      id: 'subtract-decimal',
+      say: 'ลบทศนิยม: 2.3 − 1.15 → 2.30 − 1.15 = 1.15 ตั้งจุดตรงกัน เติม 0 ถ้าหลักไม่ครบ',
+      visual: { component: 'FractionBars', config: { rows: [{ parts: 100, filled: 30, fixed: true, color: '#4ADE80' }, { parts: 100, filled: 15, fixed: true, color: '#60A5FA' }], showLabels: true } },
+    },
+    {
+      id: 'money-decimal',
+      say: 'โจทย์เงิน: ซื้อของ 12.50 บาท จ่าย 20.00 บาท เงินทอน 20.00 − 12.50 = 7.50 บาท',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ซื้อของ 12.50 บาท จ่าย 20 บาท เงินทอน = ?', opts: ['7.50 บาท', '8.50 บาท', '7.00 บาท', '8.00 บาท'], ans: 0, hint: '20.00 − 12.50 = 7.50' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 บวกลบ: ตั้งจุดตรงกัน · คูณ: คูณเลขเต็มแล้วนับจุดรวมใส่ผล',
       visual: { component: 'FractionBars', config: { rows: [{ parts: 10, filled: 5, fixed: true, color: '#4F80FF' }], showLabels: true } },
@@ -57,6 +74,8 @@ const decimalArithmetic: ChapterV2 = {
     { type: 'fill', q: '0.3 × 2 = ___', ans: '0.6', hint: '3×2=6 จุด 1 ตำแหน่ง' },
     { type: 'fill', q: '4.5 − 2.5 = ___', ans: '2', hint: '45−25=20 → 2.0' },
     { type: 'slider', q: '1.2 + 0.8 = ?', min: 0, max: 5, step: 1, ans: 2, unit: '', hint: '12+8=20 → 2.0' },
+    { type: 'fill', q: '1.50 + 0.35 = ___', ans: '1.85', hint: 'ตั้งจุดตรงกัน 150+35=185 → 1.85' },
+    { type: 'fill', q: '2.30 − 1.15 = ___', ans: '1.15', hint: 'ตั้งจุดตรงกัน 230−115=115 → 1.15' },
   ],
 }
 

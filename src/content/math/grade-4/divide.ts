@@ -2,6 +2,7 @@ import type { ChapterV2 } from '@/types/curriculum'
 
 // การหาร ป.4 — story (curriculum ref: math-thai-p456 p4-c05)
 // หัวใจ: แบ่งเท่าๆ กัน (แจกลงจานทีละรอบ) + เศษ = เม็ดที่เหลือแจกไม่ครบรอบ
+// + ตั้งหาร (DivideColumn) สอน procedure: หารทีละหลักจากซ้ายไปขวา
 
 const divide: ChapterV2 = {
   version: 2,
@@ -55,31 +56,50 @@ const divide: ChapterV2 = {
       visual: { component: 'DivideShare', config: { total: 13, plates: 4, readOnly: true } },
     },
     {
+      id: 'column-intro',
+      say: 'ตอนนี้ลองตั้งหาร! 84 ÷ 3 = ? — ดูการหารทีละหลักจากซ้ายไปขวา เลขผลลัพธ์จะทยอยโผล่ขึ้นมาด้านบน',
+      visual: { component: 'DivideColumn', config: { a: 84, b: 3, readOnly: true, initialStep: 0 } },
+    },
+    {
+      id: 'column-step',
+      say: 'ลองเองสิ! กด "หารหลักถัดไป ▶" ทีละครั้ง — ดูว่าแต่ละหลักได้ผลลัพธ์ยังไง',
+      visual: { component: 'DivideColumn', config: { a: 84, b: 3 } },
+      goal: { type: 'reach-value', key: 'done', value: 1 },
+      hint: 'คลิก 2 ครั้ง: ครั้งแรก 8÷3=2 เหลือ 2 → ดึง 4 → 24÷3=8 → ผลลัพธ์ 28',
+    },
+    {
+      id: 'column-2dig',
+      say: 'ฝึกอีก! 96 ÷ 4 = ? หารทีละหลักดูสิ',
+      visual: { component: 'DivideColumn', config: { a: 96, b: 4 } },
+      goal: { type: 'reach-value', key: 'done', value: 1 },
+      hint: '9÷4=2 เหลือ 1 → ดึง 6 → 16÷4=4 → ผลลัพธ์ 24',
+    },
+    {
       id: 'quiz',
-      say: 'ลองอ่านดู! ลูกอม 15 เม็ด แบ่ง 2 จาน ได้จานละเท่าไร เหลือเศษเท่าไร?',
-      visual: { component: 'DivideShare', config: { total: 15, plates: 2, readOnly: true } },
+      say: 'ทดสอบ! 84 ÷ 3 = ?',
+      visual: { component: 'DivideColumn', config: { a: 84, b: 3, readOnly: true, initialStep: 0 } },
       goal: {
         type: 'answer',
-        question: { type: 'mc', q: '15 ÷ 2 = ? เศษ ?', opts: ['7 เศษ 1', '8 เศษ 0', '7 เศษ 2', '6 เศษ 3'], ans: 0, hint: '2 × 7 = 14 เหลือ 15 − 14 = 1' },
+        question: { type: 'mc', q: '84 ÷ 3 = ?', opts: ['28', '24', '21', '32'], ans: 0, hint: '8÷3=2 เหลือ 2 → 24÷3=8 → ผล 28' },
       },
     },
     {
       id: 'recap',
-      say: 'สรุป 🏠 หาร = แบ่งเท่าๆ กัน · เม็ดที่เหลือแจกไม่ครบ = เศษ · หารคือตรงข้ามของคูณ',
+      say: 'สรุป 🏠 หาร = แบ่งเท่าๆ กัน · เศษ = เหลือแจกไม่ครบ · ตั้งหาร: หารทีละหลักซ้าย→ขวา นำเศษไปต่อหลักถัดไป',
       visual: { component: 'DivideShare', config: { total: 12, plates: 3, readOnly: true } },
     },
   ],
   finalPractice: [
-    { type: 'mc', q: '20 ÷ 4 = ?', opts: ['4', '5', '6', '8'], ans: 1, hint: '4 คูณอะไรได้ 20?' },
-    { type: 'fill', q: 'ดินสอ 36 แท่ง แบ่งใส่กล่อง 6 กล่องเท่าๆ กัน กล่องละ ___ แท่ง', ans: '6', hint: '36 ÷ 6' },
-    { type: 'mc', q: '15 ÷ 2 เหลือเศษเท่าไร?', opts: ['0', '1', '2', '3'], ans: 1, hint: '2×7=14 เหลือ 15−14' },
-    { type: 'fill', q: 'ลูกอม 12 เม็ด แบ่ง 3 จานเท่าๆ กัน จานละ ___ เม็ด', ans: '4', hint: '12 ÷ 3' },
-    { type: 'fill', q: '12 ÷ 4 = ___', ans: '3', hint: 'แบ่ง 12 ใส่ 4 จาน' },
+    { type: 'mc', q: '20 ÷ 4 = ?', opts: ['4', '5', '6', '8'], ans: 1, hint: '4 × 5 = 20' },
+    { type: 'fill', q: 'ดินสอ 36 แท่ง แบ่งใส่กล่อง 6 กล่องเท่าๆ กัน กล่องละ ___ แท่ง', ans: '6', hint: '36 ÷ 6 = 6' },
+    { type: 'mc', q: '15 ÷ 2 เหลือเศษเท่าไร?', opts: ['0', '1', '2', '3'], ans: 1, hint: '2×7=14 เหลือ 15−14=1' },
+    { type: 'fill', q: '84 ÷ 3 = ___', ans: '28', hint: '8÷3=2 เหลือ 2 → 24÷3=8 → ผล 28' },
+    { type: 'mc', q: '96 ÷ 4 = ?', opts: ['22', '24', '26', '28'], ans: 1, hint: '9÷4=2 เหลือ 1 → 16÷4=4 → ผล 24' },
     { type: 'mc', q: '18 ÷ 3 = ?', opts: ['6', '5', '9', '4'], ans: 0, hint: '3 × 6 = 18' },
-    { type: 'fill', q: '24 ÷ 6 = ___', ans: '4', hint: '6 × 4 = 24' },
+    { type: 'fill', q: '72 ÷ 4 = ___', ans: '18', hint: '7÷4=1 เหลือ 3 → 32÷4=8 → ผล 18' },
     { type: 'mc', q: '13 ÷ 4 = ? เศษ ?', opts: ['3 เศษ 1', '4 เศษ 0', '3 เศษ 2', '2 เศษ 5'], ans: 0, hint: '4×3=12 เหลือ 1' },
-    { type: 'slider', q: 'ผลหาร 21 ÷ 3 = ?', min: 0, max: 10, step: 1, ans: 7, unit: '', hint: '3 × 7 = 21' },
-    { type: 'fill', q: '30 ÷ 5 = ___', ans: '6', hint: '5 × 6 = 30' },
+    { type: 'slider', q: 'ผลหาร 96 ÷ 4 = ?', min: 0, max: 30, step: 1, ans: 24, unit: '', hint: '9÷4=2 เหลือ 1 → 16÷4=4' },
+    { type: 'fill', q: '63 ÷ 3 = ___', ans: '21', hint: '6÷3=2 เหลือ 0 → 3÷3=1 → ผล 21' },
   ],
 }
 

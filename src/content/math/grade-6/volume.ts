@@ -35,6 +35,29 @@ const volume: ChapterV2 = {
       },
     },
     {
+      id: 'volume-box',
+      say: 'ปริมาตรทรงสี่เหลี่ยมมุมฉาก V = กว้าง × ยาว × สูง เช่น 4×3×5=60 ลบ.ซม.',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4 } },
+    },
+    {
+      id: 'volume-calculate',
+      say: 'กล่อง กว้าง 4 ยาว 3 สูง 5 ซม. V = 4×3×5 = 60 ลบ.ซม. (เหมือนวาง 5 ชั้น ชั้นละ 12 ลูก)',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
+    },
+    {
+      id: 'surface-area',
+      say: 'พื้นที่ผิว = ผลรวมพื้นที่ทุกหน้า = 2(กย+กส+ยส) ลองคลี่กล่องดู',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
+    },
+    {
+      id: 'volume-quiz',
+      say: 'ทดสอบปริมาตรก่อนไปต่อ',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'กล่อง กว้าง 3 ยาว 5 สูง 4 ซม. ปริมาตร = ?', opts: ['60 ลบ.ซม.', '24 ลบ.ซม.', '47 ลบ.ซม.', '120 ลบ.ซม.'], ans: 0, hint: '3×5×4=60 ลบ.ซม.' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 ปริมาตร = กว้าง×ยาว×สูง (ความจุ) · พื้นที่ผิว = รวม 6 หน้า (เปลือกนอก)',
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
@@ -51,6 +74,9 @@ const volume: ChapterV2 = {
     { type: 'fill', q: 'ลูกบาศก์ด้าน 2 ปริมาตร = ___', ans: '8', hint: '2 × 2 × 2' },
     { type: 'slider', q: 'กล่อง 4 × 3 × 2 ปริมาตร?', min: 0, max: 40, step: 1, ans: 24, unit: '', hint: '4×3×2' },
     { type: 'mc', q: 'ปริมาตรบอกอะไร?', opts: ['ความจุ (ใส่ของได้เท่าไร)', 'น้ำหนัก', 'สี', 'ราคา'], ans: 0, hint: '3 มิติ = ความจุ' },
+    { type: 'mc', q: 'กล่อง กว้าง 3 ยาว 5 สูง 4 ปริมาตร = ?', opts: ['60 ลบ.ซม.', '24 ลบ.ซม.', '47 ลบ.ซม.', '120 ลบ.ซม.'], ans: 0, hint: '3×5×4=60' },
+    { type: 'fill', q: 'กล่อง 2×4×3 พื้นที่ผิว = 2(กย+กส+ยส) = 2(8+6+12) = ___', ans: '52', hint: '2×(8+6+12)=2×26=52' },
+    { type: 'mc', q: 'ลูกบาศก์ด้าน 3 พื้นที่ผิว = 6×(3×3) = ?', opts: ['54', '27', '18', '9'], ans: 0, hint: '6 × 9 = 54' },
   ],
 }
 

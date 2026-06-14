@@ -1,6 +1,5 @@
 import type { ChapterV2 } from '@/types/curriculum'
 
-// ป.5 บท 9 โจทย์ปัญหา (ref: p5-c09) — ไฮไลต์คำใบ้แปลงเป็นการคำนวณ
 const wordProblems: ChapterV2 = {
   version: 2,
   id: 'math-5-word-problems',
@@ -50,6 +49,36 @@ const wordProblems: ChapterV2 = {
       },
     },
     {
+      id: 'two-step',
+      say: 'โจทย์ 2 ขั้น: ซื้อดินสอ 3 แท่ง แท่งละ 5 บาท ยางลบ 2 อัน อันละ 3 บาท จ่ายรวมเท่าไร?',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'ขั้น 1: ดินสอ 3×5=15 บาท | ขั้น 2: ยางลบ 2×3=6 บาท | รวม 15+6=21 บาท',
+          words: [{ text: 'ขั้น 1', color: '#FF7A2F', bold: true }, { text: 'ขั้น 2', color: '#4F80FF', bold: true }, { text: 'รวม', color: '#22C55E', bold: true }],
+        },
+      },
+    },
+    {
+      id: 'write-equation',
+      say: 'เขียนสมการก่อนคำนวณ: ให้ x = จำนวนที่หา แล้วสร้างสมการ แก้ x',
+      visual: {
+        component: 'TextVis',
+        config: {
+          sentence: 'ให้ x = คำตอบ → เขียนสมการ → แก้ x → ตรวจคำตอบ',
+          words: [{ text: 'ให้ x', color: '#A855F7', bold: true }, { text: 'เขียนสมการ', color: '#FF7A2F', bold: true }, { text: 'ตรวจคำตอบ', color: '#22C55E', bold: true }],
+        },
+      },
+    },
+    {
+      id: 'check-answer',
+      say: 'ตรวจสอบคำตอบ: อ่านโจทย์ซ้ำ ดูว่าตอบถูกสิ่ง ตัวเลขสมเหตุผลไหม (ซื้อของไม่ควรได้เงิน)',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ซื้อน้ำ 4 ขวด ขวดละ 8 บาท จ่าย 50 บาท เงินทอน = ?', opts: ['18 บาท', '10 บาท', '14 บาท', '20 บาท'], ans: 0, hint: 'น้ำรวม 4×8=32 บาท, เงินทอน 50−32=18' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 อ่านโจทย์ → หาคำใบ้ → เลือก +−×÷ → คำนวณ → ตรวจว่าสมเหตุสมผล',
       visual: {
@@ -72,6 +101,7 @@ const wordProblems: ChapterV2 = {
     { type: 'fill', q: 'มีแอปเปิ้ล 15 กับ 23 ผล รวม ___ ผล', ans: '38', hint: '"รวม" = บวก 15+23' },
     { type: 'mc', q: 'คำว่า "แบ่งเท่าๆ กัน" ในโจทย์ บอกให้ใช้วิธีใด?', opts: ['หาร', 'บวก', 'ลบ', 'คูณ'], ans: 0, hint: 'แบ่ง = หาร' },
     { type: 'slider', q: 'ปากกา 6 ด้าม ด้ามละ 8 บาท รวมกี่บาท?', min: 0, max: 60, step: 1, ans: 48, unit: 'บาท', hint: '6 × 8' },
+    { type: 'mc', q: 'ซื้อดินสอ 3 แท่ง แท่งละ 5 บาท ยางลบ 2 อัน อันละ 3 บาท จ่ายรวม?', opts: ['21 บาท', '16 บาท', '24 บาท', '18 บาท'], ans: 0, hint: 'ขั้น 1: 3×5=15, ขั้น 2: 2×3=6, รวม 15+6=21' },
   ],
 }
 

@@ -43,6 +43,24 @@ const quadArea: ChapterV2 = {
       },
     },
     {
+      id: 'trapezoid-area',
+      say: 'พื้นที่คางหมู = ½ × (ด้านขนาน a + ด้านขนาน b) × สูง เช่น a=6, b=4, h=3 → ½×10×3=15 ซม.²',
+      visual: { component: 'AreaTiles', config: { width: 6, height: 3 } },
+    },
+    {
+      id: 'compound-shapes',
+      say: 'รูปประกอบ: แบ่งออกเป็นรูปย่อย หาพื้นที่แต่ละส่วนแล้วบวก',
+      visual: { component: 'AreaTiles', config: { width: 5, height: 4 } },
+    },
+    {
+      id: 'quad-area-quiz',
+      say: 'ทดสอบพื้นที่คางหมูก่อนไปต่อ',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'คางหมู ด้านขนาน 8 ซม. และ 4 ซม. สูง 5 ซม. พื้นที่ = ?', opts: ['30 ซม.²', '60 ซม.²', '20 ซม.²', '40 ซม.²'], ans: 0, hint: '½×(8+4)×5=½×12×5=30 ซม.²' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 ผืนผ้า = กว้าง×ยาว · ด้านขนาน = ฐาน×สูง · จัตุรัส = ด้าน×ด้าน · คางหมู = ½×(ด้านขนานรวม)×สูง',
       visual: { component: 'AreaTiles', config: { width: 5, height: 3, readOnly: true } },
@@ -60,6 +78,8 @@ const quadArea: ChapterV2 = {
     { type: 'slider', q: 'ผืนผ้ากว้าง 5 ยาว 8 พื้นที่?', min: 0, max: 60, step: 1, ans: 40, unit: '', hint: '5 × 8' },
     { type: 'fill', q: 'พื้นที่ด้านขนาน = ฐาน × ___', ans: 'สูง', hint: 'สูตรด้านขนาน' },
     { type: 'mc', q: 'คางหมูด้านขนาน 3 และ 7 สูง 4 พื้นที่?', opts: ['20', '40', '21', '10'], ans: 0, hint: '½ × (3+7) × 4 = ½ × 10 × 4' },
+    { type: 'mc', q: 'คางหมูด้านขนาน 8 และ 4 สูง 5 พื้นที่?', opts: ['30', '60', '20', '40'], ans: 0, hint: '½×(8+4)×5=½×12×5=30' },
+    { type: 'fill', q: 'คางหมูด้านขนาน 10 และ 6 สูง 4 พื้นที่ = ___', ans: '32', hint: '½×(10+6)×4=½×16×4=32' },
   ],
 }
 

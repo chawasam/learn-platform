@@ -40,6 +40,24 @@ const volume: ChapterV2 = {
       },
     },
     {
+      id: 'volume-units',
+      say: 'หน่วยปริมาตร: ลูกบาศก์เซนติเมตร (ลบ.ซม.) คือกล่องขนาด 1×1×1 ซม.',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]] } },
+    },
+    {
+      id: 'volume-formula-visual',
+      say: 'ปริมาตร V = กว้าง × ยาว × สูง เพราะแต่ละชั้น = ก×ย ลูกบาศก์ แล้วคูณด้วยสูง',
+      visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, false, false], [true, true, false, false], [false, false, false, false], [false, false, false, false]] } },
+    },
+    {
+      id: 'volume-calc',
+      say: 'ทดสอบสูตรปริมาตร!',
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'กล่อง กว้าง 3 ยาว 4 สูง 5 ซม. ปริมาตร = ?', opts: ['60 ลบ.ซม.', '24 ลบ.ซม.', '35 ลบ.ซม.', '120 ลบ.ซม.'], ans: 0, hint: '3×4×5 = 60 ลบ.ซม.' },
+      },
+    },
+    {
       id: 'recap',
       say: 'สรุป 🏠 ปริมาตร = กว้าง × ยาว × สูง (ลูกบาศก์หน่วย) · บอกว่าใส่ของได้เท่าไร',
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true, initialGrid: [[true, true, true, false], [true, true, true, false], [false, false, false, false], [false, false, false, false]] } },
@@ -56,6 +74,8 @@ const volume: ChapterV2 = {
     { type: 'fill', q: 'ลูกบาศก์ด้าน 2 ปริมาตร = ___', ans: '8', hint: '2×2×2' },
     { type: 'slider', q: 'กล่อง 3 × 2 × 2 ปริมาตร?', min: 0, max: 30, step: 1, ans: 12, unit: '', hint: '3×2×2' },
     { type: 'fill', q: 'กล่องกว้าง 10 ยาว 2 สูง 1 ปริมาตร = ___', ans: '20', hint: '10 × 2 × 1' },
+    { type: 'fill', q: 'กล่อง กว้าง 3 ยาว 4 สูง 5 ซม. ปริมาตร = ___ ลบ.ซม.', ans: '60', hint: '3×4×5 = 60 ลบ.ซม.' },
+    { type: 'slider', q: 'กล่อง กว้าง 2 ยาว 3 สูง 5 ปริมาตร?', min: 0, max: 60, step: 1, ans: 30, unit: 'ลบ.ซม.', hint: '2×3×5 = 30' },
   ],
 }
 
