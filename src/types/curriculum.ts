@@ -30,6 +30,7 @@ export type ComponentName =
   | 'EquationBalance'
   | 'PercentBar'
   | 'TransversalAngles'
+  | 'MultiplyColumn'
 
 export type ExplainBlock =
   | { type: 'text'; html: string }

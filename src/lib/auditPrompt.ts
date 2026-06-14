@@ -11,6 +11,7 @@ const COMPONENT_DESC: Record<string, string> = {
   AddSubCarry: 'การบวก/ลบตั้งหลัก เผยผลทีละหลักจากขวา เห็นเลข "ทด" (สีส้ม) เด้งขึ้นหลักถัดไป หรือเลข "ยืม" (ขีดทับเลขเดิม) จากหลักซ้าย',
   ShapeExplorer: 'รูปเรขาคณิต (config.shape) แตะนับด้าน (config.count=sides) หรือมุม (angles) ทีละอัน ไฮไลต์ + ตัวนับ',
   MultiplyArray: 'ตาราง array จุด config.b แถว แถวละ config.a + สมการ a×b + การบวกซ้ำ (build=ปรับเองได้)',
+  MultiplyColumn: 'การตั้งคูณ config.a × config.b (ตัวคูณ 1 หลัก) เผยผลทีละหลักจากขวา ตัวทด (สีม่วง) ลอยขึ้นหลักถัดไป เหมือน AddSubCarry แต่สำหรับคูณ',
   DivideShare: 'ลูกอม config.total เม็ด + จาน config.plates ใบ แจกทีละรอบเท่าๆ กัน เม็ดที่เหลือแจกไม่ครบรอบ = เศษ',
   AreaTiles: 'ห้องตาราง config.width×config.height ปูกระเบื้องทีละแถว แสดงพื้นที่ = กว้าง×ยาว',
   OrderMachine: 'นิพจน์ config.expression (เลข+เครื่องหมาย) — mode solve=แตะ op ที่ทำก่อน, left=เฉลยทำซ้ายไปขวา(มักผิด), correct=คูณหารก่อน(ถูก)',
