@@ -34,6 +34,11 @@ const scale: ChapterV2 = {
         component: 'TextVis',
         config: { sentence: 'มาตราส่วน 1:1000 → 1 ซม.ในแผนที่ = 1000 ซม.ของจริง', words: [{ text: '1:1000', color: '#A855F7', bold: true }] },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มาตราส่วน 1:100 หมายถึงอะไร?', opts: ['1 ซม.ในแผนที่ = 100 ซม.จริง', '100 ซม.ในแผนที่ = 1 ซม.จริง', 'ย่อ 100 เท่า (ผิดทิศ)', 'รัศมี 100'], ans: 0, hint: '1 ส่วน = 100 ส่วนจริงเสมอ' },
+      },
     },
     {
       id: 'scale-quiz',
@@ -50,6 +55,11 @@ const scale: ChapterV2 = {
         component: 'TextVis',
         config: { sentence: '1 ซม. (แผนที่) × 1000 = 1000 ซม. = 10 เมตร (จริง)', words: [{ text: '1:1000', color: '#A855F7', bold: true }, { text: '10 เมตร', color: '#22C55E', bold: true }] },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มาตราส่วน 1:1000 วัดได้ 2 ซม. ระยะจริงกี่เมตร?', opts: ['20 ม.', '10 ม.', '200 ม.', '2 ม.'], ans: 0, hint: '2×1000=2,000 ซม. = 20 ม.' },
+      },
     },
     {
       id: 'calc-real-distance',
@@ -57,6 +67,11 @@ const scale: ChapterV2 = {
       visual: {
         component: 'TextVis',
         config: { sentence: '3 ซม. × 5000 = 15,000 ซม. = 150 เมตร', words: [{ text: '3 ซม.', color: '#4F80FF', bold: true }, { text: '150 เมตร', color: '#22C55E', bold: true }] },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มาตราส่วน 1:5000 วัดได้ 3 ซม. ระยะจริงกี่เมตร?', opts: ['150 ม.', '15 ม.', '1,500 ม.', '5,000 ม.'], ans: 0, hint: '3×5000=15,000 ซม. = 150 ม.' },
       },
     },
     {

@@ -40,16 +40,31 @@ const circleArea: ChapterV2 = {
       id: 'area-formula',
       say: 'พื้นที่วงกลม A = π × r² ≈ 3.14 × r × r',
       visual: { component: 'CircleRadius', config: { initialR: 4 } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สูตรพื้นที่วงกลมคือ?', opts: ['π × r² (3.14 × r × r)', '2 × π × r', 'π × d', 'r + r'], ans: 0, hint: 'พื้นที่ใช้ r² ส่วนเส้นรอบวงใช้ 2r' },
+      },
     },
     {
       id: 'area-calculate',
       say: 'r=7 ซม. A=3.14×7²=3.14×49≈153.86 ซม.² — กดปุ่มดูรัศมี',
       visual: { component: 'CircleRadius', config: { initialR: 7, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'วงกลมรัศมี 7 ซม. พื้นที่ ≈ ?', opts: ['153.86 ซม.²', '43.96 ซม.²', '49 ซม.²', '21.98 ซม.²'], ans: 0, hint: '3.14 × 7 × 7 = 3.14 × 49 = 153.86' },
+      },
     },
     {
       id: 'circumference-vs-area',
       say: 'ต่างกัน: เส้นรอบวง C=2πr คือความยาวขอบ · พื้นที่ A=πr² คือพื้นที่ข้างใน หน่วยต่างกัน (ซม. vs ซม.²)',
       visual: { component: 'CircleRadius', config: { initialR: 5, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'C=2πr กับ A=πr² ต่างกันอย่างไร?', opts: ['C=ความยาวขอบ (ซม.) · A=พื้นที่ข้างใน (ซม.²)', 'C=พื้นที่ · A=ขอบ', 'เหมือนกัน', 'C ใช้ r² · A ใช้ r'], ans: 0, hint: 'C วัดขอบ (1 มิติ) A วัดพื้นที่ (2 มิติ)' },
+      },
     },
     {
       id: 'circle-area-quiz',
