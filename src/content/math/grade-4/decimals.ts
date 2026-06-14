@@ -22,6 +22,11 @@ const decimals: ChapterV2 = {
       id: 'ten-pieces',
       say: 'แบ่งแท่ง 1 อันเป็น 10 ช่องเท่ากัน — แต่ละช่องคือ "หนึ่งส่วนสิบ" เขียนเป็น 0.1',
       visual: { component: 'FractionBars', config: { readOnly: true, showLabels: true, rows: [{ parts: 10, filled: 1, fixed: true, color: '#F59E0B' }] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '1 ช่องจาก 10 ช่อง เขียนเป็นทศนิยมว่า?', opts: ['0.1', '1.0', '0.01', '0.10'], ans: 0, hint: '1/10 = 0.1 — หลังจุดตัวแรก' },
+      },
     },
     {
       id: 'make-03',
@@ -34,6 +39,11 @@ const decimals: ChapterV2 = {
       id: 'half',
       say: 'ระบาย 5 ช่อง = 0.5 = 5/10 = ครึ่งหนึ่งพอดี! ทศนิยมกับเศษส่วนคือเรื่องเดียวกัน',
       visual: { component: 'FractionBars', config: { readOnly: true, showLabels: true, rows: [{ parts: 10, filled: 5, fixed: true, color: '#F59E0B' }] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '5 ช่องจาก 10 ช่อง เขียนเป็นทศนิยมว่า?', opts: ['0.5', '5.0', '0.05', '50.0'], ans: 0, hint: '5/10 = 0.5 = ครึ่งหนึ่ง' },
+      },
     },
     {
       id: 'make-07',
@@ -46,6 +56,11 @@ const decimals: ChapterV2 = {
       id: 'compare',
       say: 'เทียบทศนิยม: ดูว่าแท่งไหนระบายยาวกว่า 0.7 ระบายมากกว่า 0.5 → 0.7 มากกว่า',
       visual: { component: 'FractionBars', config: { readOnly: true, showLabels: true, rows: [{ parts: 10, filled: 7, fixed: true, color: '#F59E0B' }, { parts: 10, filled: 5, fixed: true, color: '#94A3B8' }] } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '0.7 กับ 0.5 อันไหนมากกว่า?', opts: ['0.7', '0.5', 'เท่ากัน'], ans: 0, hint: 'แท่งไหนระบายยาวกว่า อันนั้นมากกว่า' },
+      },
     },
     {
       id: 'check',

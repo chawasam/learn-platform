@@ -22,6 +22,11 @@ const time: ChapterV2 = {
       id: 'three',
       say: 'เข็มสั้นชี้เลข 3 เข็มยาวชี้ 12 = "3 โมงตรง" เขียนเป็น 03:00',
       visual: { component: 'ClockDrag', config: { initialHour: 3, initialMinute: 0, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เข็มสั้นชี้ 3 เข็มยาวชี้ 12 หมายถึงเวลาใด?', opts: ['3 โมงตรง (03:00)', '12 โมงตรง', '3:15', '3:30'], ans: 0, hint: 'เข็มยาวชี้ 12 = ตรงพอดี' },
+      },
     },
     {
       id: 'try-spin',
@@ -34,11 +39,21 @@ const time: ChapterV2 = {
       id: 'half',
       say: 'เข็มยาวเดินครึ่งรอบ (ไปที่เลข 6) = ผ่านไป 30 นาที เพราะ 1 ชั่วโมงมี 60 นาที ครึ่งหนึ่งคือ 30',
       visual: { component: 'ClockDrag', config: { initialHour: 3, initialMinute: 30, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เข็มยาวชี้เลข 6 = ผ่านไปกี่นาที?', opts: ['30 นาที', '6 นาที', '60 นาที', '15 นาที'], ans: 0, hint: 'เลข 6 อยู่ครึ่งหน้าปัด = 30 นาที' },
+      },
     },
     {
       id: 'quarter',
       say: 'เข็มยาวชี้เลข 3 = ผ่านไป 15 นาที (เพราะแต่ละเลขห่างกัน 5 นาที 3×5=15) → 03:15',
       visual: { component: 'ClockDrag', config: { initialHour: 3, initialMinute: 15, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เข็มยาวชี้เลข 3 = ผ่านไปกี่นาที?', opts: ['15 นาที', '3 นาที', '30 นาที', '45 นาที'], ans: 0, hint: 'แต่ละเลขห่าง 5 นาที 3×5=15' },
+      },
     },
     {
       id: 'check',

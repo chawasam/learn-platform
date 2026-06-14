@@ -41,16 +41,31 @@ const parallelAngles: ChapterV2 = {
       id: 'angle-types-review',
       say: 'มุมแย้ง (Alternate) อยู่คนละฝั่งเส้นตัด ตัว Z ขนาดเท่ากัน เพราะเส้นสองเส้นขนานกันสนิท',
       visual: { component: 'TransversalAngles', config: { initialAngle: 60, mode: 'alt', readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มุมแย้งเป็นรูปตัวอะไร และขนาดเป็นยังไง?', opts: ['ตัว Z — เท่ากัน', 'ตัว C — รวม 180°', 'ตัว S — รวม 90°', 'ตัว X — บวกกัน'], ans: 0, hint: 'มุมแย้งอยู่คนละฝั่ง ตัว Z ขนาดเท่ากัน' },
+      },
     },
     {
       id: 'alternate-angles',
       say: 'ลองกด "มุมแย้ง" ดู มุมสีเดียวกัน = ขนาดเท่ากัน เพราะเส้นขนาน',
       visual: { component: 'TransversalAngles', config: { initialAngle: 55, mode: 'alt', readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มุมแย้งหนึ่งเป็น 55° อีกมุมแย้งเป็นกี่องศา?', opts: ['55°', '125°', '90°', '35°'], ans: 0, hint: 'มุมแย้งเท่ากันเสมอ' },
+      },
     },
     {
       id: 'co-interior-detail',
       say: 'มุมภายในข้างเดียวกัน (Co-interior) ตัว C รวมกัน = 180° เสมอ ไม่ว่ามุมจะเป็นเท่าไร',
       visual: { component: 'TransversalAngles', config: { initialAngle: 80, mode: 'co', readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'มุม C ฝั่งเดียวกัน มุมหนึ่ง 80° อีกมุมเท่าไร?', opts: ['100°', '80°', '180°', '260°'], ans: 0, hint: '180 − 80 = 100' },
+      },
     },
     {
       id: 'angles-quiz',
