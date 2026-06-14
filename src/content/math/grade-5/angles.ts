@@ -42,7 +42,6 @@ const angles: ChapterV2 = {
     {
       id: 'angles-360',
       say: 'มุมรอบจุดรวมกันได้ 360° เสมอ เหมือนหมุนครบรอบนาฬิกา ไม่ว่าจะแบ่งกี่ชิ้นก็รวมได้ 360°',
-      visual: { component: 'AngleDrag', config: { initialAngle: 360, readOnly: true } },
     },
     {
       id: 'angles-180',
