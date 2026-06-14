@@ -114,7 +114,7 @@ const fractionCalc: ChapterV2 = {
       revealAfterGoal: true,
       goal: {
         type: 'answer',
-        question: { type: 'mc', q: '2/3 × 1/2 = ?', opts: ['2/6', '3/5', '2/5', '1/3'], ans: 0, hint: 'บน 2×1=2 ล่าง 3×2=6' },
+        question: { type: 'mc', q: '2/3 × 1/2 = ?', opts: ['2/6', '3/5', '2/5', '3/6'], ans: 0, hint: 'บน 2×1=2 ล่าง 3×2=6 → 2/6 (อย่าบวก: (2+1)/(3×2)=3/6 ผิด)' },
       },
     },
     {

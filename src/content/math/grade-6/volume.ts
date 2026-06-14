@@ -24,7 +24,7 @@ const volume: ChapterV2 = {
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
       goal: {
         type: 'answer',
-        question: { type: 'mc', q: 'กล่อง 3 × 4 × 5 ปริมาตร?', opts: ['60', '12', '47', '20'], ans: 0, hint: '3 × 4 × 5' },
+        question: { type: 'mc', q: 'กล่อง 3 × 4 × 5 ปริมาตร?', opts: ['60', '12', '35', '20'], ans: 0, hint: '3×4×5 ไม่ใช่ (3+4)×5=35 หรือ 3×4=12' },
       },
     },
     {
@@ -72,7 +72,7 @@ const volume: ChapterV2 = {
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
       goal: {
         type: 'answer',
-        question: { type: 'mc', q: 'กล่อง กว้าง 3 ยาว 5 สูง 4 ซม. ปริมาตร = ?', opts: ['60 ลบ.ซม.', '24 ลบ.ซม.', '47 ลบ.ซม.', '120 ลบ.ซม.'], ans: 0, hint: '3×5×4=60 ลบ.ซม.' },
+        question: { type: 'mc', q: 'กล่อง กว้าง 3 ยาว 5 สูง 4 ซม. ปริมาตร = ?', opts: ['60 ลบ.ซม.', '24 ลบ.ซม.', '32 ลบ.ซม.', '120 ลบ.ซม.'], ans: 0, hint: '3×5×4=60 ลบ.ซม. ไม่ใช่ (3+5)×4=32' },
       },
     },
     {
@@ -86,7 +86,7 @@ const volume: ChapterV2 = {
     { type: 'mc', q: 'ลูกบาศก์ด้าน 4 ปริมาตรเท่าไร?', opts: ['12', '16', '64', '48'], ans: 2, hint: '4 × 4 × 4' },
     { type: 'fill', q: 'กล่อง 10×10×10 ปริมาตร = ___ ลบ.หน่วย', ans: '1000', hint: '10 × 10 × 10' },
     { type: 'fill', q: 'กล่อง 2×3×4 ปริมาตร = ___', ans: '24', hint: '2 × 3 × 4' },
-    { type: 'mc', q: 'ลูกบาศก์ด้าน 5 ปริมาตร?', opts: ['125', '25', '15', '75'], ans: 0, hint: '5 × 5 × 5' },
+    { type: 'mc', q: 'ลูกบาศก์ด้าน 5 ปริมาตร?', opts: ['125', '25', '15', '50'], ans: 0, hint: '5×5×5=125 ไม่ใช่ 5×5=25 (สองมิติ) หรือ 5+5+5=15' },
     { type: 'fill', q: 'กล่อง 6×2×2 ปริมาตร = ___', ans: '24', hint: '6 × 2 × 2' },
     { type: 'fill', q: 'ลูกบาศก์ด้าน 2 ปริมาตร = ___', ans: '8', hint: '2 × 2 × 2' },
     { type: 'slider', q: 'กล่อง 4 × 3 × 2 ปริมาตร?', min: 0, max: 40, step: 1, ans: 24, unit: '', hint: '4×3×2' },
