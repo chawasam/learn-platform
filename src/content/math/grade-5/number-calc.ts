@@ -20,11 +20,21 @@ const numberCalc: ChapterV2 = {
       id: 'wrong',
       say: 'ทำซ้ายไปขวา: 120 + 30 = 150 แล้ว 150 × 2 = 300 — ผิด!',
       visual: { component: 'OrderMachine', config: { expression: [120, '+', 30, '×', 2], mode: 'left' } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '120 + 30 × 2 ถ้าทำซ้ายไปขวา (ผิดกฎ) จะได้เท่าไร?', opts: ['300', '180', '60', '150'], ans: 0, hint: '(120+30)=150 แล้ว 150×2=300 (ผิด!)' },
+      },
     },
     {
       id: 'right',
       say: 'คูณก่อน: 30 × 2 = 60 แล้ว 120 + 60 = 180 ถูกต้อง',
       visual: { component: 'OrderMachine', config: { expression: [120, '+', 30, '×', 2], mode: 'correct' } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '120 + 30 × 2 ตามกฎที่ถูก (×ก่อน) ได้เท่าไร?', opts: ['180', '300', '60', '150'], ans: 0, hint: 'คูณก่อน 30×2=60 แล้ว 120+60=180' },
+      },
     },
     {
       id: 'solve',
@@ -45,6 +55,11 @@ const numberCalc: ChapterV2 = {
       id: 'nested-brackets',
       say: 'วงเล็บซ้อน: คำนวณวงเล็บในสุดก่อน (3+2)×(4−1) = 5×3 = 15',
       visual: { component: 'OrderMachine', config: { expression: [3, '+', 2, '×', 4, '-', 1], mode: 'correct' } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '(3+2) × (4−1) = ?', opts: ['15', '9', '12', '20'], ans: 0, hint: 'วงเล็บซ้าย 3+2=5 วงเล็บขวา 4−1=3 แล้ว 5×3=15' },
+      },
     },
     {
       id: 'order-complex',

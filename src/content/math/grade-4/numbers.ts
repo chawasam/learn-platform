@@ -28,6 +28,11 @@ const numbers: ChapterV2 = {
         component: 'ThaiNumberBuilder',
         config: { initialValue: 0, readOnly: true },
       },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เลข 7 ใน 70,000 อยู่ที่หลักอะไร?', opts: ['หมื่น', 'พัน', 'แสน', 'ล้าน'], ans: 0, hint: 'นับจากขวา: หน่วย-สิบ-ร้อย-พัน-หมื่น → เลข 7 อยู่ที่หลักหมื่น' },
+      },
     },
     {
       id: 'make-100000',
@@ -81,6 +86,11 @@ const numbers: ChapterV2 = {
       visual: {
         component: 'ThaiNumberBuilder',
         config: { initialValue: 21, readOnly: true },
+      },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'เลข 21 อ่านว่าอะไร?', opts: ['ยี่สิบเอ็ด', 'สองสิบหนึ่ง', 'ยี่สิบหนึ่ง', 'สองเอ็ด'], ans: 0, hint: 'สิบ 2 = ยี่สิบ, หน่วย 1 ตามหลังอื่น = เอ็ด' },
       },
     },
     {
