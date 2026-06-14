@@ -40,16 +40,31 @@ const percent: ChapterV2 = {
       id: 'percent-of-total',
       say: 'คิดเปอร์เซ็นต์จากยอดรวม: 30 คนจาก 50 คน = 30÷50×100 = 60%',
       visual: { component: 'PercentBar', config: { initialPercent: 60, total: 50, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '30 คนจาก 50 คน คิดเป็นกี่เปอร์เซ็นต์?', opts: ['60%', '30%', '50%', '80%'], ans: 0, hint: '30÷50×100 = 60%' },
+      },
     },
     {
       id: 'increase-percent',
       say: 'เพิ่ม 20%: ราคาเดิม 500 บาท เพิ่ม 20% = 500×20÷100=100 บาท ราคาใหม่ = 600 บาท',
       visual: { component: 'PercentBar', config: { initialPercent: 20, total: 500, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ราคาเดิม 200 บาท เพิ่ม 10% ราคาใหม่เท่าไร?', opts: ['220 บาท', '210 บาท', '180 บาท', '200 บาท'], ans: 0, hint: 'เพิ่ม 200×10÷100=20 ราคาใหม่ 200+20=220' },
+      },
     },
     {
       id: 'decrease-percent',
       say: 'ลด 15%: ราคาเดิม 200 บาท ลด 15% = 200×15÷100=30 บาท ราคาใหม่ = 170 บาท',
       visual: { component: 'PercentBar', config: { initialPercent: 15, total: 200, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'ราคาเดิม 300 บาท ลด 10% ราคาใหม่เท่าไร?', opts: ['270 บาท', '290 บาท', '310 บาท', '30 บาท'], ans: 0, hint: 'ลด 300×10÷100=30 ราคาใหม่ 300−30=270' },
+      },
     },
     {
       id: 'percent-quiz',

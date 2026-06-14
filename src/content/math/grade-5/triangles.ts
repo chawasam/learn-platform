@@ -22,6 +22,11 @@ const triangles: ChapterV2 = {
       id: 'sum180',
       say: 'เห็นไหม! 50 + 60 + 70 = 180° พอดี ต่อกันเป็นเส้นตรง (มุมตรง = 180°)',
       visual: { component: 'TriangleAngles', config: { a: 50, b: 60, c: 70, combined: true, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: '3 มุมในสามเหลี่ยมรวมกันได้เท่าไรเสมอ?', opts: ['180°', '90°', '270°', '360°'], ans: 0, hint: 'กฎตายตัว: ทุกสามเหลี่ยม 3 มุมรวม = 180°' },
+      },
     },
     {
       id: 'find-angle',
@@ -43,11 +48,21 @@ const triangles: ChapterV2 = {
       id: 'triangle-by-sides',
       say: 'แบ่งตามด้าน: สามเหลี่ยมด้านเท่า (3 ด้านเท่า), หน้าจั่ว (2 ด้านเท่า), ด้านไม่เท่า (3 ด้านไม่เท่ากัน)',
       visual: { component: 'TriangleAngles', config: { a: 60, b: 60, c: 60, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สามเหลี่ยมหน้าจั่วมีด้านยาวเท่ากันกี่ด้าน?', opts: ['2 ด้าน', '3 ด้าน', '1 ด้าน', '0 ด้าน'], ans: 0, hint: 'หน้าจั่ว = 2 ด้านเท่า, ด้านเท่า = 3 ด้านเท่า' },
+      },
     },
     {
       id: 'triangle-area',
       say: 'พื้นที่สามเหลี่ยม = ½ × ฐาน × สูง — ตัดสามเหลี่ยมออกจากสี่เหลี่ยมผืนผ้าได้ครึ่งหนึ่งพอดี',
       visual: { component: 'TriangleAngles', config: { a: 50, b: 60, c: 70, readOnly: true } },
+      revealAfterGoal: true,
+      goal: {
+        type: 'answer',
+        question: { type: 'mc', q: 'สูตรพื้นที่สามเหลี่ยมคือ?', opts: ['½ × ฐาน × สูง', 'ฐาน × สูง', '2 × ฐาน × สูง', 'ฐาน + สูง'], ans: 0, hint: 'ครึ่งหนึ่งของพื้นที่สี่เหลี่ยมที่ครอบ' },
+      },
     },
     {
       id: 'triangle-area-calc',
