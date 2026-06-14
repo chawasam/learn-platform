@@ -54,7 +54,7 @@ const money: ChapterV2 = {
     },
     {
       id: 'check',
-      say: 'ลองคิดเองดู',
+      say: 'เงินทอน = จ่าย − ราคา — ลองคิด: ของ 65 บาท จ่าย 100 ทอนเท่าไร?',
       visual: { component: 'MoneyDrag', config: { readOnly: true, initialCounts: { 100: 1 }, availableDenominations: [1000, 500, 100, 50, 20, 10, 5, 1] } },
       goal: {
         type: 'answer',

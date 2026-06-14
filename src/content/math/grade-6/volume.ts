@@ -68,7 +68,7 @@ const volume: ChapterV2 = {
     },
     {
       id: 'volume-quiz',
-      say: 'ทดสอบปริมาตรก่อนไปต่อ',
+      say: 'กล่อง กว้าง 3 ยาว 5 สูง 4 — คูณทั้ง 3 ด้านเลย 3×5×4 ไม่ใช่บวกก่อนแล้วคูณ (3+5)×4=32',
       visual: { component: 'CubeBuilder', config: { gridSize: 4, readOnly: true } },
       goal: {
         type: 'answer',

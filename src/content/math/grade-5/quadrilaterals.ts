@@ -70,7 +70,7 @@ const quadrilaterals: ChapterV2 = {
     },
     {
       id: 'quad-quiz',
-      say: 'ทดสอบความเข้าใจ!',
+      say: 'จัตุรัส = ด้านเท่ากันทุกด้าน + มุมฉากทุกมุม สองอย่างนี้ขาดอย่างหนึ่งไม่ได้',
       visual: { component: 'QuadMorph', config: { shape: 'square', readOnly: true } },
       goal: {
         type: 'answer',
