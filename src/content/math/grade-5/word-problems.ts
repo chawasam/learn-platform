@@ -91,18 +91,19 @@ const wordProblems: ChapterV2 = {
       },
     },
     {
-      id: 'write-equation',
-      say: 'เขียนสมการก่อนคำนวณ: ให้ x = จำนวนที่หา แล้วสร้างสมการ แก้ x',
+      id: 'write-sentence',
+      say: 'เขียน "ประโยคสัญลักษณ์" ก่อนคำนวณ: ออม ___ บาท/วัน × 4 วัน = 200 บาท → ___ = 200 ÷ 4',
       visual: {
         component: 'TextVis',
         config: {
-          sentence: 'ให้ x = คำตอบ → เขียนสมการ → แก้ x → ตรวจคำตอบ',
-          words: [{ text: 'ให้ x', color: '#A855F7', bold: true }, { text: 'เขียนสมการ', color: '#FF7A2F', bold: true }, { text: 'ตรวจคำตอบ', color: '#22C55E', bold: true }],
+          sentence: 'ออม ___ บาท/วัน × 4 วัน = 200 บาท → ___ = 200 ÷ 4 = ?',
+          words: [{ text: '___', color: '#A855F7', bold: true }, { text: '200 ÷ 4', color: '#FF7A2F', bold: true }],
         },
       },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
-        question: { type: 'mc', q: 'ออม x บาทต่อวัน 4 วัน รวม 200 บาท สมการคือ?', opts: ['4x = 200', 'x + 4 = 200', 'x ÷ 4 = 200', '4 + x = 200'], ans: 0, hint: 'วันละ x × 4 วัน = รวม 200 → 4x = 200' },
+        question: { type: 'mc', q: 'ออม ___ บาทต่อวัน 4 วัน รวม 200 บาท — ออมวันละกี่บาท?', opts: ['50', '800', '204', '196'], ans: 0, hint: 'หาจาก 200 ÷ 4 ไม่ใช่ 200×4=800 หรือ 200+4=204' },
       },
     },
     {
