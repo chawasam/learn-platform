@@ -21,11 +21,12 @@ const scale: ChapterV2 = {
     },
     {
       id: 'direction-quiz',
-      say: 'ทิศตรงข้ามกันเป็นคู่ เหนือ↔ใต้ ออก↔ตก ลองตอบดู',
+      say: 'ถูกต้อง! ทิศตรงข้ามกันเป็นคู่เสมอ เหนือ↔ใต้ ออก↔ตก ทิศตะวันออกจึงตรงข้ามกับตะวันตก',
       visual: {
         component: 'TextVis',
         config: { sentence: 'เหนือ ↔ ใต้ · ออก (ตะวันออก) ↔ ตก (ตะวันตก)', words: [{ text: 'เหนือ↔ใต้', color: '#EF4444', bold: true }, { text: 'ออก↔ตก', color: '#22C55E', bold: true }] },
       },
+      revealAfterGoal: true,
       goal: {
         type: 'answer',
         question: { type: 'mc', q: 'ทิศตรงข้ามกับทิศตะวันออกคือ?', opts: ['เหนือ', 'ใต้', 'ตะวันตก', 'ใต้เฉียงเหนือ'], ans: 2, hint: 'ออก ↔ ตก' },
